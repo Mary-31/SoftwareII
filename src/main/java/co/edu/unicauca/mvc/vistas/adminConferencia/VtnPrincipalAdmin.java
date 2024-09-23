@@ -4,6 +4,7 @@ package co.edu.unicauca.mvc.vistas.adminConferencia;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoEvaluadores;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
+import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoOrganizadores;
 import co.edu.unicauca.mvc.vistas.articulos.VtnListarArticulos;
 import co.unicauca.mvc.vistas.evaluador.VtnListarEvaluador;
 import java.awt.Image;
@@ -15,9 +16,13 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     private VtnVerEstadisticas objVtnVerEstadisticas;
     private VtnListarArticulos objVtnListarArticulos;
     private VtnListarConferencias objVtnListarConferencias;
-     private VtnListarEvaluador objVtnListarEvaluador;
+    private VtnVerArticulosEnviadosConferencias objVtnVerPrestamos;
+    private VtnListarOrganizadores objVtnRegistrarOrganizadores;
+    private VtnListarArticulos objVtnRegistrarArticulos;
+    private VtnListarEvaluador objVtnListarEvaluador;
     private ServicioAlmacenamientoConferencias objServicio1;   
     private ServicioAlmacenamientoArticulos  objServicio2;
+    private ServicioAlmacenamientoOrganizadores objServicio3;
     private ServicioAlmacenamientoEvaluadores  objServicio4;
         
     public VtnPrincipalAdmin() {
@@ -27,12 +32,14 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     }
     
     public void asociarServios(
-            ServicioAlmacenamientoConferencias objServicio1,
-            ServicioAlmacenamientoArticulos objServicio2, 
-            ServicioAlmacenamientoEvaluadores objServicio4)
+        ServicioAlmacenamientoConferencias objServicio1,
+        ServicioAlmacenamientoArticulos objServicio2, 
+        ServicioAlmacenamientoOrganizadores objServicio3,
+        ServicioAlmacenamientoEvaluadores objServicio4)
     {
         this.objServicio1=objServicio1;
         this.objServicio2=objServicio2;
+        this.objServicio3=objServicio3;
         this.objServicio4=objServicio4;
         relacionarInternalFrameConJdesptokPane();
     }
@@ -50,6 +57,12 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
         
         this.objVtnListarEvaluador= new VtnListarEvaluador(this.objServicio2, this.objServicio4);
         this.jDesktopPanelPrincipal.add(this.objVtnListarEvaluador);
+        
+        this.objVtnRegistrarOrganizadores  = new VtnListarOrganizadores(this.objServicio3);
+        this.jDesktopPanelPrincipal.add(this.objVtnRegistrarOrganizadores);
+        
+        this.objVtnVerPrestamos= new VtnVerArticulosEnviadosConferencias();
+        this.jDesktopPanelPrincipal.add(this.objVtnVerPrestamos);
     }
 
     private void establecerIconoOrganización()
@@ -113,6 +126,11 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
         });
 
         jButtonGestionarO.setText("Gestionar Organizadores");
+        jButtonGestionarO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGestionarOActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelMenuLayout = new javax.swing.GroupLayout(jPanelMenu);
         jPanelMenu.setLayout(jPanelMenuLayout);
@@ -220,32 +238,49 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonVerArticulosEnviadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerArticulosEnviadosActionPerformed
+        this.objVtnVerPrestamos.setVisible(true);
         this.objVtnListarArticulos.setVisible(true);
         this.objVtnVerEstadisticas.setVisible(false);
         this.objVtnListarConferencias.setVisible(false);
+        this.objVtnRegistrarOrganizadores.setVisible(false);
         this.objVtnListarEvaluador.setVisible(false);
     }//GEN-LAST:event_jButtonVerArticulosEnviadosActionPerformed
 
     private void jButtonVerEstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerEstadisticasActionPerformed
         this.objVtnVerEstadisticas.setVisible(true);
+        this.objVtnVerPrestamos.setVisible(false);
         this.objVtnListarArticulos.setVisible(false);
         this.objVtnListarConferencias.setVisible(false);
+        this.objVtnRegistrarOrganizadores.setVisible(false);
         this.objVtnListarEvaluador.setVisible(false);
     }//GEN-LAST:event_jButtonVerEstadisticasActionPerformed
 
     private void jButtonGestionarConferenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionarConferenciasActionPerformed
         this.objVtnListarConferencias.setVisible(true);
+        this.objVtnVerPrestamos.setVisible(false);
         this.objVtnVerEstadisticas.setVisible(false);
         this.objVtnListarArticulos.setVisible(false);
+        this.objVtnRegistrarOrganizadores.setVisible(false);
         this.objVtnListarEvaluador.setVisible(false);
     }//GEN-LAST:event_jButtonGestionarConferenciasActionPerformed
 
     private void jButtonGestionarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionarEActionPerformed
         this.objVtnListarEvaluador.setVisible(true);
+        this.objVtnVerPrestamos.setVisible(false);
         this.objVtnListarConferencias.setVisible(false);
         this.objVtnVerEstadisticas.setVisible(false);
+        this.objVtnRegistrarOrganizadores.setVisible(false);
         this.objVtnListarArticulos.setVisible(false);
     }//GEN-LAST:event_jButtonGestionarEActionPerformed
+
+    private void jButtonGestionarOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionarOActionPerformed
+        this.objVtnListarConferencias.setVisible(false);
+        this.objVtnVerPrestamos.setVisible(false);
+        this.objVtnVerEstadisticas.setVisible(false);
+        this.objVtnVerPrestamos.setVisible(false);
+        this.objVtnVerEstadisticas.setVisible(false);
+        this.objVtnRegistrarOrganizadores.setVisible(true);
+    }//GEN-LAST:event_jButtonGestionarOActionPerformed
 
     
 
