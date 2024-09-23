@@ -1,13 +1,12 @@
 package co.edu.unicauca.mvc.controladores;
 import co.edu.unicauca.mvc.accesoADatos.InterfaceRepositorioOrganizador;
-import co.edu.unicauca.mvc.infraestructura.Subject;
 import java.util.List;
 import co.edu.unicauca.mvc.modelos.Organizador;
 /**
  *
  * @author Usuario
  */
-public class ServicioAlmacenamientoOrganizadores extends Subject{
+public class ServicioAlmacenamientoOrganizadores {
     
     private InterfaceRepositorioOrganizador referenciaRepositorioOrganizadores;
     
@@ -18,7 +17,6 @@ public class ServicioAlmacenamientoOrganizadores extends Subject{
     
     public boolean almacenarOrganizador(Organizador objOrganizador) {
         boolean bandera=this.referenciaRepositorioOrganizadores.almacenarOrganizador(objOrganizador);
-        this.notifyAllObserves();
         return bandera;
     }
 

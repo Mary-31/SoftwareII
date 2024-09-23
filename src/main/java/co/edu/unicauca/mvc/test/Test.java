@@ -9,8 +9,6 @@ import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoEvaluadores;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoOrganizadores;
 import co.edu.unicauca.mvc.vistas.adminConferencia.VtnPrincipalAdmin;
-import co.edu.unicauca.mvc.vistas.asistente.VtnPrincipalAsistente;
-import co.edu.unicauca.mvc.vistas.autorPublicacion.VtnPrincipalAutor;
 import javax.swing.UIManager;
 
 
@@ -41,21 +39,11 @@ public class Test {
                 = new   ServicioAlmacenamientoEvaluadores(objRepositorio4); 
         
         
-        VtnPrincipalAsistente objVtnAsistente=new VtnPrincipalAsistente();
-        VtnPrincipalAutor objVtnAutor= new VtnPrincipalAutor();
-        
-        objServicio1.addObserver(objVtnAsistente);
-        objServicio1.addObserver(objVtnAutor);
-        
-        objServicio3.addObserver(objVtnAsistente);
-        objServicio3.addObserver(objVtnAutor);
-        
         VtnPrincipalAdmin objVtnPrincipal= new VtnPrincipalAdmin();    
         objVtnPrincipal.asociarServios(objServicio1,objServicio2, objServicio3, objServicio4); 
         
         objVtnPrincipal.setVisible(true);
-        objVtnAsistente.setVisible(true);
-        objVtnAutor.setVisible(true);
+
     }
     
     private static void seleccionarLookAndField()
