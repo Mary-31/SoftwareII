@@ -39,11 +39,10 @@ public class Test {
                 = new   ServicioAlmacenamientoEvaluadores(objRepositorio4); 
         
         
-        //VtnPrincipalAdmin objVtnPrincipal= new VtnPrincipalAdmin();    
-        //objVtnPrincipal.asociarServios(objServicio1,objServicio2, objServicio3, objServicio4); 
+        VtnPrincipalAdmin objVtnPrincipal= new VtnPrincipalAdmin();    
+        objVtnPrincipal.asociarServios(objServicio1,objServicio2, objServicio3, objServicio4); 
         
-        //objVtnPrincipal.setVisible(true);
-
+        objVtnPrincipal.setVisible(true);
     }
     
     private static void seleccionarLookAndField()
