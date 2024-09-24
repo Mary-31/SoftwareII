@@ -35,7 +35,6 @@ co\edu\unicauca\mvc\vistas\adminConferencia\VtnListarConferencias.class
 co\edu\unicauca\mvc\controladores\ServicioAlmacenamientoOrganizadores.class
 co\edu\unicauca\mvc\vistas\articulos\VtnActualizarArticulo$1.class
 utilidades\CargarImagenes.class
-co\edu\unicauca\mvc\test\Test.class
 co\edu\unicauca\mvc\vistas\articulos\VtnListarArticulos$3.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnListarConferencias$1.class
 co\edu\unicauca\mvc\controladores\ServicioAlmacenamientoArticulos.class

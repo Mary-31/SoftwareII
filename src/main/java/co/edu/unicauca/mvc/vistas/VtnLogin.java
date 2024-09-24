@@ -23,11 +23,14 @@ public class VtnLogin extends javax.swing.JFrame {
     /**
      * Creates new form login
      */
+    private VtnPrincipalAdmin objVtnPrincipal;
+            
     public VtnLogin() {
         initComponents();
+        inicializarResSer();
     }
     
-    public void inicializarResSer(String rol){
+    public void inicializarResSer(){
         RepositorioConferenciaMemoriaLinkedist objRepositorio1=
                 new RepositorioConferenciaMemoriaLinkedist();
         ServicioAlmacenamientoConferencias objServicio1
@@ -49,10 +52,8 @@ public class VtnLogin extends javax.swing.JFrame {
                 = new   ServicioAlmacenamientoEvaluadores(objRepositorio4); 
         
         
-        VtnPrincipalAdmin objVtnPrincipal= new VtnPrincipalAdmin(rol);    
-        objVtnPrincipal.asociarServios(objServicio1, objServicio2, objServicio3, objServicio4); 
-        
-        objVtnPrincipal.setVisible(true);
+        this.objVtnPrincipal= new VtnPrincipalAdmin();    
+        objVtnPrincipal.asociarServios(objServicio1, objServicio2, objServicio3, objServicio4);
     }
 
     /**
@@ -68,7 +69,10 @@ public class VtnLogin extends javax.swing.JFrame {
         lblResultado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setLocation(new java.awt.Point(0, 0));
 
+        cmbRol.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cmbRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione Rol", "Organizador", "Autor", "Evaluador" }));
         cmbRol.setToolTipText("");
         cmbRol.addActionListener(new java.awt.event.ActionListener() {
@@ -82,33 +86,33 @@ public class VtnLogin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(58, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(cmbRol, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(101, 101, 101))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(cmbRol, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(44, 44, 44)
                 .addComponent(cmbRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(28, 28, 28)
                 .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRolActionPerformed
         String opcion = (String) cmbRol.getSelectedItem();
-        if(!opcion.equals("Seleccionar Rol")){
-            inicializarResSer(opcion);
-            dispose();
+        if(!opcion.equals("Seleccione Rol")){
+            objVtnPrincipal.gestionRol(opcion);
+            objVtnPrincipal.setVisible(true);
         }else{
             lblResultado.setText("Seleccione un rol válido");
         }
