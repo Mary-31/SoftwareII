@@ -26,7 +26,7 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     private ServicioAlmacenamientoOrganizadores objServicio3;
     private ServicioAlmacenamientoEvaluadores  objServicio4;
         
-    public VtnPrincipalAdmin(String rol) {
+    public VtnPrincipalAdmin(String rol, Object par1) {
         initComponents();
         gestionRol(rol);
         establecerIconoOrganización();

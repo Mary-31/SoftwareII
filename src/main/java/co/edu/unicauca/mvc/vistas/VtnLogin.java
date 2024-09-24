@@ -49,7 +49,7 @@ public class VtnLogin extends javax.swing.JFrame {
                 = new   ServicioAlmacenamientoEvaluadores(objRepositorio4); 
         
         
-        VtnPrincipalAdmin objVtnPrincipal= new VtnPrincipalAdmin(rol);    
+        VtnPrincipalAdmin objVtnPrincipal= new VtnPrincipalAdmin(rol, null);    
         objVtnPrincipal.asociarServios(objServicio1, objServicio2, objServicio3, objServicio4); 
         
         objVtnPrincipal.setVisible(true);
