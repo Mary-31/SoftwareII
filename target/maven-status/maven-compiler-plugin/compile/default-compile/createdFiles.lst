@@ -14,6 +14,7 @@ co\edu\unicauca\mvc\vistas\adminConferencia\VtnRegistrarOrganizadores.class
 co\edu\unicauca\mvc\accesoADatos\RepositorioOrganizadorMemoriaLinkedist.class
 co\edu\unicauca\mvc\modelos\Evaluador.class
 co\edu\unicauca\mvc\vistas\evaluador\Render.class
+co\edu\unicauca\mvc\vistas\articulos\VtnActualizarArticulo.class
 co\edu\unicauca\mvc\vistas\articulos\VtnRegistrarArticulo.class
 co\unicauca\mvc\vistas\evaluador\VtnRegistrarEvaluador$1.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnPrincipalAdmin$1.class
@@ -32,6 +33,7 @@ co\edu\unicauca\mvc\vistas\articulos\VtnListarArticulos$2.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnVerArticulosEnviadosConferencias.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnListarConferencias.class
 co\edu\unicauca\mvc\controladores\ServicioAlmacenamientoOrganizadores.class
+co\edu\unicauca\mvc\vistas\articulos\VtnActualizarArticulo$1.class
 utilidades\CargarImagenes.class
 co\edu\unicauca\mvc\vistas\articulos\VtnListarArticulos$3.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnListarConferencias$1.class
