@@ -43,7 +43,6 @@ public class Test {
         objVtnPrincipal.asociarServios(objServicio1,objServicio2, objServicio3, objServicio4); 
         
         objVtnPrincipal.setVisible(true);
-
     }
     
     private static void seleccionarLookAndField()
