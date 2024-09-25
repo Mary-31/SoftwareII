@@ -1,6 +1,7 @@
 package co.edu.unicauca.mvc.vistas.articulos;
 
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
+import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoAutores;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
 import co.edu.unicauca.mvc.modelos.Articulo;
 import co.edu.unicauca.mvc.modelos.Conferencia;
@@ -16,6 +17,7 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
 
     public ServicioAlmacenamientoArticulos objServicio;
     public ServicioAlmacenamientoConferencias objServicio2;
+    public ServicioAlmacenamientoAutores objSAutores;
     
     public VtnListarArticulos(
             ServicioAlmacenamientoArticulos objServicio,
@@ -203,7 +205,7 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonActalizarActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        VtnRegistrarArticulo objVtnRegistrarArticulo=new VtnRegistrarArticulo(objServicio, objServicio2);
+        VtnRegistrarArticulo objVtnRegistrarArticulo=new VtnRegistrarArticulo(objServicio, objServicio2, objSAutores);
         objVtnRegistrarArticulo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         objVtnRegistrarArticulo.setVisible(true);
     }//GEN-LAST:event_jButtonRegistrarActionPerformed

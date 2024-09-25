@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import co.edu.unicauca.mvc.modelos.Conferencia;
+import java.text.ParseException;
+import java.util.Date;
 import java.util.LinkedList;
 
 public class VtnListarConferencias extends javax.swing.JInternalFrame {
@@ -17,8 +19,39 @@ public class VtnListarConferencias extends javax.swing.JInternalFrame {
         initComponents();
         this.objServicioAlmacenamiento=objServicioAlmacenamiento;
         iniciarlizarTabla();
+        agregaDatos();
+        llenarTabla();
     }
 
+    public void agregaDatos(){
+        try {
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+            Date fechaInicio = formatoFecha.parse("24/09/2024");
+            Date fechaFin = formatoFecha.parse("30/09/2024");
+
+            
+            Conferencia objConferencia= new Conferencia("Conferencia1", fechaInicio, fechaFin, 3.4f);
+            this.objServicioAlmacenamiento.almacenarConferencia(objConferencia);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void gestionRol(String rol){
+        switch (rol) {
+            case "Autor":
+                jButtonRegistrar.setVisible(false);
+                break;
+            case "Evaluador":
+                break;
+            case "Organizador":
+                jButtonRegistrar.setVisible(true);
+                break;
+            default:
+                break;
+        }
+    }
+    
     private void iniciarlizarTabla()
     {
        DefaultTableModel model= new DefaultTableModel();       

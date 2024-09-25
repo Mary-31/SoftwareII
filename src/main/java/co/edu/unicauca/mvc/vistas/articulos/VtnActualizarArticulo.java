@@ -7,6 +7,7 @@ package co.edu.unicauca.mvc.vistas.articulos;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
 import co.edu.unicauca.mvc.modelos.Articulo;
+import co.edu.unicauca.mvc.modelos.Autor;
 import co.edu.unicauca.mvc.modelos.Conferencia;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
 
     private ServicioAlmacenamientoArticulos objServicio1;
     private ServicioAlmacenamientoConferencias objServicio2;
-    
+    private ArrayList<Autor> listAutores;
     public VtnActualizarArticulo(
             ServicioAlmacenamientoArticulos objServicio1,
             ServicioAlmacenamientoConferencias objServicio2) {
@@ -35,7 +36,7 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
         Articulo objArticulo=this.objServicio1.consultarArticulo(idArticulo);
         this.jTextFieldId.setText(objArticulo.getIdArticulo()+"");
         this.jTextFieldTitulo.setText(objArticulo.getTitulo());
-        this.jTextAreaAutores.setText(objArticulo.getAutores());
+        this.jTextAreaAutores.setText("");
         this.jComboBoxConferencia.setSelectedItem(objArticulo.getObjConferencia());
     }
     
@@ -207,7 +208,7 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
         Articulo objArticulo= new Articulo();
         objArticulo.setIdArticulo(idArticulo);
         objArticulo.setTitulo(titulo);
-        objArticulo.setAutores(autores);
+        objArticulo.setAutores(listAutores);
         objArticulo.setObjConferencia(objConferencia);
         
         bandera=this.objServicio1.actualizarArticulo(objArticulo);

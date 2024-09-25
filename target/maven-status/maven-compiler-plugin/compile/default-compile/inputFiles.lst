@@ -1,3 +1,5 @@
+C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\accesoADatos\RepositorioAutorMemoriaArrayList.java
+C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\controladores\ServicioAlmacenamientoAutores.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\vistas\adminConferencia\VtnListarConferencias.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\Aplicacion_capas_mvc.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\modelos\Organizador.java
@@ -8,10 +10,11 @@ C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proye
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\vistas\VtnLogin.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\vistas\evaluador\VtnListarEvaluador.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\vistas\adminConferencia\VtnListarOrganizadores.java
+C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\modelos\Autor.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\vistas\adminConferencia\VtnRegistrarOrganizadores.java
-C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\vistas\evaluador\Render.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\vistas\articulos\VtnActualizarArticulo.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\vistas\evaluador\VtnRegistrarEvaluador.java
+C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\accesoADatos\InterfaceRepositorioAutor.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\controladores\ServicioAlmacenamientoEvaluadores.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\accesoADatos\InterfaceRepositorioEvaluador.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\vistas\articulos\VtnRegistrarArticulo.java
@@ -25,6 +28,7 @@ C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proye
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\utilidades\Utilidades.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\vistas\adminConferencia\VtnRegistrarConferencia.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\vistas\articulos\VtnListarArticulos.java
+C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\vistas\autor\VtnRegistrarAutor.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\utilidades\CargarImagenes.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\vistas\evaluador\VtnActualizarEvaluador.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\accesoADatos\InterfaceRepositorioOrganizador.java

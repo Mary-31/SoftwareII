@@ -22,7 +22,7 @@ public class VtnListarOrganizadores extends javax.swing.JInternalFrame {
         this.objServicioAlmacenamientoOrganizadores =objServicioAlmacenamientoOrganizadores;
         iniciarlizarTabla();
     }
-
+    
     private void iniciarlizarTabla()
     {
        DefaultTableModel model= new DefaultTableModel();       
@@ -31,6 +31,7 @@ public class VtnListarOrganizadores extends javax.swing.JInternalFrame {
        model.addColumn("Universidad");
        this.jTableListadoOrganizadores.setModel(model);
     }
+    
     
     public void limpiarTabla() {
         DefaultTableModel modelo = (DefaultTableModel) this.jTableListadoOrganizadores.getModel();
@@ -73,6 +74,9 @@ public class VtnListarOrganizadores extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableListadoOrganizadores = new javax.swing.JTable();
 
+        setBorder(null);
+        setMaximizable(true);
+
         jLabelTitulo.setText("Listar Organizadores");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -80,16 +84,16 @@ public class VtnListarOrganizadores extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(198, 198, 198)
+                .addGap(221, 221, 221)
                 .addComponent(jLabelTitulo)
-                .addContainerGap(250, Short.MAX_VALUE))
+                .addContainerGap(259, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap()
                 .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
@@ -98,7 +102,7 @@ public class VtnListarOrganizadores extends javax.swing.JInternalFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 555, Short.MAX_VALUE)
+            .addGap(0, 589, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,7 +145,7 @@ public class VtnListarOrganizadores extends javax.swing.JInternalFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(jButtonActualizar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE)
                 .addComponent(jButtonRegistrar)
                 .addGap(70, 70, 70))
             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -157,7 +161,7 @@ public class VtnListarOrganizadores extends javax.swing.JInternalFrame {
                     .addComponent(jButtonRegistrar)
                     .addComponent(jButtonActualizar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
                 .addGap(12, 12, 12))
         );
 

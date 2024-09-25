@@ -5,14 +5,17 @@
 package co.edu.unicauca.mvc.vistas;
 
 import co.edu.unicauca.mvc.accesoADatos.RepositorioArticuloMemoriaArrayList;
+import co.edu.unicauca.mvc.accesoADatos.RepositorioAutorMemoriaArrayList;
 import co.edu.unicauca.mvc.accesoADatos.RepositorioConferenciaMemoriaLinkedist;
 import co.edu.unicauca.mvc.accesoADatos.RepositorioEvaluadorMemoriaArrayList;
 import co.edu.unicauca.mvc.accesoADatos.RepositorioOrganizadorMemoriaLinkedist;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
+import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoAutores;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoEvaluadores;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoOrganizadores;
 import co.edu.unicauca.mvc.vistas.adminConferencia.VtnPrincipalAdmin;
+import javax.swing.JDesktopPane;
 
 /**
  *
@@ -51,9 +54,14 @@ public class VtnLogin extends javax.swing.JFrame {
         ServicioAlmacenamientoEvaluadores objServicio4
                 = new   ServicioAlmacenamientoEvaluadores(objRepositorio4); 
         
+        RepositorioAutorMemoriaArrayList objRAutor =
+                new RepositorioAutorMemoriaArrayList();
+        ServicioAlmacenamientoAutores objSAutor =
+                new ServicioAlmacenamientoAutores(objRAutor);
+        
         
         this.objVtnPrincipal= new VtnPrincipalAdmin();    
-        objVtnPrincipal.asociarServios(objServicio1, objServicio2, objServicio3, objServicio4);
+        objVtnPrincipal.asociarServios(objServicio1, objServicio2, objServicio3, objServicio4, objSAutor);
     }
 
     /**

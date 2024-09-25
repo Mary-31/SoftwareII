@@ -1,22 +1,28 @@
 package co.edu.unicauca.mvc.modelos;
 
-public class Articulo {
-   private int idArticulo;
-   private String titulo;
-   private String autores;
-   
-   private Conferencia objConferencia;
+import java.util.ArrayList;
 
-   public Articulo()
-   {
-       
-   }
-    public Articulo(int idArticulo, String titulo, String autores) {
+public class Articulo {
+    private int idArticulo;
+    private String titulo;
+    private String resumen;
+    private String palabrasClave;
+    private ArrayList<Autor> autores;
+    private Conferencia objConferencia;
+   
+    public Articulo(int idArticulo, String titulo, String resumen, String palabrasClave, ArrayList<Autor> autores, Conferencia objConferencia) {
         this.idArticulo = idArticulo;
         this.titulo = titulo;
+        this.resumen = resumen;
+        this.palabrasClave = palabrasClave;
         this.autores = autores;
+        this.objConferencia = objConferencia;
     }
 
+    public Articulo() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
     public int getIdArticulo() {
         return idArticulo;
     }
@@ -33,11 +39,27 @@ public class Articulo {
         this.titulo = titulo;
     }
 
-    public String getAutores() {
+    public String getResumen() {
+        return resumen;
+    }
+
+    public void setResumen(String resumen) {
+        this.resumen = resumen;
+    }
+
+    public String getPalabrasClave() {
+        return palabrasClave;
+    }
+
+    public void setPalabrasClave(String palabrasClave) {
+        this.palabrasClave = palabrasClave;
+    }
+
+    public ArrayList<Autor> getAutores() {
         return autores;
     }
 
-    public void setAutores(String autores) {
+    public void setAutores(ArrayList<Autor> autores) {
         this.autores = autores;
     }
 
@@ -48,6 +70,4 @@ public class Articulo {
     public void setObjConferencia(Conferencia objConferencia) {
         this.objConferencia = objConferencia;
     }
-   
-   
 }
