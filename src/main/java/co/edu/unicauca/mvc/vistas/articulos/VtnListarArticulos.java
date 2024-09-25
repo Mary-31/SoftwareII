@@ -27,6 +27,7 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         this.objServicio=objServicio;
         this.objServicio2=objServicio2;
         this.jTableListarArticulos.setDefaultRenderer(Object.class, new Render());
+        llenarTabla();
     }
      
      public void limpiarTabla(){

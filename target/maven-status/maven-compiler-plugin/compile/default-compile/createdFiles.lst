@@ -6,6 +6,7 @@ co\edu\unicauca\mvc\Aplicacion_capas_mvc.class
 co\edu\unicauca\mvc\utilidades\Utilidades.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnListarOrganizadores$2.class
 co\edu\unicauca\mvc\vistas\articulos\VtnListarArticulos$1.class
+co\edu\unicauca\mvc\vistas\articulos\VtnRegistrarArticulo$3.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnRegistrarConferencia.class
 co\edu\unicauca\mvc\accesoADatos\RepositorioEvaluadorMemoriaArrayList.class
 co\edu\unicauca\mvc\vistas\VtnLogin.class
@@ -32,7 +33,6 @@ co\edu\unicauca\mvc\vistas\VtnLogin$2.class
 co\edu\unicauca\mvc\modelos\Conferencia.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnRegistrarOrganizadores$1.class
 co\edu\unicauca\mvc\vistas\articulos\VtnListarArticulos$2.class
-co\edu\unicauca\mvc\vistas\adminConferencia\VtnVerArticulosEnviadosConferencias.class
 co\edu\unicauca\mvc\vistas\evaluador\RenderE.class
 co\edu\unicauca\mvc\vistas\evaluador\VtnListarEvaluador$2.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnListarConferencias.class

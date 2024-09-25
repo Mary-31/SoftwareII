@@ -20,55 +20,61 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author HSVSTT2
  */
-public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
+public final class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
 
     private ArticuloServicio objServicio1;
     private ConferenciaServicio objServicio2;
     private AutorServicio objSAutores;
     private ArrayList<Autor> listAutores;
-    
+
     public VtnRegistrarArticulo(
+<<<<<<< HEAD
             ArticuloServicio objServicio1,
             ConferenciaServicio objServicio2,
             AutorServicio objSAutores) 
     {
+=======
+            ServicioAlmacenamientoArticulos objServicio1,
+            ServicioAlmacenamientoConferencias objServicio2,
+            ServicioAlmacenamientoAutores objSAutores) {
+>>>>>>> d426b69 (Modificaicones ventana principal)
         initComponents();
-        this.objServicio1=objServicio1;
-        this.objServicio2=objServicio2;
+        this.objServicio1 = objServicio1;
+        this.objServicio2 = objServicio2;
         this.objSAutores = objSAutores;
         listAutores = (ArrayList<Autor>) objSAutores.listarAutores();
         cargarConferencias();
         llenarTabla();
     }
-    
-    public void cargarConferencias(){
-        ArrayList<Conferencia> conferencias= (ArrayList<Conferencia>) this.objServicio2.listarConferencias();
+
+    public void cargarConferencias() {
+        ArrayList<Conferencia> conferencias = (ArrayList<Conferencia>) this.objServicio2.listarConferencias();
         for (int i = 0; i < conferencias.size(); i++) {
             this.jComboBoxConferencia.addItem(conferencias.get(i));
         }
     }
-    
-    public void limpiarTabla(){
+
+    public void limpiarTabla() {
         DefaultTableModel modelo;
         modelo = (DefaultTableModel) this.jTableAutores.getModel();
-        int filas=this.jTableAutores.getRowCount();
-        for (int i = 0;filas>i; i++) {
+        int filas = this.jTableAutores.getRowCount();
+        for (int i = 0; filas > i; i++) {
             modelo.removeRow(0);
-        }        
+        }
     }
-    
-    public void llenarTabla(){
-        DefaultTableModel model =(DefaultTableModel) this.jTableAutores.getModel();
+
+    public void llenarTabla() {
+        DefaultTableModel model = (DefaultTableModel) this.jTableAutores.getModel();
         limpiarTabla();
-    
-        if (this.listAutores != null){
+
+        if (this.listAutores != null) {
             for (int i = 0; i < this.listAutores.size(); i++) {
-                String [] fila= { this.listAutores.get(i).getNombre(), this.listAutores.get(i).getApellido()};
+                String[] fila = {this.listAutores.get(i).getNombre(), this.listAutores.get(i).getApellido()};
                 model.addRow(fila);
             }
-        } 
+        }
     }
-    
+
     public ArrayList<Autor> obtenerAutoresSeleccionados(JTable tabla) {
         ArrayList<Autor> autoresSeleccionados = new ArrayList<>();
         DefaultTableModel model = (DefaultTableModel) tabla.getModel();
@@ -76,7 +82,7 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
         // Recorrer las filas para verificar cuáles están seleccionadas
         for (int i = 0; i < model.getRowCount(); i++) {
             Object isSelected = (Boolean) model.getValueAt(i, 2);
-            
+
             if (isSelected != null && (Boolean) isSelected) {
                 Autor autor = listAutores.get(i);
                 autoresSeleccionados.add(autor);
@@ -154,6 +160,12 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(txtResumen);
 
         jLabel4.setText("Conferencia:");
+
+        jComboBoxConferencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxConferenciaActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Resumen:");
 
@@ -276,13 +288,13 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
         ArrayList<Autor> listAutores = obtenerAutoresSeleccionados(jTableAutores);
         Conferencia objConferencia;
         boolean bandera;
-        
-        titulo=this.txtTitulo.getText();
+
+        titulo = this.txtTitulo.getText();
         resumen = this.txtResumen.getText();
         palabras = this.txtPalabras.getText();
         objConferencia = (Conferencia) this.jComboBoxConferencia.getSelectedItem();
 
-        Articulo objArticulo= new Articulo();
+        Articulo objArticulo = new Articulo();
         objArticulo.setTitulo(titulo);
         objArticulo.setResumen(resumen);
         objArticulo.setPalabrasClave(palabras);
@@ -291,17 +303,17 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
 
         bandera = this.objServicio1.almacenarArticulo(objArticulo);
 
-        if(bandera==true)
-        {
+        if (bandera == true) {
             Utilidades.mensajeExito("Registro exitoso", "Registro exitoso");
-        }
-        else
-        {
-            Utilidades.mensajeError("Articulo no almacenado","Error al almacenar el articulo");
+        } else {
+            Utilidades.mensajeError("Articulo no almacenado", "Error al almacenar el articulo");
         }
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
-    
+    private void jComboBoxConferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxConferenciaActionPerformed
+
+    }//GEN-LAST:event_jComboBoxConferenciaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonRegistrar;
