@@ -1,4 +1,4 @@
-package co.unicauca.mvc.vistas.evaluador;
+package co.edu.unicauca.mvc.vistas.evaluador;
 
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoEvaluadores;
@@ -22,16 +22,8 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
         initComponents();
         this.objServicio4=objServicio4;
         this.objServicio2=objServicio2;
-        cargarArticulos();
     }
     
-    public void cargarArticulos()
-    {   
-        ArrayList<Articulo> articulos= (ArrayList<Articulo>) this.objServicio2.listarArticulos();
-         for (int i = 0; i < articulos.size(); i++) {
-            this.jComboBoxArticulo.addItem(articulos.get(i));
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,8 +43,6 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
         jTextFieldNombreE = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaTemas = new javax.swing.JTextArea();
-        jLabelArticulo = new javax.swing.JLabel();
-        jComboBoxArticulo = new javax.swing.JComboBox<>();
         jButtonRegistrarE = new javax.swing.JButton();
         jLabelApellido = new javax.swing.JLabel();
         jTextFieldApellido = new javax.swing.JTextField();
@@ -107,8 +97,6 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
         jTextAreaTemas.setRows(5);
         jScrollPane1.setViewportView(jTextAreaTemas);
 
-        jLabelArticulo.setText("Articulo Asignado:");
-
         jButtonRegistrarE.setText("Registrar");
         jButtonRegistrarE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,13 +119,11 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
                     .addGroup(jPanelCentralLayout.createSequentialGroup()
                         .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelNombreE)
-                            .addComponent(jLabelTemasE)
-                            .addComponent(jLabelArticulo))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                            .addComponent(jLabelTemasE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                         .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelCentralLayout.createSequentialGroup()
-                                .addComponent(jComboBoxArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(252, 252, 252)
                                 .addComponent(jButtonRegistrarE))
                             .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jTextFieldNombreE, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -165,20 +151,13 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
                     .addGroup(jPanelCentralLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)))
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelTemasE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
-                        .addComponent(jButtonRegistrarE)
-                        .addGap(15, 15, 15))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
-                        .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBoxArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelArticulo))
-                        .addGap(30, 30, 30))))
+                .addGap(29, 29, 29)
+                .addComponent(jButtonRegistrarE)
+                .addGap(15, 15, 15))
         );
 
         getContentPane().add(jPanelCentral, java.awt.BorderLayout.CENTER);
@@ -195,13 +174,11 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
         nombreEvaluador=this.jTextFieldNombreE.getText();
         apellidoEvaluador=this.jTextFieldApellido.getText();
         temasExperto=this.jTextAreaTemas.getText();
-        objArticulo=(Articulo) this.jComboBoxArticulo.getSelectedItem();
         
         Evaluador objEvaluador= new Evaluador();
         objEvaluador.setNombre(nombreEvaluador);
         objEvaluador.setApellido(apellidoEvaluador);
         objEvaluador.setTemasExperto(temasExperto);
-        objEvaluador.setObjArticulo(objArticulo);
         
         bandera=this.objServicio4.almacenarEvaluador(objEvaluador);
         
@@ -221,9 +198,7 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonRegistrarE;
-    private javax.swing.JComboBox<Articulo> jComboBoxArticulo;
     private javax.swing.JLabel jLabelApellido;
-    private javax.swing.JLabel jLabelArticulo;
     private javax.swing.JLabel jLabelNombreE;
     private javax.swing.JLabel jLabelTemasE;
     private javax.swing.JLabel jLabelTitulo;

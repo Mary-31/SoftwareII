@@ -1,4 +1,4 @@
-package co.unicauca.mvc.vistas.evaluador;
+package co.edu.unicauca.mvc.vistas.evaluador;
 
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoEvaluadores;
@@ -22,7 +22,6 @@ public class VtnActualizarEvaluador extends javax.swing.JFrame {
         initComponents();
         this.objServicio1=objServicio1;
         this.objServicio4=objServicio4;
-        cargarArticulos();
     }
     
     public void cargarDatos(int idEvaluador)
@@ -32,17 +31,8 @@ public class VtnActualizarEvaluador extends javax.swing.JFrame {
         this.jTextFieldNombre.setText(objEvaluador.getNombre());
         this.jTextFieldApellido.setText(objEvaluador.getApellido());
         this.jTextAreaTemas.setText(objEvaluador.getTemas());
-        this.jComboBoxArticulo.setSelectedItem(objEvaluador.getObjArticulo());
     }
     
-        public void cargarArticulos()
-    {
-        
-        ArrayList<Articulo> Articulos= (ArrayList<Articulo>) this.objServicio1.listarArticulos();
-         for (int i = 0; i < Articulos.size(); i++) {
-            this.jComboBoxArticulo.addItem(Articulos.get(i));
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,14 +51,11 @@ public class VtnActualizarEvaluador extends javax.swing.JFrame {
         jLabelNombre = new javax.swing.JLabel();
         jLabelApellido = new javax.swing.JLabel();
         jLabelTemas = new javax.swing.JLabel();
-        jLabelArticulo = new javax.swing.JLabel();
         jTextFieldId = new javax.swing.JTextField();
         jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldApellido = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextAreaTemas = new javax.swing.JTextArea();
-        jButtonActualizar = new javax.swing.JButton();
-        jComboBoxArticulo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -120,20 +107,11 @@ public class VtnActualizarEvaluador extends javax.swing.JFrame {
 
         jLabelTemas.setText("Temas Experto: ");
 
-        jLabelArticulo.setText("Articulo Asignado:");
-
         jTextFieldId.setEditable(false);
 
         jTextAreaTemas.setColumns(20);
         jTextAreaTemas.setRows(5);
         jScrollPane2.setViewportView(jTextAreaTemas);
-
-        jButtonActualizar.setText("Actualizar");
-        jButtonActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonActualizarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -145,19 +123,14 @@ public class VtnActualizarEvaluador extends javax.swing.JFrame {
                     .addComponent(jLabelApellido)
                     .addComponent(jLabelNombre)
                     .addComponent(jLabelId)
-                    .addComponent(jLabelTemas)
-                    .addComponent(jLabelArticulo))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane2)
-                        .addComponent(jTextFieldApellido)
-                        .addComponent(jTextFieldNombre)
-                        .addComponent(jTextFieldId))
-                    .addComponent(jComboBoxArticulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonActualizar)
-                .addContainerGap())
+                    .addComponent(jLabelTemas))
+                .addGap(50, 50, 50)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jTextFieldApellido)
+                    .addComponent(jTextFieldNombre)
+                    .addComponent(jTextFieldId))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,14 +151,7 @@ public class VtnActualizarEvaluador extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelTemas)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabelArticulo)
-                        .addGap(5, 5, 5)
-                        .addComponent(jButtonActualizar))
-                    .addComponent(jComboBoxArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
@@ -193,48 +159,13 @@ public class VtnActualizarEvaluador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
-        String nombre, apellido, temasExperto, id;
-        Articulo objArticulo;
-        boolean bandera;
-        int idEvaluador;
-        id=this.jTextFieldId.getText();  
-        
-        idEvaluador=Integer.parseInt(id);
-        nombre=this.jTextFieldNombre.getText();
-        apellido=this.jTextFieldApellido.getText();
-        temasExperto=this.jTextAreaTemas.getText();
-        objArticulo=(Articulo) this.jComboBoxArticulo.getSelectedItem();
-        
-        
-        Evaluador objEvaluador= new Evaluador();
-        objEvaluador.setId(idEvaluador);
-        objEvaluador.setNombre(nombre);
-        objEvaluador.setApellido(apellido);
-        objEvaluador.setTemasExperto(temasExperto);
-        objEvaluador.setObjArticulo(objArticulo);
-        
-       bandera=this.objServicio4.actualizarEvaluador(objEvaluador);
-       if(bandera==true)
-       {
-           Utilidades.mensajeExito("Evaluador actualizado exitosamente", "Evaluador actualizado");
-       }
-       else
-       {
-           Utilidades.mensajeError("Error al actualizar el evaluador", "Error al actualizar");
-       }
-    }//GEN-LAST:event_jButtonActualizarActionPerformed
-
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonActualizar;
-    private javax.swing.JComboBox<Articulo> jComboBoxArticulo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelApellido;
-    private javax.swing.JLabel jLabelArticulo;
     private javax.swing.JLabel jLabelId;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelTemas;
