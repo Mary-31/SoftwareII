@@ -1,5 +1,5 @@
 
-package co.unicauca.mvc.vistas.evaluador;
+package co.edu.unicauca.mvc.vistas.evaluador;
 
 import java.awt.Color;
 import java.awt.Component;

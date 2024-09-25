@@ -7,7 +7,7 @@ import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoOrganizadores;
 import co.edu.unicauca.mvc.vistas.VtnLogin;
 import co.edu.unicauca.mvc.vistas.articulos.VtnListarArticulos;
-import co.unicauca.mvc.vistas.evaluador.VtnListarEvaluador;
+import co.edu.unicauca.mvc.vistas.evaluador.VtnListarEvaluador;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;

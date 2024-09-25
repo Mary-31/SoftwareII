@@ -1,4 +1,4 @@
-package co.unicauca.mvc.vistas.evaluador;
+package co.edu.unicauca.mvc.vistas.evaluador;
 
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoEvaluadores;
@@ -35,7 +35,6 @@ public class VtnListarEvaluador extends javax.swing.JInternalFrame {
        model.addColumn("Id");       
        model.addColumn("Nombre");
        model.addColumn("Apellido");
-       model.addColumn("Articulo");
        model.addColumn("Eliminar");
        model.addColumn("Actualizar");       
        this.jTableListarEvaluadores.setModel(model);
