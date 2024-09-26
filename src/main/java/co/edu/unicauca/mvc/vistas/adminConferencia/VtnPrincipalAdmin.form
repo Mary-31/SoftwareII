@@ -44,7 +44,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonVerArticulosEnviados">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ver articulos enviados"/>
+            <Property name="text" type="java.lang.String" value="Gestionar articulos"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVerArticulosEnviadosActionPerformed"/>

@@ -3,27 +3,22 @@ package co.edu.unicauca.mvc.modelos;
 import java.util.Date;
 
 public class Conferencia {
-    private int idConferencia;
+    private int id;
     private String nombre;
     private Date fechaInicio;
     private Date fechaFin;   
-    private float costoInscripcion;
+    private String ubicacion;
 
-    public Conferencia(String nombre, Date fechaInicio, Date fechaFin, float costoInscripcion) {
+    public Conferencia() {
+    }
+
+    public Conferencia(int id, String nombre, Date fechaInicio, Date fechaFin, String ubicacion) {
+        this.id = id;
         this.nombre = nombre;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;        
-        this.costoInscripcion = costoInscripcion;
+        this.ubicacion = ubicacion;
     }
-
-    public int getIdConferencia() {
-        return idConferencia;
-    }
-
-    public void setIdConferencia(int idConferencia) {
-        this.idConferencia = idConferencia;
-    }
-    
     
     public String getNombre() {
         return nombre;
@@ -49,13 +44,20 @@ public class Conferencia {
         this.fechaFin = fechaFin;
     }
 
-
-    public float getCostoInscripcion() {
-        return costoInscripcion;
+    public int getId() {
+        return id;
     }
 
-    public void setCostoInscripcion(float costoInscripcion) {
-        this.costoInscripcion = costoInscripcion;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
     }
     
     @Override

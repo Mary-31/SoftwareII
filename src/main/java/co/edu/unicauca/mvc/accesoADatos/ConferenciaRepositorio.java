@@ -16,7 +16,7 @@ public class ConferenciaRepositorio implements IConferenciaRepositorio{
     
     @Override
     public boolean almacenarConferencia(Conferencia objConfererencia) {
-        objConfererencia.setIdConferencia(this.getCantidadConferencias());
+        objConfererencia.setId(this.getCantidadConferencias());
         boolean bandera=this.listaConferencias.add(objConfererencia);
         return bandera;
     }

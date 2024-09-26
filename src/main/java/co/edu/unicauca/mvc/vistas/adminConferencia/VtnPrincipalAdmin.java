@@ -1,6 +1,5 @@
 package co.edu.unicauca.mvc.vistas.adminConferencia;
 
-
 import co.edu.unicauca.mvc.controladores.ArticuloServicio;
 import co.edu.unicauca.mvc.controladores.AutorServicio;
 import co.edu.unicauca.mvc.controladores.EvaluadorServicio;
@@ -15,28 +14,28 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class VtnPrincipalAdmin extends javax.swing.JFrame {
-    
+
     private VtnListarArticulos objVtnListarArticulos;
     private VtnListarConferencias objVtnListarConferencias;
     private VtnListarOrganizadores objVtnRegistrarOrganizadores;
     private VtnRegistrarArticulo objVtnRegistrarArticulo;
     private VtnListarEvaluador objVtnListarEvaluador;
     private VtnRegistrarAutor objVtnRegistrarAutor;
-  
-    private ConferenciaServicio objServicio1;   
-    private ArticuloServicio  objServicio2;
+
+    private ConferenciaServicio objServicio1;
+    private ArticuloServicio objServicio2;
     private OrganizadorServicio objServicio3;
-    private EvaluadorServicio  objServicio4;
+    private EvaluadorServicio objServicio4;
     private AutorServicio objSAutores;
     private String rol;
-        
+
     public VtnPrincipalAdmin() {
         initComponents();
         establecerIconoOrganización();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
-    
-    public void gestionRol(String rol){
+
+    public void gestionRol(String rol) {
         this.rol = rol;
         switch (rol) {
             case "Autor":
@@ -55,50 +54,44 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
                 break;
         }
     }
-    
+
     public void asociarServios(
-        ConferenciaServicio objServicio1,
-        ArticuloServicio objServicio2, 
-        OrganizadorServicio objServicio3,
-        EvaluadorServicio objServicio4,
-        AutorServicio objSAutores)
-    {
-        this.objServicio1=objServicio1;
-        this.objServicio2=objServicio2;
-        this.objServicio3=objServicio3;
-        this.objServicio4=objServicio4;
+            ConferenciaServicio objServicio1,
+            ArticuloServicio objServicio2,
+            OrganizadorServicio objServicio3,
+            EvaluadorServicio objServicio4,
+            AutorServicio objSAutores) {
+        this.objServicio1 = objServicio1;
+        this.objServicio2 = objServicio2;
+        this.objServicio3 = objServicio3;
+        this.objServicio4 = objServicio4;
         this.objSAutores = objSAutores;
         relacionarInternalFrameConJdesptokPane();
     }
-    
-    private void relacionarInternalFrameConJdesptokPane()
-    {
-        
-        this.objVtnListarArticulos= new VtnListarArticulos(this.objServicio2, this.objServicio1);
-       
-        this.objVtnListarConferencias= new VtnListarConferencias(this.objServicio1);
-        
-        
-        this.objVtnListarEvaluador= new VtnListarEvaluador(this.objServicio2, this.objServicio4);
-        
-        
-        this.objVtnRegistrarOrganizadores  = new VtnListarOrganizadores(this.objServicio3);
-        
-        
+
+    private void relacionarInternalFrameConJdesptokPane() {
+
+        this.objVtnListarArticulos = new VtnListarArticulos(this.objServicio2, this.objServicio1);
+
+        this.objVtnListarConferencias = new VtnListarConferencias(this.objServicio1);
+
+        this.objVtnListarEvaluador = new VtnListarEvaluador(this.objServicio2, this.objServicio4);
+
+        this.objVtnRegistrarOrganizadores = new VtnListarOrganizadores(this.objServicio3);
+
         this.objVtnRegistrarArticulo = new VtnRegistrarArticulo(this.objServicio2, this.objServicio1, this.objSAutores);
-        
+
         this.objVtnRegistrarAutor = new VtnRegistrarAutor(objSAutores);
-        
+
     }
 
-    private void establecerIconoOrganización()
-    {
-        Image img1= new ImageIcon(getClass().getResource("/recursos/logo.png")).getImage();
-        ImageIcon img2=new ImageIcon(img1.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+    private void establecerIconoOrganización() {
+        Image img1 = new ImageIcon(getClass().getResource("/recursos/logo.png")).getImage();
+        ImageIcon img2 = new ImageIcon(img1.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
         this.jLabelImagenOrganizacion.setIcon(img2);
         this.jLabelImagenOrganizacion.setText("");
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -132,7 +125,7 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
         });
         jPanelSuperior.add(jButtonGestionarConferencias);
 
-        jButtonVerArticulosEnviados.setText("Ver articulos enviados");
+        jButtonVerArticulosEnviados.setText("Gestionar articulos");
         jButtonVerArticulosEnviados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVerArticulosEnviadosActionPerformed(evt);
@@ -297,7 +290,6 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
         this.objVtnRegistrarAutor.setVisible(true);
     }//GEN-LAST:event_btnRegistrarAutorActionPerformed
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrarAutor;
