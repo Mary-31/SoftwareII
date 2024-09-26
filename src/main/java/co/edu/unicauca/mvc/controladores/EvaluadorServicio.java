@@ -1,17 +1,17 @@
 package co.edu.unicauca.mvc.controladores;
 
-import co.edu.unicauca.mvc.accesoADatos.InterfaceRepositorioEvaluador;
 import co.edu.unicauca.mvc.modelos.Evaluador;
 import java.util.List;
+import co.edu.unicauca.mvc.accesoADatos.IEvaluadorRepositorio;
 
 /**
  *
  * @author Usuario
  */
-public class ServicioAlmacenamientoEvaluadores {
-    private InterfaceRepositorioEvaluador referenciaRepositorioEvaluador;
+public class EvaluadorServicio {
+    private IEvaluadorRepositorio referenciaRepositorioEvaluador;
     
-    public ServicioAlmacenamientoEvaluadores(InterfaceRepositorioEvaluador referenciaRepositorioEvaluador)
+    public EvaluadorServicio(IEvaluadorRepositorio referenciaRepositorioEvaluador)
     {
         this.referenciaRepositorioEvaluador=referenciaRepositorioEvaluador;
     }

@@ -4,9 +4,9 @@
  */
 package co.edu.unicauca.mvc.vistas.articulos;
 
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoAutores;
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
+import co.edu.unicauca.mvc.controladores.ArticuloServicio;
+import co.edu.unicauca.mvc.controladores.AutorServicio;
+import co.edu.unicauca.mvc.controladores.ConferenciaServicio;
 import co.edu.unicauca.mvc.modelos.Articulo;
 import co.edu.unicauca.mvc.modelos.Autor;
 import co.edu.unicauca.mvc.modelos.Conferencia;
@@ -22,15 +22,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
 
-    private ServicioAlmacenamientoArticulos objServicio1;
-    private ServicioAlmacenamientoConferencias objServicio2;
-    private ServicioAlmacenamientoAutores objSAutores;
+    private ArticuloServicio objServicio1;
+    private ConferenciaServicio objServicio2;
+    private AutorServicio objSAutores;
     private ArrayList<Autor> listAutores;
     
     public VtnRegistrarArticulo(
-            ServicioAlmacenamientoArticulos objServicio1,
-            ServicioAlmacenamientoConferencias objServicio2,
-            ServicioAlmacenamientoAutores objSAutores) 
+            ArticuloServicio objServicio1,
+            ConferenciaServicio objServicio2,
+            AutorServicio objSAutores) 
     {
         initComponents();
         this.objServicio1=objServicio1;

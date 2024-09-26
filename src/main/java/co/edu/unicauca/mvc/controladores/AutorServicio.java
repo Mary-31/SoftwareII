@@ -4,27 +4,27 @@
  */
 package co.edu.unicauca.mvc.controladores;
 
-import co.edu.unicauca.mvc.accesoADatos.InterfaceRepositorioAutor;
 import co.edu.unicauca.mvc.modelos.Autor;
 import java.util.List;
+import co.edu.unicauca.mvc.accesoADatos.IAutorRepositorio;
 
 /**
  *
  * @author SANTIAGO DORADO
  */
-public class ServicioAlmacenamientoAutores {
-    private InterfaceRepositorioAutor objIRA;
+public class AutorServicio {
+    private IAutorRepositorio objIAutor;
     
-    public ServicioAlmacenamientoAutores(InterfaceRepositorioAutor objIRA) {
-        this.objIRA = objIRA;
+    public AutorServicio(IAutorRepositorio objIAutor) {
+        this.objIAutor = objIAutor;
     }
     
     public boolean registrarAutor(Autor objAutor){
-        boolean bandera = this.objIRA.registrarAutor(objAutor);
+        boolean bandera = this.objIAutor.registrarAutor(objAutor);
         return bandera;
     }
     
     public List<Autor> listarAutores(){
-        return this.objIRA.listarAutores();
+        return this.objIAutor.listarAutores();
     }
 }

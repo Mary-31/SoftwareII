@@ -1,6 +1,6 @@
 package co.edu.unicauca.mvc.vistas.adminConferencia;
 
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
+import co.edu.unicauca.mvc.controladores.ConferenciaServicio;
 import co.edu.unicauca.mvc.modelos.Conferencia;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
 import java.text.ParseException;
@@ -10,9 +10,9 @@ import java.util.Date;
 
 public class VtnRegistrarConferencia extends javax.swing.JFrame {
 
-    private ServicioAlmacenamientoConferencias objServicioAlmacenamiento;
+    private ConferenciaServicio objServicioAlmacenamiento;
     
-    public VtnRegistrarConferencia(ServicioAlmacenamientoConferencias objServicioAlmacenamiento) {
+    public VtnRegistrarConferencia(ConferenciaServicio objServicioAlmacenamiento) {
         initComponents();
         this.objServicioAlmacenamiento=objServicioAlmacenamiento;
     }

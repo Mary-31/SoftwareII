@@ -4,8 +4,8 @@
  */
 package co.edu.unicauca.mvc.vistas.articulos;
 
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
+import co.edu.unicauca.mvc.controladores.ArticuloServicio;
+import co.edu.unicauca.mvc.controladores.ConferenciaServicio;
 import co.edu.unicauca.mvc.modelos.Articulo;
 import co.edu.unicauca.mvc.modelos.Autor;
 import co.edu.unicauca.mvc.modelos.Conferencia;
@@ -19,12 +19,12 @@ import java.util.LinkedList;
  */
 public class VtnActualizarArticulo extends javax.swing.JFrame {
 
-    private ServicioAlmacenamientoArticulos objServicio1;
-    private ServicioAlmacenamientoConferencias objServicio2;
+    private ArticuloServicio objServicio1;
+    private ConferenciaServicio objServicio2;
     private ArrayList<Autor> listAutores;
     public VtnActualizarArticulo(
-            ServicioAlmacenamientoArticulos objServicio1,
-            ServicioAlmacenamientoConferencias objServicio2) {
+            ArticuloServicio objServicio1,
+            ConferenciaServicio objServicio2) {
         initComponents();
         this.objServicio1=objServicio1;
         this.objServicio2=objServicio2;

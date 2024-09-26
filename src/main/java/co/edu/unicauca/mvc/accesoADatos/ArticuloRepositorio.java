@@ -4,11 +4,11 @@ import co.edu.unicauca.mvc.modelos.Articulo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepositorioArticuloMemoriaArrayList implements InterfaceRepositorioArticulo{
+public class ArticuloRepositorio implements IArticuloRepositorio{
 
     private ArrayList<Articulo> listaDeArticulos;
     
-    public RepositorioArticuloMemoriaArrayList()
+    public ArticuloRepositorio()
     {
         this.listaDeArticulos= new ArrayList();
     }

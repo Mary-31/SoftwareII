@@ -4,64 +4,52 @@
  */
 package co.edu.unicauca.mvc.vistas;
 
-import co.edu.unicauca.mvc.accesoADatos.RepositorioArticuloMemoriaArrayList;
-import co.edu.unicauca.mvc.accesoADatos.RepositorioAutorMemoriaArrayList;
-import co.edu.unicauca.mvc.accesoADatos.RepositorioConferenciaMemoriaLinkedist;
-import co.edu.unicauca.mvc.accesoADatos.RepositorioEvaluadorMemoriaArrayList;
-import co.edu.unicauca.mvc.accesoADatos.RepositorioOrganizadorMemoriaLinkedist;
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoAutores;
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoEvaluadores;
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoOrganizadores;
+import co.edu.unicauca.mvc.accesoADatos.ArticuloRepositorio;
+import co.edu.unicauca.mvc.accesoADatos.AutorRepositorio;
+import co.edu.unicauca.mvc.accesoADatos.ConferenciaRepositorio;
+import co.edu.unicauca.mvc.accesoADatos.EvaluadorRepositorio;
+import co.edu.unicauca.mvc.accesoADatos.OrganizadorRepositorio;
+import co.edu.unicauca.mvc.controladores.ArticuloServicio;
+import co.edu.unicauca.mvc.controladores.AutorServicio;
+import co.edu.unicauca.mvc.controladores.ConferenciaServicio;
+import co.edu.unicauca.mvc.controladores.EvaluadorServicio;
+import co.edu.unicauca.mvc.controladores.OrganizadorServicio;
 import co.edu.unicauca.mvc.vistas.adminConferencia.VtnPrincipalAdmin;
-import javax.swing.JDesktopPane;
 
-/**
- *
- * @author SANTIAGO DORADO
- */
-public class VtnLogin extends javax.swing.JFrame {
+public final class VtnLogin extends javax.swing.JFrame {
 
     /**
      * Creates new form login
      */
     private VtnPrincipalAdmin objVtnPrincipal;
-            
+
     public VtnLogin() {
         initComponents();
         inicializarResSer();
     }
-    
-    public void inicializarResSer(){
-        RepositorioConferenciaMemoriaLinkedist objRepositorio1=
-                new RepositorioConferenciaMemoriaLinkedist();
-        ServicioAlmacenamientoConferencias objServicio1
-                = new   ServicioAlmacenamientoConferencias(objRepositorio1);
-        
-        RepositorioArticuloMemoriaArrayList objRepositorio2
-                = new RepositorioArticuloMemoriaArrayList();
-        ServicioAlmacenamientoArticulos objServicio2
-                = new ServicioAlmacenamientoArticulos(objRepositorio2);
-        
-        RepositorioOrganizadorMemoriaLinkedist objRepositorio3
-                = new RepositorioOrganizadorMemoriaLinkedist();
-        ServicioAlmacenamientoOrganizadores objServicio3
-                = new ServicioAlmacenamientoOrganizadores(objRepositorio3);
-        
-        RepositorioEvaluadorMemoriaArrayList objRepositorio4=
-                new RepositorioEvaluadorMemoriaArrayList();
-        ServicioAlmacenamientoEvaluadores objServicio4
-                = new   ServicioAlmacenamientoEvaluadores(objRepositorio4); 
-        
-        RepositorioAutorMemoriaArrayList objRAutor =
-                new RepositorioAutorMemoriaArrayList();
-        ServicioAlmacenamientoAutores objSAutor =
-                new ServicioAlmacenamientoAutores(objRAutor);
-        
-        
-        this.objVtnPrincipal= new VtnPrincipalAdmin();    
-        objVtnPrincipal.asociarServios(objServicio1, objServicio2, objServicio3, objServicio4, objSAutor);
+
+    // Inicialización de Repositorios y Servicios
+    public void inicializarResSer() {
+        ConferenciaRepositorio objRConferencia = new ConferenciaRepositorio();
+        ConferenciaServicio objSConferencia 
+                = new ConferenciaServicio(objRConferencia);
+
+        ArticuloRepositorio objRArticulo = new ArticuloRepositorio();
+        ArticuloServicio objSArticulo = new ArticuloServicio(objRArticulo);
+
+        OrganizadorRepositorio objROrganizador = new OrganizadorRepositorio();
+        OrganizadorServicio objSOrganizador
+                = new OrganizadorServicio(objROrganizador);
+
+        EvaluadorRepositorio objREvaluador = new EvaluadorRepositorio();
+        EvaluadorServicio objSEvaluador = new EvaluadorServicio(objREvaluador);
+
+        AutorRepositorio objRAutor = new AutorRepositorio();
+        AutorServicio objSAutor = new AutorServicio(objRAutor);
+
+        this.objVtnPrincipal = new VtnPrincipalAdmin();
+        objVtnPrincipal.asociarServios(objSConferencia, objSArticulo, 
+                objSOrganizador, objSEvaluador, objSAutor);
     }
 
     /**
@@ -118,10 +106,10 @@ public class VtnLogin extends javax.swing.JFrame {
 
     private void cmbRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRolActionPerformed
         String opcion = (String) cmbRol.getSelectedItem();
-        if(!opcion.equals("Seleccione Rol")){
+        if (!opcion.equals("Seleccione Rol")) {
             objVtnPrincipal.gestionRol(opcion);
             objVtnPrincipal.setVisible(true);
-        }else{
+        } else {
             lblResultado.setText("Seleccione un rol válido");
         }
     }//GEN-LAST:event_cmbRolActionPerformed
@@ -155,6 +143,7 @@ public class VtnLogin extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new VtnLogin().setVisible(true);
             }

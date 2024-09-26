@@ -1,7 +1,7 @@
 package co.edu.unicauca.mvc.vistas.evaluador;
 
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoEvaluadores;
+import co.edu.unicauca.mvc.controladores.ArticuloServicio;
+import co.edu.unicauca.mvc.controladores.EvaluadorServicio;
 import javax.swing.table.DefaultTableModel;
 import co.edu.unicauca.mvc.modelos.Articulo;
 import co.edu.unicauca.mvc.modelos.Evaluador;
@@ -16,12 +16,12 @@ import javax.swing.JFrame;
  * @author Usuario
  */
 public class VtnListarEvaluador extends javax.swing.JInternalFrame {
-    public ServicioAlmacenamientoArticulos objServicio;
-    public ServicioAlmacenamientoEvaluadores objServicio4;
+    public ArticuloServicio objServicio;
+    public EvaluadorServicio objServicio4;
     
     public VtnListarEvaluador(
-            ServicioAlmacenamientoArticulos objServicio,
-            ServicioAlmacenamientoEvaluadores objServicio4) {
+            ArticuloServicio objServicio,
+            EvaluadorServicio objServicio4) {
         initComponents();
         this.objServicio=objServicio;
         this.objServicio4=objServicio4;
@@ -71,7 +71,6 @@ public class VtnListarEvaluador extends javax.swing.JInternalFrame {
                 listarEvaluadores.get(i).getNombre(),
                 listarEvaluadores.get(i).getApellido(),
                 listarEvaluadores.get(i).getTemas(),
-                listarEvaluadores.get(i).getObjArticulo().getTitulo(),
                 JButtonEliminarEvaluador,
                 JButtonActualizarEvaluador};
             model.addRow(fila);

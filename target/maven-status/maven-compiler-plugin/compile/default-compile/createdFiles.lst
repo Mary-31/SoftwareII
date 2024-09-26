@@ -47,10 +47,7 @@ co\edu\unicauca\mvc\modelos\Organizador.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnPrincipalAdmin$3.class
 co\edu\unicauca\mvc\vistas\VtnLogin$1.class
 co\edu\unicauca\mvc\vistas\articulos\VtnListarArticulos.class
-<<<<<<< Upstream, based on origin/master
-=======
 co\edu\unicauca\mvc\vistas\articulos\VtnRegistrarArticulo$2.class
->>>>>>> fc784d5 Modificaciones registrar articulo
 co\edu\unicauca\mvc\vistas\evaluador\VtnListarEvaluador.class
 co\edu\unicauca\mvc\accesoADatos\InterfaceRepositorioArticulo.class
 co\edu\unicauca\mvc\vistas\evaluador\VtnRegistrarEvaluador$1.class

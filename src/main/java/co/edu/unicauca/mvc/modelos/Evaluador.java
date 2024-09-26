@@ -5,64 +5,53 @@ package co.edu.unicauca.mvc.modelos;
  * @author Usuario
  */
 public class Evaluador {
-    private int idEvaluador;
-    private String nombreEvaluador;
-    private String apellidoEvaluador;
-    private String temasExperto;
-    
-   private Articulo objArticulo;
 
-   public Evaluador()
-   {
-       
-   }
-    
-    public Evaluador(int idEvaluador,String nombreEvaluador,String apellidoEvaluador, String temasExperto) {
-        this.idEvaluador = idEvaluador;
-        this.nombreEvaluador = nombreEvaluador;
-        this.apellidoEvaluador = apellidoEvaluador;      
+    private int id;
+    private String nombre;
+    private String apellido;
+    private String correo;
+    private String temasExperto;
+
+    public Evaluador() {
+
+    }
+
+    public Evaluador(int id, String nombre, String apellido, String temasExperto) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.temasExperto = temasExperto;
     }
 
-    public int getId(){
-    return idEvaluador;
-    }
-    
-    public void setId(int idEvaluador) {
-    this.idEvaluador = idEvaluador;
-    }
-    
-    public String getNombre() {
-        return nombreEvaluador;
+    public int getId() {
+        return id;
     }
 
-    public void setNombre(String nombreEvaluador) {
-        this.nombreEvaluador = nombreEvaluador;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getApellido() {
-        return apellidoEvaluador;
+        return apellido;
     }
-    
-    public void setApellido(String apellidoEvaluador) {
-    this.apellidoEvaluador=apellidoEvaluador;
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
-    
-    public String getTemas()
-    {
+
+    public String getTemas() {
         return temasExperto;
     }
-    
-    public void setTemasExperto(String temasExperto) {
-        this.temasExperto=temasExperto;
-    }
-    public Articulo getObjArticulo() {
-        return objArticulo;
-    }
 
-    public void setObjArticulo(Articulo objArticulo) {
-        this.objArticulo = objArticulo;
+    public void setTemasExperto(String temasExperto) {
+        this.temasExperto = temasExperto;
     }
 }
-    
-

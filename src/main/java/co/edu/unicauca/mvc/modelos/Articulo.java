@@ -7,16 +7,20 @@ public class Articulo {
     private String titulo;
     private String resumen;
     private String palabrasClave;
-    private ArrayList<Autor> autores;
+    private ArrayList<Autor> listAutores;
     private Conferencia objConferencia;
+    private ArrayList<Evaluador> listEvaluadores;
    
-    public Articulo(int idArticulo, String titulo, String resumen, String palabrasClave, ArrayList<Autor> autores, Conferencia objConferencia) {
+    public Articulo(int idArticulo, String titulo, String resumen, 
+            String palabrasClave, ArrayList<Autor> listAutores, 
+            Conferencia objConferencia, ArrayList<Evaluador> listEvaluadores) {
         this.idArticulo = idArticulo;
         this.titulo = titulo;
         this.resumen = resumen;
         this.palabrasClave = palabrasClave;
-        this.autores = autores;
+        this.listAutores = listAutores;
         this.objConferencia = objConferencia;
+        this.listEvaluadores = new ArrayList<>();
     }
 
     public Articulo() {
@@ -56,11 +60,11 @@ public class Articulo {
     }
 
     public ArrayList<Autor> getAutores() {
-        return autores;
+        return listAutores;
     }
 
     public void setAutores(ArrayList<Autor> autores) {
-        this.autores = autores;
+        this.listAutores = autores;
     }
 
     public Conferencia getObjConferencia() {
@@ -69,5 +73,21 @@ public class Articulo {
 
     public void setObjConferencia(Conferencia objConferencia) {
         this.objConferencia = objConferencia;
+    }
+    
+    public ArrayList<Autor> getListAutores() {
+        return listAutores;
+    }
+
+    public void setListAutores(ArrayList<Autor> listAutores) {
+        this.listAutores = listAutores;
+    }
+
+    public ArrayList<Evaluador> getListEvaluadores() {
+        return listEvaluadores;
+    }
+
+    public void setListEvaluadores(ArrayList<Evaluador> listEvaluadores) {
+        this.listEvaluadores = listEvaluadores;
     }
 }

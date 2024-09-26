@@ -12,17 +12,22 @@ import java.util.List;
  *
  * @author SANTIAGO DORADO
  */
-public class RepositorioAutorMemoriaArrayList implements InterfaceRepositorioAutor {
+public class AutorRepositorio implements IAutorRepositorio {
     private ArrayList<Autor> listaAutores;
     
-    public RepositorioAutorMemoriaArrayList() {
+    public AutorRepositorio() {
         this.listaAutores = new ArrayList();
     } 
+    
+    private int getCantidadAutores()
+    {
+        return this.listaAutores.size()+1;
+    }
 
     @Override
     public boolean registrarAutor(Autor objAutor) {
-        boolean bandera = this.listaAutores.add(objAutor);
-        return bandera;
+        objAutor.setId(getCantidadAutores());
+        return this.listaAutores.add(objAutor);
     }
 
     @Override

@@ -3,12 +3,12 @@ package co.edu.unicauca.mvc.modelos;
 public class Organizador {
     private String nombreOrganizador;
     private String apellidoOrganizador;
-    private String universidad;
+    private String correo;
     
-    public Organizador(String nombreOrganizador,String apellidoOrganizador, String universidad) {
+    public Organizador(String nombreOrganizador,String apellidoOrganizador, String correo) {
         this.nombreOrganizador = nombreOrganizador;
         this.apellidoOrganizador = apellidoOrganizador;      
-        this.universidad = universidad;
+        this.correo = correo;
     }
 
     public String getNombre() {
@@ -28,10 +28,10 @@ public class Organizador {
     }
     
      public String getUniversidad() {
-        return universidad;
+        return correo;
     }
 
-    public void setUniversidad(String universidad) {
-        this.universidad=universidad;
+    public void setUniversidad(String correo) {
+        this.correo=correo;
     }
 }

@@ -1,7 +1,7 @@
 package co.edu.unicauca.mvc.vistas.evaluador;
 
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoEvaluadores;
+import co.edu.unicauca.mvc.controladores.ArticuloServicio;
+import co.edu.unicauca.mvc.controladores.EvaluadorServicio;
 import co.edu.unicauca.mvc.modelos.Articulo;
 import co.edu.unicauca.mvc.modelos.Evaluador;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
@@ -13,12 +13,12 @@ import java.util.LinkedList;
  */
 public class VtnActualizarEvaluador extends javax.swing.JFrame {
 
-    private ServicioAlmacenamientoArticulos objServicio1;
-    private ServicioAlmacenamientoEvaluadores objServicio4;
+    private ArticuloServicio objServicio1;
+    private EvaluadorServicio objServicio4;
     
     public VtnActualizarEvaluador(
-            ServicioAlmacenamientoArticulos objServicio1,
-            ServicioAlmacenamientoEvaluadores objServicio4) {
+            ArticuloServicio objServicio1,
+            EvaluadorServicio objServicio4) {
         initComponents();
         this.objServicio1=objServicio1;
         this.objServicio4=objServicio4;

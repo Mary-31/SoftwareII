@@ -1,7 +1,7 @@
 package co.edu.unicauca.mvc.vistas.adminConferencia;
 
 
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
+import co.edu.unicauca.mvc.controladores.ConferenciaServicio;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JFrame;
@@ -13,9 +13,9 @@ import java.util.LinkedList;
 
 public class VtnListarConferencias extends javax.swing.JInternalFrame {
 
-    private ServicioAlmacenamientoConferencias objServicioAlmacenamiento;
+    private ConferenciaServicio objServicioAlmacenamiento;
     
-    public VtnListarConferencias(ServicioAlmacenamientoConferencias objServicioAlmacenamiento) {
+    public VtnListarConferencias(ConferenciaServicio objServicioAlmacenamiento) {
         initComponents();
         this.objServicioAlmacenamiento=objServicioAlmacenamiento;
         iniciarlizarTabla();

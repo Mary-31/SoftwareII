@@ -4,17 +4,17 @@ import co.edu.unicauca.mvc.modelos.Evaluador;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepositorioEvaluadorMemoriaArrayList implements InterfaceRepositorioEvaluador{
+public class EvaluadorRepositorio implements IEvaluadorRepositorio{
 
     private ArrayList<Evaluador> listaDeEvaluadores;
     
-    public RepositorioEvaluadorMemoriaArrayList()
+    public EvaluadorRepositorio()
     {
         this.listaDeEvaluadores= new ArrayList();
     }
     @Override
     public boolean almacenarEvaluador(Evaluador objEvaluador) {
-        objEvaluador.setId(getCantidadEvaluadores());
+       objEvaluador.setId(getCantidadEvaluadores());
        return this.listaDeEvaluadores.add(objEvaluador);
     }
 

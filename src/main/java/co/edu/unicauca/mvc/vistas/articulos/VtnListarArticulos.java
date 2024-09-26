@@ -1,8 +1,8 @@
 package co.edu.unicauca.mvc.vistas.articulos;
 
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoAutores;
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
+import co.edu.unicauca.mvc.controladores.ArticuloServicio;
+import co.edu.unicauca.mvc.controladores.AutorServicio;
+import co.edu.unicauca.mvc.controladores.ConferenciaServicio;
 import co.edu.unicauca.mvc.modelos.Articulo;
 import co.edu.unicauca.mvc.modelos.Autor;
 import co.edu.unicauca.mvc.modelos.Conferencia;
@@ -16,13 +16,13 @@ import javax.swing.table.DefaultTableModel;
 
 public class VtnListarArticulos extends javax.swing.JInternalFrame {
 
-    public ServicioAlmacenamientoArticulos objServicio;
-    public ServicioAlmacenamientoConferencias objServicio2;
-    public ServicioAlmacenamientoAutores objSAutores;
+    public ArticuloServicio objServicio;
+    public ConferenciaServicio objServicio2;
+    public AutorServicio objSAutores;
     
     public VtnListarArticulos(
-            ServicioAlmacenamientoArticulos objServicio,
-            ServicioAlmacenamientoConferencias objServicio2) {
+            ArticuloServicio objServicio,
+            ConferenciaServicio objServicio2) {
         initComponents();
         this.objServicio=objServicio;
         this.objServicio2=objServicio2;

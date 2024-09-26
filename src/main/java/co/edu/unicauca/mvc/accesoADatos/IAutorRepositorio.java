@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author SANTIAGO DORADO
  */
-public interface InterfaceRepositorioAutor {
+public interface IAutorRepositorio {
     public boolean registrarAutor(Autor objAutor);
     public List<Autor> listarAutores();
 }

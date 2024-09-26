@@ -5,11 +5,11 @@ import java.util.List;
 import co.edu.unicauca.mvc.modelos.Conferencia;
 
 
-public class RepositorioConferenciaMemoriaLinkedist implements InterfaceRepositorioConferencia{
+public class ConferenciaRepositorio implements IConferenciaRepositorio{
 
     private ArrayList<Conferencia> listaConferencias;
     
-    public RepositorioConferenciaMemoriaLinkedist()
+    public ConferenciaRepositorio()
     {
         this.listaConferencias= new ArrayList();
     }

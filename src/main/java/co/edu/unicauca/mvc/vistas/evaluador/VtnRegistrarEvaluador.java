@@ -1,7 +1,7 @@
 package co.edu.unicauca.mvc.vistas.evaluador;
 
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoEvaluadores;
+import co.edu.unicauca.mvc.controladores.ArticuloServicio;
+import co.edu.unicauca.mvc.controladores.EvaluadorServicio;
 import co.edu.unicauca.mvc.modelos.Evaluador;
 import co.edu.unicauca.mvc.modelos.Articulo;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
@@ -13,12 +13,12 @@ import java.util.LinkedList;
  */
 public class VtnRegistrarEvaluador extends javax.swing.JFrame {
 
-    private ServicioAlmacenamientoEvaluadores objServicio4;
-    private ServicioAlmacenamientoArticulos objServicio2;
+    private EvaluadorServicio objServicio4;
+    private ArticuloServicio objServicio2;
     
     public VtnRegistrarEvaluador(
-            ServicioAlmacenamientoArticulos objServicio2,
-            ServicioAlmacenamientoEvaluadores objServicio4) {
+            ArticuloServicio objServicio2,
+            EvaluadorServicio objServicio4) {
         initComponents();
         this.objServicio4=objServicio4;
         this.objServicio2=objServicio2;

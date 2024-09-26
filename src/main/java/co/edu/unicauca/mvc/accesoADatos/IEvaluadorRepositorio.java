@@ -7,7 +7,7 @@ import java.util.List;
  *
  * @author Usuario
  */
-public interface InterfaceRepositorioEvaluador {
+public interface IEvaluadorRepositorio {
     public boolean almacenarEvaluador(Evaluador objEvaluador);
     public List<Evaluador> listarEvaluadores();
     public boolean eliminarEvaluador(int idEvaluador);

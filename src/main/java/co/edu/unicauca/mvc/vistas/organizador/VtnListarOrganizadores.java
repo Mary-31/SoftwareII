@@ -4,7 +4,7 @@
  */
 package co.edu.unicauca.mvc.vistas.adminConferencia;
 
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoOrganizadores;
+import co.edu.unicauca.mvc.controladores.OrganizadorServicio;
 import co.edu.unicauca.mvc.modelos.Organizador;
 import java.util.LinkedList;
 import javax.swing.JFrame;
@@ -15,9 +15,9 @@ import javax.swing.table.DefaultTableModel;
  * @author Usuario
  */
 public class VtnListarOrganizadores extends javax.swing.JInternalFrame {
- private ServicioAlmacenamientoOrganizadores objServicioAlmacenamientoOrganizadores;
+ private OrganizadorServicio objServicioAlmacenamientoOrganizadores;
     
-    public VtnListarOrganizadores(ServicioAlmacenamientoOrganizadores objServicioAlmacenamientoOrganizadores) {
+    public VtnListarOrganizadores(OrganizadorServicio objServicioAlmacenamientoOrganizadores) {
         initComponents();
         this.objServicioAlmacenamientoOrganizadores =objServicioAlmacenamientoOrganizadores;
         iniciarlizarTabla();

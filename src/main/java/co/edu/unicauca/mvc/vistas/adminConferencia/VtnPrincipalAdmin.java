@@ -1,11 +1,11 @@
 package co.edu.unicauca.mvc.vistas.adminConferencia;
 
 
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoAutores;
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoEvaluadores;
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoOrganizadores;
+import co.edu.unicauca.mvc.controladores.ArticuloServicio;
+import co.edu.unicauca.mvc.controladores.AutorServicio;
+import co.edu.unicauca.mvc.controladores.EvaluadorServicio;
+import co.edu.unicauca.mvc.controladores.ConferenciaServicio;
+import co.edu.unicauca.mvc.controladores.OrganizadorServicio;
 import co.edu.unicauca.mvc.vistas.articulos.VtnListarArticulos;
 import co.edu.unicauca.mvc.vistas.articulos.VtnRegistrarArticulo;
 import co.edu.unicauca.mvc.vistas.autor.VtnRegistrarAutor;
@@ -29,11 +29,11 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     private VtnListarEvaluador objVtnListarEvaluador;
     private VtnRegistrarAutor objVtnRegistrarAutor;
   
-    private ServicioAlmacenamientoConferencias objServicio1;   
-    private ServicioAlmacenamientoArticulos  objServicio2;
-    private ServicioAlmacenamientoOrganizadores objServicio3;
-    private ServicioAlmacenamientoEvaluadores  objServicio4;
-    private ServicioAlmacenamientoAutores objSAutores;
+    private ConferenciaServicio objServicio1;   
+    private ArticuloServicio  objServicio2;
+    private OrganizadorServicio objServicio3;
+    private EvaluadorServicio  objServicio4;
+    private AutorServicio objSAutores;
     private String rol;
         
     public VtnPrincipalAdmin() {
@@ -65,11 +65,11 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     }
     
     public void asociarServios(
-        ServicioAlmacenamientoConferencias objServicio1,
-        ServicioAlmacenamientoArticulos objServicio2, 
-        ServicioAlmacenamientoOrganizadores objServicio3,
-        ServicioAlmacenamientoEvaluadores objServicio4,
-        ServicioAlmacenamientoAutores objSAutores)
+        ConferenciaServicio objServicio1,
+        ArticuloServicio objServicio2, 
+        OrganizadorServicio objServicio3,
+        EvaluadorServicio objServicio4,
+        AutorServicio objSAutores)
     {
         this.objServicio1=objServicio1;
         this.objServicio2=objServicio2;

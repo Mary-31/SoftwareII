@@ -4,7 +4,7 @@
  */
 package co.edu.unicauca.mvc.vistas.adminConferencia;
 
-import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoOrganizadores;
+import co.edu.unicauca.mvc.controladores.OrganizadorServicio;
 import co.edu.unicauca.mvc.modelos.Organizador;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
 
@@ -15,9 +15,9 @@ import co.edu.unicauca.mvc.utilidades.Utilidades;
  */
 public class VtnRegistrarOrganizadores extends javax.swing.JFrame {
 
-    private ServicioAlmacenamientoOrganizadores objServicioAlmacenamientoOrganizadores;
+    private OrganizadorServicio objServicioAlmacenamientoOrganizadores;
     
-    public VtnRegistrarOrganizadores(ServicioAlmacenamientoOrganizadores objServicioAlmacenamientoOrganizadores) {
+    public VtnRegistrarOrganizadores(OrganizadorServicio objServicioAlmacenamientoOrganizadores) {
         initComponents();
         this.objServicioAlmacenamientoOrganizadores=objServicioAlmacenamientoOrganizadores;
     }
