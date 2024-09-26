@@ -2,7 +2,6 @@ package co.edu.unicauca.mvc.utilidades;
 
 
 import javax.swing.JOptionPane;
-import utilidades.CargarImagenes;
 
 /**
  *
@@ -18,7 +17,7 @@ public class Utilidades {
      */
     public static void mensajeAdvertencia(String mns, String titulo) {
         CargarImagenes objCargarImagenes= new CargarImagenes();
-        JOptionPane.showMessageDialog(null, mns, titulo, JOptionPane.DEFAULT_OPTION, objCargarImagenes.CargarImagen("/recursos/logo.png"));
+        JOptionPane.showMessageDialog(null, mns, titulo, JOptionPane.DEFAULT_OPTION, objCargarImagenes.CargarImagen("/recursos/fondo1.jpg"));
     }
 
     /**

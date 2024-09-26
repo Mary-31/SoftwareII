@@ -32,7 +32,7 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     public VtnPrincipalAdmin() {
         initComponents();
         establecerIconoOrganización();
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setExtendedState(JFrame.NORMAL);
     }
 
     public void gestionRol(String rol) {
@@ -93,8 +93,8 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     }
 
     private void establecerIconoOrganización() {
-        Image img1 = new ImageIcon(getClass().getResource("/recursos/logo.png")).getImage();
-        ImageIcon img2 = new ImageIcon(img1.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+        Image img1 = new ImageIcon(getClass().getResource("/recursos/fondo1.jpg")).getImage();
+        ImageIcon img2 = new ImageIcon(img1.getScaledInstance(30, 30, Image.SCALE_SMOOTH));
         this.jLabelImagenOrganizacion.setIcon(img2);
         this.jLabelImagenOrganizacion.setText("");
     }
@@ -104,6 +104,8 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelSuperior = new javax.swing.JPanel();
+        jPanelCentral = new javax.swing.JPanel();
+        jDesktopPanelPrincipal = new javax.swing.JDesktopPane();
         jButtonGestionarConferencias = new javax.swing.JButton();
         jButtonVerArticulosEnviados = new javax.swing.JButton();
         jButtonGestionarE = new javax.swing.JButton();
@@ -111,18 +113,25 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
         jButtonRegistrarArticulo = new javax.swing.JButton();
         btnRegistrarAutor = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
-        jPanelCentral = new javax.swing.JPanel();
-        jDesktopPanelPrincipal = new javax.swing.JDesktopPane();
-        jPanelInferior = new javax.swing.JPanel();
         jLabelImagenOrganizacion = new javax.swing.JLabel();
+        jPanelInferior = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1147483647, 1147483647));
+        setSize(new java.awt.Dimension(1072, 400));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.PAGE_AXIS));
 
+        jPanelSuperior.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelSuperior.setAlignmentX(0.0F);
         jPanelSuperior.setAlignmentY(0.0F);
         jPanelSuperior.setAutoscrolls(true);
+        jPanelSuperior.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanelSuperior.setLayout(new javax.swing.BoxLayout(jPanelSuperior, javax.swing.BoxLayout.LINE_AXIS));
+        getContentPane().add(jPanelSuperior);
+
+        jPanelCentral.setLayout(new java.awt.BorderLayout());
+
+        jDesktopPanelPrincipal.setMaximumSize(new java.awt.Dimension(1072, 400));
 
         jButtonGestionarConferencias.setText("Gestionar conferencias");
         jButtonGestionarConferencias.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +139,6 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
                 jButtonGestionarConferenciasActionPerformed(evt);
             }
         });
-        jPanelSuperior.add(jButtonGestionarConferencias);
 
         jButtonVerArticulosEnviados.setText("Gestionar articulos");
         jButtonVerArticulosEnviados.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +146,6 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
                 jButtonVerArticulosEnviadosActionPerformed(evt);
             }
         });
-        jPanelSuperior.add(jButtonVerArticulosEnviados);
 
         jButtonGestionarE.setText("Gestionar Evaluadores");
         jButtonGestionarE.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +153,6 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
                 jButtonGestionarEActionPerformed(evt);
             }
         });
-        jPanelSuperior.add(jButtonGestionarE);
 
         jButtonGestionarO.setText("Gestionar Organizadores");
         jButtonGestionarO.addActionListener(new java.awt.event.ActionListener() {
@@ -154,7 +160,6 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
                 jButtonGestionarOActionPerformed(evt);
             }
         });
-        jPanelSuperior.add(jButtonGestionarO);
 
         jButtonRegistrarArticulo.setText("Registrar articulo");
         jButtonRegistrarArticulo.addActionListener(new java.awt.event.ActionListener() {
@@ -162,7 +167,6 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
                 jButtonRegistrarArticuloActionPerformed(evt);
             }
         });
-        jPanelSuperior.add(jButtonRegistrarArticulo);
 
         btnRegistrarAutor.setText("Registrar Autor");
         btnRegistrarAutor.addActionListener(new java.awt.event.ActionListener() {
@@ -170,7 +174,6 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
                 btnRegistrarAutorActionPerformed(evt);
             }
         });
-        jPanelSuperior.add(btnRegistrarAutor);
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -178,50 +181,79 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanelSuperior.add(btnSalir);
-
-        getContentPane().add(jPanelSuperior);
-
-        jPanelCentral.setLayout(new java.awt.BorderLayout());
-
-        javax.swing.GroupLayout jDesktopPanelPrincipalLayout = new javax.swing.GroupLayout(jDesktopPanelPrincipal);
-        jDesktopPanelPrincipal.setLayout(jDesktopPanelPrincipalLayout);
-        jDesktopPanelPrincipalLayout.setHorizontalGroup(
-            jDesktopPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1055, Short.MAX_VALUE)
-        );
-        jDesktopPanelPrincipalLayout.setVerticalGroup(
-            jDesktopPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 304, Short.MAX_VALUE)
-        );
-
-        jPanelCentral.add(jDesktopPanelPrincipal, java.awt.BorderLayout.CENTER);
-
-        getContentPane().add(jPanelCentral);
-
-        jPanelInferior.setPreferredSize(new java.awt.Dimension(75, 50));
 
         jLabelImagenOrganizacion.setText("jLabel1");
+
+        jPanelInferior.setPreferredSize(new java.awt.Dimension(75, 50));
 
         javax.swing.GroupLayout jPanelInferiorLayout = new javax.swing.GroupLayout(jPanelInferior);
         jPanelInferior.setLayout(jPanelInferiorLayout);
         jPanelInferiorLayout.setHorizontalGroup(
             jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelInferiorLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabelImagenOrganizacion)
-                .addContainerGap(988, Short.MAX_VALUE))
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanelInferiorLayout.setVerticalGroup(
             jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelInferiorLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabelImagenOrganizacion)
-                .addContainerGap(11, Short.MAX_VALUE))
+            .addGap(0, 37, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanelInferior);
+        jDesktopPanelPrincipal.setLayer(jButtonGestionarConferencias, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPanelPrincipal.setLayer(jButtonVerArticulosEnviados, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPanelPrincipal.setLayer(jButtonGestionarE, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPanelPrincipal.setLayer(jButtonGestionarO, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPanelPrincipal.setLayer(jButtonRegistrarArticulo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPanelPrincipal.setLayer(btnRegistrarAutor, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPanelPrincipal.setLayer(btnSalir, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPanelPrincipal.setLayer(jLabelImagenOrganizacion, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPanelPrincipal.setLayer(jPanelInferior, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jDesktopPanelPrincipalLayout = new javax.swing.GroupLayout(jDesktopPanelPrincipal);
+        jDesktopPanelPrincipal.setLayout(jDesktopPanelPrincipalLayout);
+        jDesktopPanelPrincipalLayout.setHorizontalGroup(
+            jDesktopPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPanelPrincipalLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabelImagenOrganizacion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(jButtonGestionarConferencias)
+                .addGap(0, 0, 0)
+                .addComponent(jButtonVerArticulosEnviados)
+                .addGap(0, 0, 0)
+                .addComponent(jButtonGestionarE)
+                .addGap(0, 0, 0)
+                .addComponent(jButtonGestionarO)
+                .addGap(0, 0, 0)
+                .addComponent(jButtonRegistrarArticulo)
+                .addGap(0, 0, 0)
+                .addComponent(btnRegistrarAutor)
+                .addGap(0, 0, 0)
+                .addComponent(btnSalir)
+                .addGap(85, 85, 85))
+            .addComponent(jPanelInferior, javax.swing.GroupLayout.DEFAULT_SIZE, 1060, Short.MAX_VALUE)
+        );
+        jDesktopPanelPrincipalLayout.setVerticalGroup(
+            jDesktopPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPanelPrincipalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDesktopPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelImagenOrganizacion)
+                    .addGroup(jDesktopPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButtonGestionarConferencias)
+                        .addComponent(jButtonVerArticulosEnviados)
+                        .addComponent(jButtonGestionarE)
+                        .addComponent(jButtonGestionarO)
+                        .addComponent(jButtonRegistrarArticulo)
+                        .addComponent(btnRegistrarAutor)
+                        .addComponent(btnSalir)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 331, Short.MAX_VALUE)
+                .addComponent(jPanelInferior, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         jPanelInferior.getAccessibleContext().setAccessibleName("");
+
+        jPanelCentral.add(jDesktopPanelPrincipal, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(jPanelCentral);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

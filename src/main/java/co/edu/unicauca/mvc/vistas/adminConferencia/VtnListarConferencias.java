@@ -102,7 +102,7 @@ public class VtnListarConferencias extends javax.swing.JInternalFrame {
         jButtonRegistrar = new javax.swing.JButton();
 
         jLabelTitulo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelTitulo.setForeground(new java.awt.Color(0, 51, 204));
+        jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTitulo.setText("Listado de conferencias");
 
         javax.swing.GroupLayout jPanelSuperiorLayout = new javax.swing.GroupLayout(jPanelSuperior);

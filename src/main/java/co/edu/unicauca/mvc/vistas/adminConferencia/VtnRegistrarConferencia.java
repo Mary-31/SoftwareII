@@ -45,24 +45,24 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
         jPanelSuperior.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabelTitulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabelTitulo.setForeground(new java.awt.Color(0, 0, 204));
+        jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTitulo.setText("Registrar conferencia");
 
         javax.swing.GroupLayout jPanelSuperiorLayout = new javax.swing.GroupLayout(jPanelSuperior);
         jPanelSuperior.setLayout(jPanelSuperiorLayout);
         jPanelSuperiorLayout.setHorizontalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSuperiorLayout.createSequentialGroup()
-                .addContainerGap(198, Short.MAX_VALUE)
+            .addGroup(jPanelSuperiorLayout.createSequentialGroup()
+                .addGap(173, 173, 173)
                 .addComponent(jLabelTitulo)
-                .addGap(167, 167, 167))
+                .addContainerGap(192, Short.MAX_VALUE))
         );
         jPanelSuperiorLayout.setVerticalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSuperiorLayout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
+            .addGroup(jPanelSuperiorLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
                 .addComponent(jLabelTitulo)
-                .addGap(41, 41, 41))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelSuperior, java.awt.BorderLayout.PAGE_START);
@@ -93,7 +93,7 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
         jLabelCosto.setText("Ubicacion:");
 
         jButtonRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButtonRegistrar.setForeground(new java.awt.Color(0, 0, 153));
+        jButtonRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/grabar.png"))); // NOI18N
         jButtonRegistrar.setText("Registrar");
         jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
