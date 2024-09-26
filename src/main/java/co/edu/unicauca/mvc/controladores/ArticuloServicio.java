@@ -2,6 +2,8 @@ package co.edu.unicauca.mvc.controladores;
 
 import co.edu.unicauca.mvc.accesoADatos.IArticuloRepositorio;
 import co.edu.unicauca.mvc.modelos.Articulo;
+import co.edu.unicauca.mvc.modelos.Evaluador;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -36,5 +38,9 @@ public class ArticuloServicio {
     public boolean actualizarArticulo(Articulo objArticulo)
     {
         return this.objIArticulo.actualizarArticulo(objArticulo);
+    }
+    
+    public boolean asignarEvaluador(int id, ArrayList<Evaluador> listEvaluadores) {
+        return this.objIArticulo.asignarEvaluadores(id, listEvaluadores);
     }
 }

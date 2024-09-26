@@ -10,10 +10,13 @@ import java.util.Date;
 public class VtnRegistrarConferencia extends javax.swing.JFrame {
 
     private ConferenciaServicio objServicioAlmacenamiento;
+    private VtnListarConferencias objVtnListarConferencias;
 
-    public VtnRegistrarConferencia(ConferenciaServicio objServicioAlmacenamiento) {
+    public VtnRegistrarConferencia(ConferenciaServicio objServicioAlmacenamiento,
+        VtnListarConferencias vtnListarConferencias) {
         initComponents();
         this.objServicioAlmacenamiento = objServicioAlmacenamiento;
+        this.objVtnListarConferencias = vtnListarConferencias;
     }
 
     /**
@@ -171,6 +174,7 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
 
         if (bandera) {
             Utilidades.mensajeExito("El registro de la conferencia fue exitoso", "Registro exitoso");
+            objVtnListarConferencias.llenarTabla();
             dispose();
         } else {
             Utilidades.mensajeError("El registro de la conferencia no se realizo", "Error en el registro");

@@ -16,10 +16,11 @@ public class Evaluador {
 
     }
 
-    public Evaluador(int id, String nombre, String apellido, String temasExperto) {
+    public Evaluador(int id, String nombre, String apellido, String correo, String temasExperto) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.correo = correo;
         this.temasExperto = temasExperto;
     }
 
@@ -54,4 +55,14 @@ public class Evaluador {
     public void setTemasExperto(String temasExperto) {
         this.temasExperto = temasExperto;
     }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+    
+    
 }

@@ -1,6 +1,5 @@
 package co.edu.unicauca.mvc.vistas.adminConferencia;
 
-
 import co.edu.unicauca.mvc.controladores.ConferenciaServicio;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -14,37 +13,37 @@ import java.util.LinkedList;
 public class VtnListarConferencias extends javax.swing.JInternalFrame {
 
     private ConferenciaServicio objServicioAlmacenamiento;
-    
+
     public VtnListarConferencias(ConferenciaServicio objServicioAlmacenamiento) {
         initComponents();
-        this.objServicioAlmacenamiento=objServicioAlmacenamiento;
+        this.objServicioAlmacenamiento = objServicioAlmacenamiento;
         agregaDatos();
         llenarTabla();
     }
 
-    public void agregaDatos(){
+    public void agregaDatos() {
         try {
             SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
             Date fechaInicio = formatoFecha.parse("24/09/2024");
             Date fechaFin = formatoFecha.parse("30/09/2024");
-            
-            Conferencia objConferencia1= new Conferencia(1, "Conferencia1", fechaInicio, fechaFin, "Ubicacion1");
+
+            Conferencia objConferencia1 = new Conferencia(1, "Conferencia1", fechaInicio, fechaFin, "Ubicacion1");
             this.objServicioAlmacenamiento.almacenarConferencia(objConferencia1);
-            
-            Conferencia objConferencia2= new Conferencia(2, "Conferencia2", fechaInicio, fechaFin, "Ubicacion2");
+
+            Conferencia objConferencia2 = new Conferencia(2, "Conferencia2", fechaInicio, fechaFin, "Ubicacion2");
             this.objServicioAlmacenamiento.almacenarConferencia(objConferencia2);
-            
-            Conferencia objConferencia3= new Conferencia(3, "Conferencia3", fechaInicio, fechaFin, "Ubicacion3");
+
+            Conferencia objConferencia3 = new Conferencia(3, "Conferencia3", fechaInicio, fechaFin, "Ubicacion3");
             this.objServicioAlmacenamiento.almacenarConferencia(objConferencia3);
-            
-            Conferencia objConferencia4= new Conferencia(4, "Conferencia4", fechaInicio, fechaFin, "Ubicacion4");
+
+            Conferencia objConferencia4 = new Conferencia(4, "Conferencia4", fechaInicio, fechaFin, "Ubicacion4");
             this.objServicioAlmacenamiento.almacenarConferencia(objConferencia4);
         } catch (ParseException e) {
             e.printStackTrace();
         }
     }
-    
-    public void gestionRol(String rol){
+
+    public void gestionRol(String rol) {
         switch (rol) {
             case "Autor":
                 jButtonRegistrar.setVisible(false);
@@ -58,34 +57,33 @@ public class VtnListarConferencias extends javax.swing.JInternalFrame {
                 break;
         }
     }
-    
-    public void limpiarTabla(){
-        DefaultTableModel modelo=(DefaultTableModel) this.jTableListadoConferencias.getModel();
-        int filas=this.jTableListadoConferencias.getRowCount();
-        for (int i = 0;filas>i; i++) {
+
+    public void limpiarTabla() {
+        DefaultTableModel modelo = (DefaultTableModel) this.jTableListadoConferencias.getModel();
+        int filas = this.jTableListadoConferencias.getRowCount();
+        for (int i = 0; filas > i; i++) {
             modelo.removeRow(0);
-        }        
+        }
     }
-    
-    private void llenarTabla()
-    {
-        DefaultTableModel model=(DefaultTableModel) this.jTableListadoConferencias.getModel();
+
+    public void llenarTabla() {
+        DefaultTableModel model = (DefaultTableModel) this.jTableListadoConferencias.getModel();
         limpiarTabla();
-        ArrayList<Conferencia> listaConferencias= (ArrayList<Conferencia>) this.objServicioAlmacenamiento.listarConferencias();
+        ArrayList<Conferencia> listaConferencias = (ArrayList<Conferencia>) this.objServicioAlmacenamiento.listarConferencias();
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-       
+
         for (int i = 0; i < listaConferencias.size(); i++) {
-            String [] fila= { 
-                listaConferencias.get(i).getNombre(), 
+            String[] fila = {
+                listaConferencias.get(i).getNombre(),
                 formatter.format(listaConferencias.get(i).getFechaInicio()),
                 formatter.format(listaConferencias.get(i).getFechaFin()),
                 listaConferencias.get(i).getUbicacion()
             };
             model.addRow(fila);
         }
-        
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -195,10 +193,11 @@ public class VtnListarConferencias extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        VtnRegistrarConferencia objVtnRegistrarConferencia= 
-                new VtnRegistrarConferencia(this.objServicioAlmacenamiento);
+        VtnRegistrarConferencia objVtnRegistrarConferencia
+                = new VtnRegistrarConferencia(this.objServicioAlmacenamiento, this);
         objVtnRegistrarConferencia.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         objVtnRegistrarConferencia.setVisible(true);
+
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
 

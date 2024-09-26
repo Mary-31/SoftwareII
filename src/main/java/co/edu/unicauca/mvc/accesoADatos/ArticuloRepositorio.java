@@ -1,41 +1,40 @@
 package co.edu.unicauca.mvc.accesoADatos;
 
 import co.edu.unicauca.mvc.modelos.Articulo;
+import co.edu.unicauca.mvc.modelos.Evaluador;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArticuloRepositorio implements IArticuloRepositorio{
+public class ArticuloRepositorio implements IArticuloRepositorio {
 
     private ArrayList<Articulo> listaDeArticulos;
-    
-    public ArticuloRepositorio()
-    {
-        this.listaDeArticulos= new ArrayList();
+
+    public ArticuloRepositorio() {
+        this.listaDeArticulos = new ArrayList();
     }
+
     @Override
     public boolean almacenarArticulo(Articulo objArticulo) {
         objArticulo.setIdArticulo(getCantidadArticulos());
-       return this.listaDeArticulos.add(objArticulo);
+        return this.listaDeArticulos.add(objArticulo);
     }
 
     @Override
     public List<Articulo> listarArticulos() {
         return this.listaDeArticulos;
     }
-    
-    private int getCantidadArticulos()
-    {
-        return this.listaDeArticulos.size()+1;
+
+    private int getCantidadArticulos() {
+        return this.listaDeArticulos.size() + 1;
     }
 
     @Override
     public boolean eliminarArticulo(int idArticulo) {
-        boolean bandera=false;
+        boolean bandera = false;
         for (int i = 0; i < this.listaDeArticulos.size(); i++) {
-            if(this.listaDeArticulos.get(i).getIdArticulo()==idArticulo)
-            {
+            if (this.listaDeArticulos.get(i).getIdArticulo() == idArticulo) {
                 this.listaDeArticulos.remove(i);
-                bandera=true;
+                bandera = true;
                 break;
             }
         }
@@ -44,30 +43,38 @@ public class ArticuloRepositorio implements IArticuloRepositorio{
 
     @Override
     public Articulo consultarArticulo(int idArticulo) {
-        Articulo objArticulo=null;
+        Articulo objArticulo = null;
         for (int i = 0; i < this.listaDeArticulos.size(); i++) {
-            if(this.listaDeArticulos.get(i).getIdArticulo()==idArticulo)
-            {
-                objArticulo=this.listaDeArticulos.get(i);
+            if (this.listaDeArticulos.get(i).getIdArticulo() == idArticulo) {
+                objArticulo = this.listaDeArticulos.get(i);
                 break;
             }
         }
-        
+
         return objArticulo;
     }
 
     @Override
     public boolean actualizarArticulo(Articulo objArticulo) {
-        boolean bandera=false;
+        boolean bandera = false;
         for (int i = 0; i < this.listaDeArticulos.size(); i++) {
-            if(this.listaDeArticulos.get(i).getIdArticulo()==objArticulo.getIdArticulo())
-            {
+            if (this.listaDeArticulos.get(i).getIdArticulo() == objArticulo.getIdArticulo()) {
                 this.listaDeArticulos.set(i, objArticulo);
-                bandera=true;
+                bandera = true;
                 break;
             }
         }
-        
+
         return bandera;
+    }
+
+    @Override
+    public boolean asignarEvaluadores(int id, ArrayList<Evaluador> listEvaluadores) {
+        Articulo articulo = consultarArticulo(id);
+        if (articulo != null) {
+            articulo.setListEvaluadores(listEvaluadores); 
+            return true;
+        }
+        return false;
     }
 }

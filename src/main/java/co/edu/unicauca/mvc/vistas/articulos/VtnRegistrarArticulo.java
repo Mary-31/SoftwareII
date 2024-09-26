@@ -34,12 +34,17 @@ public final class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
         this.objServicio1 = objServicio1;
         this.objServicio2 = objServicio2;
         this.objSAutores = objSAutores;
+    }
+    
+    // Método para llenar las tablas u otros elementos que necesiten actualizarse
+    public void initialize() {
         listAutores = (ArrayList<Autor>) objSAutores.listarAutores();
         cargarConferencias();
         llenarTabla();
     }
 
     public void cargarConferencias() {
+        jComboBoxConferencia.removeAllItems();
         ArrayList<Conferencia> conferencias = (ArrayList<Conferencia>) this.objServicio2.listarConferencias();
         for (int i = 0; i < conferencias.size(); i++) {
             this.jComboBoxConferencia.addItem(conferencias.get(i));
@@ -181,9 +186,16 @@ public final class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
             Class[] types = new Class [] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, true
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jTableAutores.setToolTipText("");

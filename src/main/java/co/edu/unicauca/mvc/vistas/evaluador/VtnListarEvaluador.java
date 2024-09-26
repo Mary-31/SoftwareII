@@ -53,12 +53,12 @@ public class VtnListarEvaluador extends javax.swing.JInternalFrame {
     {
         DefaultTableModel model=(DefaultTableModel) this.jTableListarEvaluadores.getModel();
         limpiarTabla();
-        LinkedList<Evaluador> listarEvaluadores
-                = (LinkedList<Evaluador>) this.objServicio4.listarEvaluadores();
+        ArrayList<Evaluador> listarEvaluadores
+                = (ArrayList<Evaluador>) this.objServicio4.listarEvaluadores();
         
         JButton JButtonEliminarEvaluador = new JButton();
-            JButtonEliminarEvaluador.setName("Eliminar");
-            JButtonEliminarEvaluador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/remove.png")));
+        JButtonEliminarEvaluador.setName("Eliminar");
+        JButtonEliminarEvaluador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/remove.png")));
 
         JButton JButtonActualizarEvaluador = new JButton();
         JButtonActualizarEvaluador.setName("Actualizar");
@@ -204,7 +204,7 @@ public class VtnListarEvaluador extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonActualizarActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        VtnRegistrarEvaluador objVtnRegistrarEvaluador=new VtnRegistrarEvaluador(objServicio, objServicio4);
+        VtnRegistrarEvaluador objVtnRegistrarEvaluador=new VtnRegistrarEvaluador(objServicio4);
         objVtnRegistrarEvaluador.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         objVtnRegistrarEvaluador.setVisible(true);
     }//GEN-LAST:event_jButtonRegistrarActionPerformed

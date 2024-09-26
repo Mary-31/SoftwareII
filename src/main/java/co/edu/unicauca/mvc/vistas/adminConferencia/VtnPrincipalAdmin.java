@@ -71,17 +71,24 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
 
     private void relacionarInternalFrameConJdesptokPane() {
 
-        this.objVtnListarArticulos = new VtnListarArticulos(this.objServicio2, this.objServicio1);
+        this.objVtnListarArticulos = new VtnListarArticulos(this.objServicio2, this.objServicio1, this.objServicio4);
+                this.jDesktopPanelPrincipal.add(this.objVtnListarArticulos);
 
         this.objVtnListarConferencias = new VtnListarConferencias(this.objServicio1);
+                this.jDesktopPanelPrincipal.add(this.objVtnListarConferencias);
 
         this.objVtnListarEvaluador = new VtnListarEvaluador(this.objServicio2, this.objServicio4);
+        this.jDesktopPanelPrincipal.add(this.objVtnListarEvaluador);
 
         this.objVtnRegistrarOrganizadores = new VtnListarOrganizadores(this.objServicio3);
+        this.jDesktopPanelPrincipal.add(this.objVtnRegistrarOrganizadores);
 
         this.objVtnRegistrarArticulo = new VtnRegistrarArticulo(this.objServicio2, this.objServicio1, this.objSAutores);
+                this.jDesktopPanelPrincipal.add(this.objVtnRegistrarArticulo);
 
         this.objVtnRegistrarAutor = new VtnRegistrarAutor(objSAutores);
+                this.jDesktopPanelPrincipal.add(this.objVtnRegistrarAutor);
+
 
     }
 
@@ -230,7 +237,6 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void jButtonGestionarOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionarOActionPerformed
-        this.jDesktopPanelPrincipal.add(this.objVtnRegistrarOrganizadores);
         this.objVtnListarConferencias.setVisible(false);
         this.objVtnRegistrarOrganizadores.setVisible(true);
         this.objVtnRegistrarArticulo.setVisible(false);
@@ -240,7 +246,6 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonGestionarOActionPerformed
 
     private void jButtonGestionarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionarEActionPerformed
-        this.jDesktopPanelPrincipal.add(this.objVtnListarEvaluador);
         this.objVtnListarEvaluador.setVisible(true);
         this.objVtnListarConferencias.setVisible(false);
         this.objVtnRegistrarOrganizadores.setVisible(false);
@@ -250,7 +255,7 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonGestionarEActionPerformed
 
     private void jButtonVerArticulosEnviadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerArticulosEnviadosActionPerformed
-        this.jDesktopPanelPrincipal.add(this.objVtnListarArticulos);
+        objVtnListarArticulos.initialize();
         this.objVtnListarArticulos.setVisible(true);
         this.objVtnListarConferencias.setVisible(false);
         this.objVtnRegistrarOrganizadores.setVisible(false);
@@ -260,7 +265,6 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVerArticulosEnviadosActionPerformed
 
     private void jButtonGestionarConferenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionarConferenciasActionPerformed
-        this.jDesktopPanelPrincipal.add(this.objVtnListarConferencias);
         this.objVtnListarConferencias.gestionRol(rol);
         this.objVtnListarConferencias.setVisible(true);
         this.objVtnListarArticulos.setVisible(false);
@@ -271,7 +275,7 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonGestionarConferenciasActionPerformed
 
     private void jButtonRegistrarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarArticuloActionPerformed
-        this.jDesktopPanelPrincipal.add(this.objVtnRegistrarArticulo);
+        objVtnRegistrarArticulo.initialize();
         this.objVtnListarConferencias.setVisible(false);
         this.objVtnListarArticulos.setVisible(false);
         this.objVtnRegistrarOrganizadores.setVisible(false);
@@ -281,7 +285,6 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonRegistrarArticuloActionPerformed
 
     private void btnRegistrarAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarAutorActionPerformed
-        this.jDesktopPanelPrincipal.add(this.objVtnRegistrarAutor);
         this.objVtnListarConferencias.setVisible(false);
         this.objVtnListarArticulos.setVisible(false);
         this.objVtnRegistrarOrganizadores.setVisible(false);

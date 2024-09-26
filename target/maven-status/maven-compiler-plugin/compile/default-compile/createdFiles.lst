@@ -8,9 +8,11 @@ co\edu\unicauca\mvc\vistas\adminConferencia\VtnListarOrganizadores$2.class
 co\edu\unicauca\mvc\vistas\articulos\VtnListarArticulos$1.class
 co\edu\unicauca\mvc\vistas\articulos\VtnRegistrarArticulo$3.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnRegistrarConferencia.class
+co\edu\unicauca\mvc\vistas\articulos\VtnAsignarEvaluador.class
 co\edu\unicauca\mvc\vistas\VtnLogin.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnRegistrarOrganizadores.class
 co\edu\unicauca\mvc\vistas\autor\VtnRegistrarAutor.class
+co\edu\unicauca\mvc\vistas\articulos\VtnAsignarEvaluador$1.class
 co\edu\unicauca\mvc\accesoADatos\IAutorRepositorio.class
 co\edu\unicauca\mvc\modelos\Evaluador.class
 co\edu\unicauca\mvc\vistas\evaluador\VtnRegistrarEvaluador.class
@@ -30,6 +32,7 @@ co\edu\unicauca\mvc\accesoADatos\ArticuloRepositorio.class
 co\edu\unicauca\mvc\modelos\Conferencia.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnRegistrarOrganizadores$1.class
 co\edu\unicauca\mvc\vistas\articulos\VtnListarArticulos$2.class
+co\edu\unicauca\mvc\vistas\articulos\VtnAsignarEvaluador$2.class
 co\edu\unicauca\mvc\vistas\evaluador\RenderE.class
 co\edu\unicauca\mvc\vistas\evaluador\VtnListarEvaluador$2.class
 co\edu\unicauca\mvc\controladores\EvaluadorServicio.class

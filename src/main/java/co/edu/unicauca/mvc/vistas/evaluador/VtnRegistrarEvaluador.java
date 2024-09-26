@@ -14,14 +14,10 @@ import java.util.LinkedList;
 public class VtnRegistrarEvaluador extends javax.swing.JFrame {
 
     private EvaluadorServicio objServicio4;
-    private ArticuloServicio objServicio2;
     
-    public VtnRegistrarEvaluador(
-            ArticuloServicio objServicio2,
-            EvaluadorServicio objServicio4) {
+    public VtnRegistrarEvaluador(EvaluadorServicio objServicio4) {
         initComponents();
         this.objServicio4=objServicio4;
-        this.objServicio2=objServicio2;
     }
     
 
@@ -46,6 +42,8 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
         jButtonRegistrarE = new javax.swing.JButton();
         jLabelApellido = new javax.swing.JLabel();
         jTextFieldApellido = new javax.swing.JTextField();
+        jLabelTemasE1 = new javax.swing.JLabel();
+        txtCorreo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,6 +104,8 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
 
         jLabelApellido.setText("Apellido:");
 
+        jLabelTemasE1.setText("Correo:");
+
         javax.swing.GroupLayout jPanelCentralLayout = new javax.swing.GroupLayout(jPanelCentral);
         jPanelCentral.setLayout(jPanelCentralLayout);
         jPanelCentralLayout.setHorizontalGroup(
@@ -114,23 +114,25 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
                 .addGap(102, 102, 102)
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelCentralLayout.createSequentialGroup()
-                        .addComponent(jLabelApellido)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanelCentralLayout.createSequentialGroup()
                         .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelNombreE)
                             .addComponent(jLabelTemasE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                         .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelCentralLayout.createSequentialGroup()
-                                .addGap(252, 252, 252)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
                                 .addComponent(jButtonRegistrarE))
                             .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jTextFieldNombreE, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jTextFieldApellido, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING))))
-                        .addGap(22, 22, 22))))
+                                .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(22, 22, 22))
+                    .addGroup(jPanelCentralLayout.createSequentialGroup()
+                        .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelTemasE1)
+                            .addComponent(jLabelApellido))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanelCentralLayout.setVerticalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,11 +154,16 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)))
+                .addGap(12, 12, 12)
+                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelTemasE1)
+                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButtonRegistrarE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabelTemasE))
-                .addGap(29, 29, 29)
-                .addComponent(jButtonRegistrarE)
                 .addGap(15, 15, 15))
         );
 
@@ -166,25 +173,27 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegistrarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarEActionPerformed
-        String nombreEvaluador, apellidoEvaluador, temasExperto; 
-        Articulo objArticulo;
+        String nombreEvaluador, apellidoEvaluador, temasExperto, correo;
     
         boolean bandera;
         
         nombreEvaluador=this.jTextFieldNombreE.getText();
         apellidoEvaluador=this.jTextFieldApellido.getText();
         temasExperto=this.jTextAreaTemas.getText();
+        correo = this.txtCorreo.getText();
         
         Evaluador objEvaluador= new Evaluador();
         objEvaluador.setNombre(nombreEvaluador);
         objEvaluador.setApellido(apellidoEvaluador);
         objEvaluador.setTemasExperto(temasExperto);
+        objEvaluador.setCorreo(correo);
         
         bandera=this.objServicio4.almacenarEvaluador(objEvaluador);
         
         if(bandera==true)
         {
             Utilidades.mensajeExito("Registro exitoso", "Registro exitoso");
+            dispose();
         }
         else
         {
@@ -201,6 +210,7 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelApellido;
     private javax.swing.JLabel jLabelNombreE;
     private javax.swing.JLabel jLabelTemasE;
+    private javax.swing.JLabel jLabelTemasE1;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanelCentral;
     private javax.swing.JPanel jPanelInferior;
@@ -209,5 +219,6 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextAreaTemas;
     private javax.swing.JTextField jTextFieldApellido;
     private javax.swing.JTextField jTextFieldNombreE;
+    private javax.swing.JTextField txtCorreo;
     // End of variables declaration//GEN-END:variables
 }
