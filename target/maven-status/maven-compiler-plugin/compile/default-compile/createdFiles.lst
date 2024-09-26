@@ -52,6 +52,7 @@ co\edu\unicauca\mvc\vistas\articulos\VtnRegistrarArticulo$2.class
 co\edu\unicauca\mvc\vistas\evaluador\VtnListarEvaluador.class
 co\edu\unicauca\mvc\controladores\AutorServicio.class
 co\edu\unicauca\mvc\vistas\evaluador\VtnRegistrarEvaluador$1.class
+co\edu\unicauca\mvc\vistas\articulos\VtnActualizarArticulo$2.class
 co\edu\unicauca\mvc\vistas\evaluador\VtnListarEvaluador$1.class
 co\edu\unicauca\mvc\accesoADatos\AutorRepositorio.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnRegistrarConferencia$1.class
