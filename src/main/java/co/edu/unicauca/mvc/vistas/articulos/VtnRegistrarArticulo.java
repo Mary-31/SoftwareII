@@ -27,17 +27,9 @@ public final class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
     private AutorServicio objSAutores;
     private ArrayList<Autor> listAutores;
 
-    public VtnRegistrarArticulo(
-<<<<<<< HEAD
-            ArticuloServicio objServicio1,
+    public VtnRegistrarArticulo(ArticuloServicio objServicio1,
             ConferenciaServicio objServicio2,
-            AutorServicio objSAutores) 
-    {
-=======
-            ServicioAlmacenamientoArticulos objServicio1,
-            ServicioAlmacenamientoConferencias objServicio2,
-            ServicioAlmacenamientoAutores objSAutores) {
->>>>>>> d426b69 (Modificaicones ventana principal)
+            AutorServicio objSAutores) {
         initComponents();
         this.objServicio1 = objServicio1;
         this.objServicio2 = objServicio2;
