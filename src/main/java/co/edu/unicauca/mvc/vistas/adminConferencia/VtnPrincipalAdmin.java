@@ -24,10 +24,11 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     private VtnListarConferencias objVtnListarConferencias;
     private VtnVerArticulosEnviadosConferencias objVtnVerPrestamos;
     private VtnListarOrganizadores objVtnRegistrarOrganizadores;
-    private VtnListarArticulos objVtnRegistrarArticulos;
+    private VtnListarArticulos objListarArticulos;
     private VtnRegistrarArticulo objVtnRegistrarArticulo;
     private VtnListarEvaluador objVtnListarEvaluador;
     private VtnRegistrarAutor objVtnRegistrarAutor;
+  
     private ServicioAlmacenamientoConferencias objServicio1;   
     private ServicioAlmacenamientoArticulos  objServicio2;
     private ServicioAlmacenamientoOrganizadores objServicio3;
@@ -103,6 +104,7 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
         
         this.objVtnRegistrarAutor = new VtnRegistrarAutor(objSAutores);
         this.jDesktopPanelPrincipal.add(this.objVtnRegistrarAutor);
+        
     }
 
     private void establecerIconoOrganización()

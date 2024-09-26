@@ -11,6 +11,10 @@ package co.edu.unicauca.mvc.modelos;
 public class Autor {
     private String nombre;
     private String apellido;
+    
+    public Autor(){
+        
+    }
 
     public Autor(String nombre, String apellido) {
         this.nombre = nombre;

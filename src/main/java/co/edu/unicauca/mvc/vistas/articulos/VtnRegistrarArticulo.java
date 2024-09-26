@@ -13,6 +13,7 @@ import co.edu.unicauca.mvc.modelos.Conferencia;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,6 +25,7 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
     private ServicioAlmacenamientoArticulos objServicio1;
     private ServicioAlmacenamientoConferencias objServicio2;
     private ServicioAlmacenamientoAutores objSAutores;
+    private ArrayList<Autor> listAutores;
     
     public VtnRegistrarArticulo(
             ServicioAlmacenamientoArticulos objServicio1,
@@ -34,6 +36,7 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
         this.objServicio1=objServicio1;
         this.objServicio2=objServicio2;
         this.objSAutores = objSAutores;
+        listAutores = (ArrayList<Autor>) objSAutores.listarAutores();
         cargarConferencias();
         llenarTabla();
     }
@@ -57,14 +60,29 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
     public void llenarTabla(){
         DefaultTableModel model =(DefaultTableModel) this.jTableAutores.getModel();
         limpiarTabla();
-        ArrayList<Autor> listAutores = (ArrayList<Autor>) this.objSAutores.listarAutores();
-       
-        if (listAutores != null){
-            for (int i = 0; i < listAutores.size(); i++) {
-                String [] fila= { listAutores.get(i).getNombre(), listAutores.get(i).getApellido()};
+    
+        if (this.listAutores != null){
+            for (int i = 0; i < this.listAutores.size(); i++) {
+                String [] fila= { this.listAutores.get(i).getNombre(), this.listAutores.get(i).getApellido()};
                 model.addRow(fila);
             }
         } 
+    }
+    
+    public ArrayList<Autor> obtenerAutoresSeleccionados(JTable tabla) {
+        ArrayList<Autor> autoresSeleccionados = new ArrayList<>();
+        DefaultTableModel model = (DefaultTableModel) tabla.getModel();
+
+        // Recorrer las filas para verificar cuáles están seleccionadas
+        for (int i = 0; i < model.getRowCount(); i++) {
+            Object isSelected = (Boolean) model.getValueAt(i, 2);
+            
+            if (isSelected != null && (Boolean) isSelected) {
+                Autor autor = listAutores.get(i);
+                autoresSeleccionados.add(autor);
+            }
+        }
+        return autoresSeleccionados;
     }
 
     /**
@@ -82,13 +100,13 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextFieldTitulo = new javax.swing.JTextField();
+        txtTitulo = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaAutores = new javax.swing.JTextArea();
+        txtResumen = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         jComboBoxConferencia = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jTextFieldTitulo1 = new javax.swing.JTextField();
+        txtPalabras = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableAutores = new javax.swing.JTable();
@@ -131,9 +149,9 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Palabras clave:");
 
-        jTextAreaAutores.setColumns(20);
-        jTextAreaAutores.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaAutores);
+        txtResumen.setColumns(20);
+        txtResumen.setRows(5);
+        jScrollPane1.setViewportView(txtResumen);
 
         jLabel4.setText("Conferencia:");
 
@@ -143,19 +161,27 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
 
         jTableAutores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Nombre", "Apellido"
+                "Nombre", "Apellido", "Asignar"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jTableAutores.setToolTipText("");
         jScrollPane2.setViewportView(jTableAutores);
 
@@ -177,7 +203,7 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addComponent(jLabel2)
                             .addGap(18, 18, 18)
-                            .addComponent(jTextFieldTitulo1))
+                            .addComponent(txtPalabras))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -190,7 +216,7 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
                         .addGap(32, 32, 32)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
-                            .addComponent(jTextFieldTitulo)
+                            .addComponent(txtTitulo)
                             .addComponent(jComboBoxConferencia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -203,7 +229,7 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
                     .addComponent(jComboBoxConferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,7 +237,7 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPalabras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
@@ -246,21 +272,24 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        String titulo, autores;
-        ArrayList<Autor> listAutores = null;
+        String titulo, resumen, palabras;
+        ArrayList<Autor> listAutores = obtenerAutoresSeleccionados(jTableAutores);
         Conferencia objConferencia;
         boolean bandera;
-
-        titulo=this.jTextFieldTitulo.getText();
-        autores=this.jTextAreaAutores.getText();
-        objConferencia=(Conferencia) this.jComboBoxConferencia.getSelectedItem();
+        
+        titulo=this.txtTitulo.getText();
+        resumen = this.txtResumen.getText();
+        palabras = this.txtPalabras.getText();
+        objConferencia = (Conferencia) this.jComboBoxConferencia.getSelectedItem();
 
         Articulo objArticulo= new Articulo();
         objArticulo.setTitulo(titulo);
+        objArticulo.setResumen(resumen);
+        objArticulo.setPalabrasClave(palabras);
         objArticulo.setAutores(listAutores);
         objArticulo.setObjConferencia(objConferencia);
 
-        bandera=this.objServicio1.almacenarArticulo(objArticulo);
+        bandera = this.objServicio1.almacenarArticulo(objArticulo);
 
         if(bandera==true)
         {
@@ -289,8 +318,8 @@ public class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableAutores;
-    private javax.swing.JTextArea jTextAreaAutores;
-    private javax.swing.JTextField jTextFieldTitulo;
-    private javax.swing.JTextField jTextFieldTitulo1;
+    private javax.swing.JTextField txtPalabras;
+    private javax.swing.JTextArea txtResumen;
+    private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 }
