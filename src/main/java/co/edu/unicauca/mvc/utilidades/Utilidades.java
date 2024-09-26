@@ -2,6 +2,7 @@ package co.edu.unicauca.mvc.utilidades;
 
 
 import javax.swing.JOptionPane;
+import utilidades.CargarImagenes;
 
 /**
  *
