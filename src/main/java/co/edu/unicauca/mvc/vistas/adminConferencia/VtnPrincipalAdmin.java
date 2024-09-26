@@ -10,9 +10,6 @@ import co.edu.unicauca.mvc.vistas.articulos.VtnListarArticulos;
 import co.edu.unicauca.mvc.vistas.articulos.VtnRegistrarArticulo;
 import co.edu.unicauca.mvc.vistas.autor.VtnRegistrarAutor;
 import co.edu.unicauca.mvc.vistas.evaluador.VtnListarEvaluador;
-import co.edu.unicauca.mvc.vistas.articulos.VtnRegistrarArticulo;
-import co.edu.unicauca.mvc.vistas.autor.VtnRegistrarAutor;
-import co.edu.unicauca.mvc.vistas.evaluador.VtnListarEvaluador;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -22,9 +19,7 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     private VtnVerEstadisticas objVtnVerEstadisticas;
     private VtnListarArticulos objVtnListarArticulos;
     private VtnListarConferencias objVtnListarConferencias;
-    private VtnVerArticulosEnviadosConferencias objVtnVerPrestamos;
     private VtnListarOrganizadores objVtnRegistrarOrganizadores;
-    private VtnListarArticulos objListarArticulos;
     private VtnRegistrarArticulo objVtnRegistrarArticulo;
     private VtnListarEvaluador objVtnListarEvaluador;
     private VtnRegistrarAutor objVtnRegistrarAutor;
@@ -95,9 +90,6 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
         
         this.objVtnRegistrarOrganizadores  = new VtnListarOrganizadores(this.objServicio3);
         this.jDesktopPanelPrincipal.add(this.objVtnRegistrarOrganizadores);
-        
-        this.objVtnVerPrestamos= new VtnVerArticulosEnviadosConferencias();
-        this.jDesktopPanelPrincipal.add(this.objVtnVerPrestamos);
         
         this.objVtnRegistrarArticulo = new VtnRegistrarArticulo(this.objServicio2, this.objServicio1, this.objSAutores);
         this.jDesktopPanelPrincipal.add(this.objVtnRegistrarArticulo);
@@ -253,7 +245,6 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         this.objVtnListarConferencias.setVisible(false);
-        this.objVtnVerPrestamos.setVisible(false);
         this.objVtnVerEstadisticas.setVisible(false);
         this.objVtnListarArticulos.setVisible(false);
         this.objVtnRegistrarOrganizadores.setVisible(false);
@@ -265,18 +256,16 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
 
     private void jButtonGestionarOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionarOActionPerformed
         this.objVtnListarConferencias.setVisible(false);
-        this.objVtnVerPrestamos.setVisible(false);
-        this.objVtnVerEstadisticas.setVisible(false);
-        this.objVtnVerPrestamos.setVisible(false);
         this.objVtnVerEstadisticas.setVisible(false);
         this.objVtnRegistrarOrganizadores.setVisible(true);
         this.objVtnRegistrarArticulo.setVisible(false);
         this.objVtnRegistrarAutor.setVisible(false);
+        this.objVtnListarArticulos.setVisible(false);
+        this.objVtnListarEvaluador.setVisible(false);
     }//GEN-LAST:event_jButtonGestionarOActionPerformed
 
     private void jButtonGestionarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionarEActionPerformed
         this.objVtnListarEvaluador.setVisible(true);
-        this.objVtnVerPrestamos.setVisible(false);
         this.objVtnListarConferencias.setVisible(false);
         this.objVtnVerEstadisticas.setVisible(false);
         this.objVtnRegistrarOrganizadores.setVisible(false);
@@ -287,7 +276,6 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
 
     private void jButtonVerEstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerEstadisticasActionPerformed
         this.objVtnVerEstadisticas.setVisible(true);
-        this.objVtnVerPrestamos.setVisible(false);
         this.objVtnListarArticulos.setVisible(false);
         this.objVtnListarConferencias.setVisible(false);
         this.objVtnRegistrarOrganizadores.setVisible(false);
@@ -297,7 +285,7 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVerEstadisticasActionPerformed
 
     private void jButtonVerArticulosEnviadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerArticulosEnviadosActionPerformed
-        this.objVtnVerPrestamos.setVisible(true);
+        this.objVtnListarArticulos.llenarTabla();
         this.objVtnListarArticulos.setVisible(true);
         this.objVtnVerEstadisticas.setVisible(false);
         this.objVtnListarConferencias.setVisible(false);
@@ -310,7 +298,6 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     private void jButtonGestionarConferenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionarConferenciasActionPerformed
         this.objVtnListarConferencias.gestionRol(rol);
         this.objVtnListarConferencias.setVisible(true);
-        this.objVtnVerPrestamos.setVisible(false);
         this.objVtnVerEstadisticas.setVisible(false);
         this.objVtnListarArticulos.setVisible(false);
         this.objVtnRegistrarOrganizadores.setVisible(false);
@@ -321,7 +308,6 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
 
     private void jButtonRegistrarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarArticuloActionPerformed
         this.objVtnListarConferencias.setVisible(false);
-        this.objVtnVerPrestamos.setVisible(false);
         this.objVtnVerEstadisticas.setVisible(false);
         this.objVtnListarArticulos.setVisible(false);
         this.objVtnRegistrarOrganizadores.setVisible(false);
@@ -333,7 +319,6 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
 
     private void btnRegistrarAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarAutorActionPerformed
         this.objVtnListarConferencias.setVisible(false);
-        this.objVtnVerPrestamos.setVisible(false);
         this.objVtnVerEstadisticas.setVisible(false);
         this.objVtnListarArticulos.setVisible(false);
         this.objVtnRegistrarOrganizadores.setVisible(false);
