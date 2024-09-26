@@ -8,22 +8,41 @@ package co.edu.unicauca.mvc.modelos;
  *
  * @author SANTIAGO DORADO
  */
-public class Autor {
+
+/**
+ * Representa un autor de un artículo dentro del sistema de conferencias.
+ * Contiene información personal del autor como nombre, apellido y correo electrónico.
+ */
+
+    public class Autor {
     private int id;
     private String nombre;
     private String apellido;
     private String correo;
     
+     /**
+     * Constructor vacío para la clase Autor.
+     */
     public Autor(){
         
     }
-
+    /**
+     * Constructor con parámetros para inicializar un autor.
+     * 
+     * @param id Identificador único del autor.
+     * @param nombre Nombre del autor.
+     * @param apellido Apellido del autor.
+     * @param correo Correo electrónico del autor.
+     */
+    
     public Autor(int id, String nombre, String apellido, String correo) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
     }
+    
+    // Métodos getters y setters
 
     public int getId() {
         return id;

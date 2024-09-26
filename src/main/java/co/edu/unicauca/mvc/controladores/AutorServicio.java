@@ -12,18 +12,41 @@ import co.edu.unicauca.mvc.accesoADatos.IAutorRepositorio;
  *
  * @author SANTIAGO DORADO
  */
+
+/**
+ * Clase de servicio que proporciona métodos para gestionar autores
+ * utilizando un repositorio de autores.
+ */
 public class AutorServicio {
+    /**
+     * Repositorio de autores utilizado por el servicio.
+     */
     private IAutorRepositorio objIAutor;
+    
+    /**
+     * Constructor que inicializa el servicio con un repositorio de autores.
+     *
+     * @param objIAutor El repositorio de autores a utilizar.
+     */
     
     public AutorServicio(IAutorRepositorio objIAutor) {
         this.objIAutor = objIAutor;
     }
-    
+    /**
+     * Registra un autor utilizando el repositorio.
+     *
+     * @param objAutor El autor a registrar.
+     * @return true si el autor se registra correctamente, false en caso contrario.
+     */
     public boolean registrarAutor(Autor objAutor){
         boolean bandera = this.objIAutor.registrarAutor(objAutor);
         return bandera;
     }
-    
+    /**
+     * Lista todos los autores almacenados en el repositorio.
+     *
+     * @return Una lista de todos los autores.
+     */
     public List<Autor> listarAutores(){
         return this.objIAutor.listarAutores();
     }

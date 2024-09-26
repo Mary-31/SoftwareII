@@ -2,8 +2,14 @@ package co.edu.unicauca.mvc.modelos;
 
 /**
  *
- * @author Usuario
+ * @author Mary
  */
+
+/**
+ * Representa un evaluador dentro del sistema de conferencias.
+ * Contiene información sobre el nombre, apellido, correo electrónico y los temas de experiencia del evaluador.
+ */
+
 public class Evaluador {
 
     private int id;
@@ -11,11 +17,22 @@ public class Evaluador {
     private String apellido;
     private String correo;
     private String temasExperto;
-
+    
+    /**
+     * Constructor vacío para la clase Evaluador.
+     */
     public Evaluador() {
 
     }
-
+    /**
+     * Constructor con parámetros para inicializar un evaluador.
+     * 
+     * @param id Identificador único del evaluador.
+     * @param nombre Nombre del evaluador.
+     * @param apellido Apellido del evaluador.
+     * @param correo Correo electrónico del evaluador.
+     * @param temasExperto Temas en los que el evaluador es experto.
+     */
     public Evaluador(int id, String nombre, String apellido, String correo, String temasExperto) {
         this.id = id;
         this.nombre = nombre;
@@ -23,7 +40,8 @@ public class Evaluador {
         this.correo = correo;
         this.temasExperto = temasExperto;
     }
-
+    
+    // Métodos getters y setters
     public int getId() {
         return id;
     }

@@ -1,7 +1,14 @@
 package co.edu.unicauca.mvc.modelos;
-
+/**
+ *
+ * @author Mary
+ */
 import java.util.ArrayList;
-
+/**
+ * Representa un artículo dentro del sistema de conferencias.
+ * Contiene información sobre el título, resumen, palabras clave,
+ * autores asociados, conferencia y evaluadores.
+ */
 public class Articulo {
     private int idArticulo;
     private String titulo;
@@ -11,6 +18,18 @@ public class Articulo {
     private Conferencia objConferencia;
     private ArrayList<Evaluador> listEvaluadores;
    
+     /**
+     * Constructor con parámetros para inicializar un artículo.
+     * 
+     * @param idArticulo Identificador único del artículo.
+     * @param titulo Título del artículo.
+     * @param resumen Resumen del contenido del artículo.
+     * @param palabrasClave Palabras clave asociadas al artículo.
+     * @param listAutores Lista de autores que participaron en el artículo.
+     * @param objConferencia Conferencia a la que pertenece el artículo.
+     * @param listEvaluadores Lista de evaluadores asignados al artículo.
+     */
+    
     public Articulo(int idArticulo, String titulo, String resumen, 
             String palabrasClave, ArrayList<Autor> listAutores, 
             Conferencia objConferencia, ArrayList<Evaluador> listEvaluadores) {
@@ -22,11 +41,13 @@ public class Articulo {
         this.objConferencia = objConferencia;
         this.listEvaluadores = new ArrayList<>();
     }
-
+    /**
+     * Constructor vacío para la clase Articulo.
+     */
     public Articulo() {
         
     }
-    
+    // Métodos getters y setters
     public int getIdArticulo() {
         return idArticulo;
     }

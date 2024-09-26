@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package co.edu.unicauca.mvc.vistas;
 
 import co.edu.unicauca.mvc.accesoADatos.ArticuloRepositorio;
@@ -16,19 +12,32 @@ import co.edu.unicauca.mvc.controladores.EvaluadorServicio;
 import co.edu.unicauca.mvc.controladores.OrganizadorServicio;
 import co.edu.unicauca.mvc.vistas.adminConferencia.VtnPrincipalAdmin;
 
+/**
+ * Clase VtnLogin que representa la ventana principal de login de la aplicación.
+ * Hereda de javax.swing.JFrame para crear una interfaz gráfica que permite a los usuarios seleccionar
+ * su rol y acceder al sistema correspondiente.
+ * Se inicializan los servicios necesarios y se permite al usuario seleccionar entre los roles
+ * disponibles: Organizador, Autor o Evaluador.
+ */
+
 public final class VtnLogin extends javax.swing.JFrame {
 
     /**
      * Creates new form login
      */
     private VtnPrincipalAdmin objVtnPrincipal;
-
+     /**
+     * Constructor de la clase que inicializa los componentes gráficos y los servicios necesarios.
+     */
     public VtnLogin() {
         initComponents();
         inicializarResSer();
     }
-
-    // Inicialización de Repositorios y Servicios
+    
+    /**
+     * Método encargado de inicializar los repositorios y servicios de la aplicación.
+     * Se asocian los servicios a la ventana principal del administrador.
+     */
     public void inicializarResSer() {
         ConferenciaRepositorio objRConferencia = new ConferenciaRepositorio();
         ConferenciaServicio objSConferencia 
@@ -103,7 +112,10 @@ public final class VtnLogin extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+     /**
+     * Método que maneja el evento de selección de rol en el comboBox.
+     * Dependiendo del rol seleccionado, abre la ventana principal correspondiente.
+     */
     private void cmbRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRolActionPerformed
         String opcion = (String) cmbRol.getSelectedItem();
         if (!opcion.equals("Seleccione Rol")) {
@@ -115,7 +127,7 @@ public final class VtnLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbRolActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Método principal que inicia la ejecución de la ventana de login.
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

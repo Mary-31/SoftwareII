@@ -9,9 +9,26 @@ import java.util.List;
 
 /**
  *
- * @author SANTIAGO DORADO
+ * @author Mary
  */
+
+/**
+ * Interfaz que define los métodos para gestionar el almacenamiento
+ * y consulta de autores.
+ */
+
 public interface IAutorRepositorio {
+    /**
+     * Registra un autor en el repositorio.
+     *
+     * @param objAutor El autor a registrar.
+     * @return true si el autor se registra correctamente, false en caso contrario.
+     */
     public boolean registrarAutor(Autor objAutor);
+    /**
+     * Lista todos los autores almacenados en el repositorio.
+     *
+     * @return Una lista de todos los autores.
+     */
     public List<Autor> listarAutores();
 }
