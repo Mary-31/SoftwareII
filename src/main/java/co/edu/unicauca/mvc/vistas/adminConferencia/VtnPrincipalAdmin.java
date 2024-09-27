@@ -9,6 +9,7 @@ import co.edu.unicauca.mvc.vistas.articulos.VtnListarArticulos;
 import co.edu.unicauca.mvc.vistas.articulos.VtnRegistrarArticulo;
 import co.edu.unicauca.mvc.vistas.autor.VtnRegistrarAutor;
 import co.edu.unicauca.mvc.vistas.evaluador.VtnListarEvaluador;
+import co.edu.unicauca.mvc.vistas.organizador.VtnListarOrganizadores;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -125,14 +126,13 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
 
 
     }
-/*
+
     private void establecerIconoOrganización() {
         Image img1 = new ImageIcon(getClass().getResource("/recursos/fondo1.jpg")).getImage();
         ImageIcon img2 = new ImageIcon(img1.getScaledInstance(30, 30, Image.SCALE_SMOOTH));
         this.jLabelImagenOrganizacion.setIcon(img2);
         this.jLabelImagenOrganizacion.setText("");
     }
-*/
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

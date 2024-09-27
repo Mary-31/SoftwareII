@@ -12,6 +12,17 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author SANTIAGO DORADO
  */
+
+/**
+ * Clase VtnAsignarEvaluador
+ * 
+ * Esta clase representa una ventana de la interfaz gráfica de usuario para asignar evaluadores a un artículo
+ * en un sistema de gestión de conferencias.
+ * 
+ * Hereda de javax.swing.JFrame y utiliza los servicios de ArticuloServicio y EvaluadorServicio para manejar 
+ * la lógica de negocio relacionada con los artículos y los evaluadores respectivamente.
+ */
+
 public class VtnAsignarEvaluador extends javax.swing.JFrame {
 
     private EvaluadorServicio objSEvaluador;
@@ -20,7 +31,11 @@ public class VtnAsignarEvaluador extends javax.swing.JFrame {
     private int indice;
 
     /**
-     * Creates new form VtnAsignarEvaluador
+     * Constructor de la clase VtnAsignarEvaluador
+     * 
+     * @param objSArticulo Objeto del servicio de artículos para manejar la lógica relacionada con los artículos.
+     * @param objSEvaluador Objeto del servicio de evaluadores para manejar la lógica relacionada con los evaluadores.
+     * @param indice Índice del artículo al que se le asignarán evaluadores.
      */
     public VtnAsignarEvaluador(ArticuloServicio objSArticulo, EvaluadorServicio objSEvaluador, int indice) {
         initComponents();
@@ -30,7 +45,12 @@ public class VtnAsignarEvaluador extends javax.swing.JFrame {
         listEvaluadores = (ArrayList<Evaluador>) objSEvaluador.listarEvaluadores();
         llenarTabla();
     }
-
+    /**
+     * Obtiene la lista de evaluadores seleccionados en la tabla.
+     * 
+     * @param tabla JTable que contiene los evaluadores.
+     * @return ArrayList<Evaluador> Lista de evaluadores seleccionados.
+     */
     public ArrayList<Evaluador> obtenerSeleccionados(JTable tabla) {
         ArrayList<Evaluador> evaluadoresSeleccionados = new ArrayList<>();
         DefaultTableModel model = (DefaultTableModel) tabla.getModel();
@@ -46,6 +66,10 @@ public class VtnAsignarEvaluador extends javax.swing.JFrame {
         }
         return evaluadoresSeleccionados;
     }
+     
+    /**
+     * Limpia la tabla de evaluadores.
+     */
 
     public void limpiarTabla() {
         DefaultTableModel modelo = (DefaultTableModel) this.jTableEvaluadores.getModel();
@@ -54,7 +78,9 @@ public class VtnAsignarEvaluador extends javax.swing.JFrame {
             modelo.removeRow(0);
         }
     }
-
+    /**
+     * Llena la tabla con la lista de evaluadores disponibles.
+     */
     public void llenarTabla() {
         DefaultTableModel model = (DefaultTableModel) this.jTableEvaluadores.getModel();
         limpiarTabla();
@@ -198,7 +224,13 @@ public class VtnAsignarEvaluador extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    /**
+     * Acción a realizar cuando se presiona el botón Asignar.
+     * Verifica los evaluadores seleccionados y los asigna al artículo.
+     * 
+     * @param evt Evento de acción.
+     */
     private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
         boolean bandera;
         ArrayList<Evaluador> listEvaluadores = obtenerSeleccionados(jTableEvaluadores);

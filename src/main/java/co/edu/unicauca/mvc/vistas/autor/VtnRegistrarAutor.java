@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package co.edu.unicauca.mvc.vistas.autor;
 
 import co.edu.unicauca.mvc.controladores.AutorServicio;
@@ -12,13 +8,23 @@ import co.edu.unicauca.mvc.utilidades.Utilidades;
  *
  * @author SANTIAGO DORADO
  */
-public class VtnRegistrarAutor extends javax.swing.JInternalFrame {
 
+/**
+ * Clase VtnRegistrarAutor.
+ * Esta clase representa una ventana interna que permite registrar nuevos autores en el sistema.
+ * Extiende javax.swing.JInternalFrame.
+ */
+
+public class VtnRegistrarAutor extends javax.swing.JInternalFrame {
+// Servicio utilizado para manejar las operaciones relacionadas con los autores.
     private AutorServicio objSAutor;
 
     /**
-     * Creates new form VtnRegistrarAutor
+     * Crea una nueva instancia de la ventana VtnRegistrarAutor.
+     * 
+     * @param objSAutor Servicio de autores utilizado para registrar y gestionar autores.
      */
+    
     public VtnRegistrarAutor(AutorServicio objSAutor) {
         initComponents();
         this.objSAutor = objSAutor;
@@ -180,7 +186,13 @@ public class VtnRegistrarAutor extends javax.swing.JInternalFrame {
     private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidoActionPerformed
-
+    /**
+     * Acción realizada al hacer clic en el botón Registrar.
+     * Este método recoge los datos introducidos por el usuario, crea una nueva instancia
+     * de Autor y utiliza el servicio de autores para registrar el nuevo autor.
+     * 
+     * @param evt Evento de acción.
+     */
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         String nombre, apellido, correo;
         boolean bandera;

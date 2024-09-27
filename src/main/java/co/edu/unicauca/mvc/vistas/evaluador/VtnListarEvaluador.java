@@ -13,21 +13,50 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Usuario
+ * @author Mary
  */
+
+/**
+ * Clase VtnListarEvaluador.
+ * 
+ * Esta clase representa una ventana interna (JInternalFrame) que permite 
+ * listar, eliminar y actualizar evaluadores en la aplicación.
+ */
+
 public class VtnListarEvaluador extends javax.swing.JInternalFrame {
-    public ArticuloServicio objServicio;
-    public EvaluadorServicio objServicio4;
+    // Atributos para los servicios utilizados en la clase
+    public ArticuloServicio objServicio; // Servicio para gestionar artículos.
+    public EvaluadorServicio objServicio4; // Servicio para gestionar evaluadores.
+    
+    /**
+     * Constructor de la clase VtnListarEvaluador.
+     * 
+     * Inicializa la ventana y asigna los servicios de artículos y evaluadores.
+     * También configura el renderizador de la tabla y llama al método para 
+     * inicializar la tabla.
+     * 
+     * @param objServicio Instancia del servicio de artículos.
+     * @param objServicio4 Instancia del servicio de evaluadores.
+     */
     
     public VtnListarEvaluador(
             ArticuloServicio objServicio,
             EvaluadorServicio objServicio4) {
+        // Inicializa los componentes de la ventana.
         initComponents();
-        this.objServicio=objServicio;
-        this.objServicio4=objServicio4;
-        this.jTableListarEvaluadores.setDefaultRenderer(Object.class, new RenderE());
+        this.objServicio=objServicio;  // Asigna el servicio de artículos.
+        this.objServicio4=objServicio4; // Asigna el servicio de evaluadores.
+        this.jTableListarEvaluadores.setDefaultRenderer(Object.class, new RenderE()); // Configura el renderizador de la tabla.
+        // Llama al método para inicializar la tabla.
         inicializarTabla();
     }
+    
+    /**
+     * Inicializa la tabla para listar evaluadores.
+     * 
+     * Configura el modelo de la tabla, añadiendo las columnas necesarias:
+     * "Id", "Nombre", "Apellido", "Eliminar" y "Actualizar".
+     */
     
      private void inicializarTabla()
     {
@@ -39,7 +68,11 @@ public class VtnListarEvaluador extends javax.swing.JInternalFrame {
        model.addColumn("Actualizar");       
        this.jTableListarEvaluadores.setModel(model);
     }
-     
+     /**
+     * Limpia la tabla de evaluadores.
+     * 
+     * Elimina todas las filas de la tabla actual.
+     */
      public void limpiarTabla(){
         
         DefaultTableModel modelo=(DefaultTableModel) this.jTableListarEvaluadores.getModel();
@@ -48,23 +81,28 @@ public class VtnListarEvaluador extends javax.swing.JInternalFrame {
             modelo.removeRow(0);
         }        
     }
-     
+     /**
+     * Llena la tabla con los datos de los evaluadores.
+     * 
+     * Limpia la tabla y luego obtiene la lista de evaluadores del servicio, 
+     * añadiendo los datos a la tabla junto con botones de "Eliminar" y "Actualizar".
+     */
     private void llenarTabla()
     {
         DefaultTableModel model=(DefaultTableModel) this.jTableListarEvaluadores.getModel();
         limpiarTabla();
         ArrayList<Evaluador> listarEvaluadores
                 = (ArrayList<Evaluador>) this.objServicio4.listarEvaluadores();
-        
+        // Crea un botón para eliminar evaluadores.
         JButton JButtonEliminarEvaluador = new JButton();
         JButtonEliminarEvaluador.setName("Eliminar");
         JButtonEliminarEvaluador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/remove.png")));
-
+        // Crea un botón para actualizar evaluadores.
         JButton JButtonActualizarEvaluador = new JButton();
         JButtonActualizarEvaluador.setName("Actualizar");
         JButtonActualizarEvaluador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/aplicar.png")));
 
-            
+        // Recorre la lista de evaluadores y añade sus datos a la tabla.
         for (int i = 0; i < listarEvaluadores.size(); i++) {
             Object [] fila= { 
                 listarEvaluadores.get(i).getId(),
@@ -209,17 +247,40 @@ public class VtnListarEvaluador extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Maneja el evento de acción para el botón de actualizar.
+     * 
+     * Llama al método llenarTabla() para refrescar los datos mostrados.
+     * 
+     * @param evt Evento de acción que ocurre.
+     */
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
         llenarTabla();
     }//GEN-LAST:event_jButtonActualizarActionPerformed
 
+    /**
+     * Maneja el evento de acción para el botón de registrar un nuevo evaluador.
+     * 
+     * Abre la ventana para registrar un nuevo evaluador.
+     * 
+     * @param evt Evento de acción que ocurre.
+     */
+    
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
         VtnRegistrarEvaluador objVtnRegistrarEvaluador=new VtnRegistrarEvaluador(objServicio4);
         objVtnRegistrarEvaluador.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         objVtnRegistrarEvaluador.setVisible(true);
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
-
+    
+    /**
+     * Maneja el evento de clic en la tabla de evaluadores.
+     * 
+     * Detecta si se ha hecho clic en un botón de "Eliminar" o "Actualizar"
+     * y realiza la acción correspondiente.
+     * 
+     * @param evt Evento de mouse que ocurre.
+     */
+    
     private void jTableListarEvaluadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableListarEvaluadoresMouseClicked
         int column = this.jTableListarEvaluadores.getColumnModel().getColumnIndexAtX(evt.getX());
         int row = evt.getY()/jTableListarEvaluadores.getRowHeight();

@@ -18,15 +18,24 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author HSVSTT2
+ * @author Mary
+ */
+/**
+ * Ventana interna para registrar un nuevo artículo.
  */
 public final class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
-
+    // Variables de instancia para los servicios utilizados en la ventana
     private ArticuloServicio objServicio1;
     private ConferenciaServicio objServicio2;
     private AutorServicio objSAutores;
     private ArrayList<Autor> listAutores;
-
+    /**
+     * Constructor de la clase VtnRegistrarArticulo.
+     *
+     * @param objServicio1 Servicio para gestionar los artículos.
+     * @param objServicio2 Servicio para gestionar las conferencias.
+     * @param objSAutores Servicio para gestionar los autores.
+     */
     public VtnRegistrarArticulo(ArticuloServicio objServicio1,
             ConferenciaServicio objServicio2,
             AutorServicio objSAutores) {
@@ -37,12 +46,17 @@ public final class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
     }
     
     // Método para llenar las tablas u otros elementos que necesiten actualizarse
+    /**
+     * Método para inicializar la ventana y actualizar los elementos.
+     */
     public void initialize() {
         listAutores = (ArrayList<Autor>) objSAutores.listarAutores();
         cargarConferencias();
         llenarTabla();
     }
-
+    /**
+     * Método para cargar las conferencias disponibles en el combo box.
+     */
     public void cargarConferencias() {
         jComboBoxConferencia.removeAllItems();
         ArrayList<Conferencia> conferencias = (ArrayList<Conferencia>) this.objServicio2.listarConferencias();
@@ -50,6 +64,9 @@ public final class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
             this.jComboBoxConferencia.addItem(conferencias.get(i));
         }
     }
+     /**
+     * Método para limpiar la tabla de autores.
+     */
 
     public void limpiarTabla() {
         DefaultTableModel modelo;
@@ -59,7 +76,9 @@ public final class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
             modelo.removeRow(0);
         }
     }
-
+    /**
+     * Método para llenar la tabla con la lista de autores disponibles.
+     */
     public void llenarTabla() {
         DefaultTableModel model = (DefaultTableModel) this.jTableAutores.getModel();
         limpiarTabla();
@@ -71,7 +90,12 @@ public final class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
             }
         }
     }
-
+    /**
+     * Método para obtener la lista de autores seleccionados en la tabla.
+     *
+     * @param tabla Tabla de autores.
+     * @return Lista de autores seleccionados.
+     */
     public ArrayList<Autor> obtenerAutoresSeleccionados(JTable tabla) {
         ArrayList<Autor> autoresSeleccionados = new ArrayList<>();
         DefaultTableModel model = (DefaultTableModel) tabla.getModel();
@@ -283,7 +307,11 @@ public final class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Acción del botón registrar para almacenar el artículo.
+     *
+     * @param evt Evento de acción.
+     */
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
         String titulo, resumen, palabras;
         ArrayList<Autor> listAutores = obtenerAutoresSeleccionados(jTableAutores);
@@ -301,9 +329,9 @@ public final class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
         objArticulo.setPalabrasClave(palabras);
         objArticulo.setAutores(listAutores);
         objArticulo.setObjConferencia(objConferencia);
-
+        // Almacenar el artículo utilizando el servicio
         bandera = this.objServicio1.almacenarArticulo(objArticulo);
-
+        // Mostrar mensaje de éxito o error
         if (bandera == true) {
             Utilidades.mensajeExito("Registro exitoso", "Registro exitoso");
         } else {

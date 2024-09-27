@@ -9,13 +9,27 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 /**
  *
- * @author Usuario
+ * @author Mary
  */
+
+/**
+ * Clase VtnActualizarEvaluador.
+ * 
+ * Esta clase representa una ventana (JFrame) para actualizar la información
+ * de un evaluador en la aplicación. Proporciona la funcionalidad para cargar 
+ * los datos de un evaluador específico en la interfaz gráfica, permitiendo 
+ * al usuario modificar y guardar los cambios.
+ */
+
 public class VtnActualizarEvaluador extends javax.swing.JFrame {
 
     private ArticuloServicio objServicio1;
     private EvaluadorServicio objServicio4;
-    
+    /**
+     * Constructor para crear la ventana de actualización de evaluadores
+     * @param objServicio1 Servicio de gestión de artículos
+     * @param objServicio4 Servicio de gestión de evaluadores
+     */
     public VtnActualizarEvaluador(
             ArticuloServicio objServicio1,
             EvaluadorServicio objServicio4) {
@@ -23,7 +37,10 @@ public class VtnActualizarEvaluador extends javax.swing.JFrame {
         this.objServicio1=objServicio1;
         this.objServicio4=objServicio4;
     }
-    
+    /**
+     * Carga los datos del evaluador en los campos del formulario
+     * @param idEvaluador Identificador del evaluador a actualizar
+     */
     public void cargarDatos(int idEvaluador)
     {
         Evaluador objEvaluador=this.objServicio4.consultarEvaluador(idEvaluador);
