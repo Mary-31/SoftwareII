@@ -7,11 +7,28 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Clase VtnRegistrarConferencia
+ * 
+ * Esta clase representa la ventana para registrar una nueva conferencia en la aplicación de gestión de conferencias.
+ * Permite al administrador ingresar información sobre la conferencia, como el nombre, las fechas y la ubicación.
+ * Se utiliza la librería Swing para la creación de la interfaz gráfica de usuario.
+ */
+
 public class VtnRegistrarConferencia extends javax.swing.JFrame {
-
+    // Servicio para almacenar la conferencia
     private ConferenciaServicio objServicioAlmacenamiento;
+    // Ventana para listar conferencias, utilizada para actualizar la vista después del registro
     private VtnListarConferencias objVtnListarConferencias;
-
+    
+    /**
+     * Constructor de la clase VtnRegistrarConferencia.
+     * Inicializa los componentes gráficos y establece el servicio de almacenamiento y la ventana de listado.
+     * 
+     * @param objServicioAlmacenamiento Servicio de almacenamiento de conferencias.
+     * @param vtnListarConferencias Ventana que lista las conferencias registradas.
+     */
+    
     public VtnRegistrarConferencia(ConferenciaServicio objServicioAlmacenamiento,
         VtnListarConferencias vtnListarConferencias) {
         initComponents();
@@ -143,15 +160,25 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     /**
+     * Maneja el evento de acción del botón "Registrar".
+     * Recupera los datos ingresados por el usuario, crea un objeto Conferencia
+     * y lo almacena utilizando el servicio correspondiente. Muestra un mensaje de
+     * éxito o error según el resultado de la operación.
+     * 
+     * @param evt Evento de acción que ocurre cuando se hace clic en el botón "Registrar".
+     */
+    
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
         String nombre, ubicacion;
         Date fechaInicio, fechaFin;
         boolean bandera;
+        // Recuperar los datos ingresados por el usuario
         nombre = this.jTextFieldNombre.getText();
         fechaInicio = this.jDateFechaInicio.getDate();
         fechaFin = this.jDateFechaFin.getDate();
         ubicacion = this.txtUbicacion.getText();
-
+        // Crear un nuevo objeto Conferencia
         Conferencia objConferencia = new Conferencia();
         objConferencia.setNombre(nombre);
         objConferencia.setFechaInicio(fechaInicio);
