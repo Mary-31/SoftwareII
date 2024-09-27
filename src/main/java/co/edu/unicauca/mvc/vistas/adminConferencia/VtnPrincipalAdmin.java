@@ -14,28 +14,49 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-public class VtnPrincipalAdmin extends javax.swing.JFrame {
+/**
+ * Clase VtnPrincipalAdmin
+ * 
+ * Esta clase representa la ventana principal para el administrador en la aplicación de gestión de conferencias.
+ * Proporciona la interfaz gráfica para gestionar conferencias, artículos, organizadores, evaluadores y autores.
+ * También permite la asignación de roles y la visibilidad de opciones basadas en el rol del usuario.
+ * 
+ * Se usa la librería Swing para la creación de la interfaz gráfica de usuario.
+ */
 
+public class VtnPrincipalAdmin extends javax.swing.JFrame {
+    // Declaración de ventanas secundarias que serán gestionadas desde esta ventana principal
     private VtnListarArticulos objVtnListarArticulos;
     private VtnListarConferencias objVtnListarConferencias;
     private VtnListarOrganizadores objVtnRegistrarOrganizadores;
     private VtnRegistrarArticulo objVtnRegistrarArticulo;
     private VtnListarEvaluador objVtnListarEvaluador;
     private VtnRegistrarAutor objVtnRegistrarAutor;
-
+    // Declaración de servicios utilizados por la aplicación
     private ConferenciaServicio objServicio1;
     private ArticuloServicio objServicio2;
     private OrganizadorServicio objServicio3;
     private EvaluadorServicio objServicio4;
     private AutorServicio objSAutores;
+    // Rol del usuario actual
     private String rol;
-
+    
+     /**
+     * Constructor de la clase VtnPrincipalAdmin.
+     * Inicializa los componentes gráficos y establece el estado inicial de la ventana.
+     */
+    
     public VtnPrincipalAdmin() {
         initComponents();
         //establecerIconoOrganización();
         this.setExtendedState(JFrame.NORMAL);
     }
-
+    /**
+     * Método para gestionar la visibilidad de los botones según el rol del usuario.
+     * 
+     * @param rol El rol del usuario actual (Autor, Evaluador, Organizador).
+     */
+    
     public void gestionRol(String rol) {
         this.rol = rol;
         switch (rol) {
@@ -55,6 +76,15 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
                 break;
         }
     }
+    
+    /* Método para asociar los servicios a la ventana principal.
+     * 
+     * @param objServicio1 Servicio de conferencias.
+     * @param objServicio2 Servicio de artículos.
+     * @param objServicio3 Servicio de organizadores.
+     * @param objServicio4 Servicio de evaluadores.
+     * @param objSAutores Servicio de autores.
+     */
 
     public void asociarServios(
             ConferenciaServicio objServicio1,
@@ -69,6 +99,10 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
         this.objSAutores = objSAutores;
         relacionarInternalFrameConJdesptokPane();
     }
+    
+    /**
+     * Método para relacionar las ventanas internas con el panel de escritorio principal.
+     */
 
     private void relacionarInternalFrameConJdesptokPane() {
 

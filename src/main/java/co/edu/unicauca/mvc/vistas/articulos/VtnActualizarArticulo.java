@@ -17,11 +17,31 @@ import java.util.LinkedList;
  *
  * @author HSVSTT2
  */
+
+/**
+ * La clase VtnActualizarArticulo representa una ventana para actualizar los
+ * detalles de un artículo existente. Esta ventana permite al usuario
+ * modificar el título, los autores y la conferencia asociada al artículo.
+ * Utiliza servicios para acceder y manipular datos relacionados con artículos
+ * y conferencias.
+ */
+
 public class VtnActualizarArticulo extends javax.swing.JFrame {
 
+    // Servicio para manipular datos de artículos
     private ArticuloServicio objServicio1;
+    // Servicio para manipular datos de conferencias
     private ConferenciaServicio objServicio2;
+    // Lista de autores asociados al artículo
     private ArrayList<Autor> listAutores;
+    
+    /**
+     * Constructor de la clase VtnActualizarArticulo.
+     * 
+     * @param objServicio1 Servicio para gestionar artículos.
+     * @param objServicio2 Servicio para gestionar conferencias.
+     */
+    
     public VtnActualizarArticulo(
             ArticuloServicio objServicio1,
             ConferenciaServicio objServicio2) {
@@ -30,7 +50,11 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
         this.objServicio2=objServicio2;
         cargarConferencias();
     }
-    
+    /**
+     * Carga los datos del artículo especificado en la ventana de actualización.
+     * 
+     * @param idArticulo ID del artículo a actualizar.
+     */
     public void cargarDatos(int idArticulo)
     {
         Articulo objArticulo=this.objServicio1.consultarArticulo(idArticulo);
@@ -39,7 +63,9 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
         this.jTextAreaAutores.setText("");
         this.jComboBoxConferencia.setSelectedItem(objArticulo.getObjConferencia());
     }
-    
+    /**
+     * Carga las conferencias disponibles en el combobox.
+     */
     public void cargarConferencias()
     {
         
@@ -199,6 +225,12 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Acción a realizar cuando se presiona el botón de actualizar.
+     * 
+     * @param evt Evento que ocurre al presionar el botón.
+     */
+    
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
         String titulo, autores, id;
         Conferencia objConferencia;

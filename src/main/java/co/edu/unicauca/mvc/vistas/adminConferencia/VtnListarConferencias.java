@@ -10,16 +10,32 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.LinkedList;
 
+/**
+ * Clase que representa una ventana interna para listar conferencias.
+ * Permite registrar y mostrar conferencias en una tabla.
+ */
 public class VtnListarConferencias extends javax.swing.JInternalFrame {
-
+    /**
+     * Servicio de almacenamiento de conferencias.
+     */
     private ConferenciaServicio objServicioAlmacenamiento;
-
+    /**
+     * Constructor de la clase. Inicializa los componentes y carga los datos de conferencias.
+     *
+     * @param objServicioAlmacenamiento Servicio de almacenamiento de conferencias.
+     */
+    
     public VtnListarConferencias(ConferenciaServicio objServicioAlmacenamiento) {
         initComponents();
         this.objServicioAlmacenamiento = objServicioAlmacenamiento;
         agregaDatos();
         llenarTabla();
     }
+    
+    /**
+     * Agrega datos de ejemplo al servicio de almacenamiento de conferencias.
+     * Utilizado para fines de prueba.
+     */
 
     public void agregaDatos() {
         try {
@@ -42,6 +58,12 @@ public class VtnListarConferencias extends javax.swing.JInternalFrame {
             e.printStackTrace();
         }
     }
+    
+    /**
+     * Gestiona la visibilidad de los elementos de la ventana según el rol del usuario.
+     *
+     * @param rol El rol del usuario (Autor, Evaluador, Organizador).
+     */
 
     public void gestionRol(String rol) {
         switch (rol) {
@@ -57,7 +79,9 @@ public class VtnListarConferencias extends javax.swing.JInternalFrame {
                 break;
         }
     }
-
+    /**
+     * Limpia todas las filas de la tabla de conferencias.
+     */
     public void limpiarTabla() {
         DefaultTableModel modelo = (DefaultTableModel) this.jTableListadoConferencias.getModel();
         int filas = this.jTableListadoConferencias.getRowCount();
@@ -65,6 +89,10 @@ public class VtnListarConferencias extends javax.swing.JInternalFrame {
             modelo.removeRow(0);
         }
     }
+    
+    /**
+     * Llena la tabla de conferencias con los datos almacenados.
+     */
 
     public void llenarTabla() {
         DefaultTableModel model = (DefaultTableModel) this.jTableListadoConferencias.getModel();

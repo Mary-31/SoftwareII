@@ -31,6 +31,7 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelInferior = new javax.swing.JPanel();
+        jButtonRegistrarE = new javax.swing.JButton();
         jPanelSuperior = new javax.swing.JPanel();
         jLabelTitulo = new javax.swing.JLabel();
         jPanelCentral = new javax.swing.JPanel();
@@ -39,7 +40,6 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
         jTextFieldNombreE = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaTemas = new javax.swing.JTextArea();
-        jButtonRegistrarE = new javax.swing.JButton();
         jLabelApellido = new javax.swing.JLabel();
         jTextFieldApellido = new javax.swing.JTextField();
         jLabelTemasE1 = new javax.swing.JLabel();
@@ -49,15 +49,29 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
 
         jPanelInferior.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jButtonRegistrarE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/cliente.png"))); // NOI18N
+        jButtonRegistrarE.setText("Registrar");
+        jButtonRegistrarE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegistrarEActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelInferiorLayout = new javax.swing.GroupLayout(jPanelInferior);
         jPanelInferior.setLayout(jPanelInferiorLayout);
         jPanelInferiorLayout.setHorizontalGroup(
             jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 436, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInferiorLayout.createSequentialGroup()
+                .addContainerGap(166, Short.MAX_VALUE)
+                .addComponent(jButtonRegistrarE)
+                .addContainerGap(161, Short.MAX_VALUE))
         );
         jPanelInferiorLayout.setVerticalGroup(
             jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInferiorLayout.createSequentialGroup()
+                .addContainerGap(7, Short.MAX_VALUE)
+                .addComponent(jButtonRegistrarE)
+                .addContainerGap())
         );
 
         getContentPane().add(jPanelInferior, java.awt.BorderLayout.PAGE_END);
@@ -71,10 +85,10 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
         jPanelSuperior.setLayout(jPanelSuperiorLayout);
         jPanelSuperiorLayout.setHorizontalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSuperiorLayout.createSequentialGroup()
-                .addContainerGap(168, Short.MAX_VALUE)
+            .addGroup(jPanelSuperiorLayout.createSequentialGroup()
+                .addContainerGap(161, Short.MAX_VALUE)
                 .addComponent(jLabelTitulo)
-                .addGap(147, 147, 147))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
         jPanelSuperiorLayout.setVerticalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,14 +112,6 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
         jTextAreaTemas.setRows(5);
         jScrollPane1.setViewportView(jTextAreaTemas);
 
-        jButtonRegistrarE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/cliente.png"))); // NOI18N
-        jButtonRegistrarE.setText("Registrar");
-        jButtonRegistrarE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegistrarEActionPerformed(evt);
-            }
-        });
-
         jLabelApellido.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabelApellido.setText("Apellido:");
 
@@ -119,14 +125,11 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelCentralLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonRegistrarE))
-                    .addGroup(jPanelCentralLayout.createSequentialGroup()
-                        .addGap(70, 70, 70)
+                        .addContainerGap(70, Short.MAX_VALUE)
                         .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelNombreE)
                             .addComponent(jLabelApellido))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jTextFieldNombreE, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -135,18 +138,18 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
                         .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelTemasE1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabelTemasE, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(18, 18, 18)
+                        .addGap(18, 18, Short.MAX_VALUE)
                         .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(70, 70, 70))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         jPanelCentralLayout.setVerticalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentralLayout.createSequentialGroup()
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelCentralLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
+                        .addContainerGap(32, Short.MAX_VALUE)
                         .addComponent(jLabelNombreE)
                         .addGap(6, 6, 6))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
@@ -164,9 +167,7 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelTemasE))
-                .addGap(18, 18, 18)
-                .addComponent(jButtonRegistrarE)
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelCentral, java.awt.BorderLayout.CENTER);
