@@ -28,6 +28,8 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanelInferior = new javax.swing.JPanel();
+        jButtonRegistrar = new javax.swing.JButton();
         jPanelSuperior = new javax.swing.JPanel();
         jLabelTitulo = new javax.swing.JLabel();
         jPanelCentral = new javax.swing.JPanel();
@@ -35,11 +37,39 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
         jLabelFechaInicio = new javax.swing.JLabel();
         jLabelFechaFin = new javax.swing.JLabel();
         jLabelCosto = new javax.swing.JLabel();
-        jButtonRegistrar = new javax.swing.JButton();
         jTextFieldNombre = new javax.swing.JTextField();
         txtUbicacion = new javax.swing.JTextField();
         jDateFechaInicio = new com.toedter.calendar.JDateChooser();
         jDateFechaFin = new com.toedter.calendar.JDateChooser();
+
+        jButtonRegistrar.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jButtonRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/disquete (1).png"))); // NOI18N
+        jButtonRegistrar.setText("Registrar");
+        jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegistrarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelInferiorLayout = new javax.swing.GroupLayout(jPanelInferior);
+        jPanelInferior.setLayout(jPanelInferiorLayout);
+        jPanelInferiorLayout.setHorizontalGroup(
+            jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInferiorLayout.createSequentialGroup()
+                .addContainerGap(147, Short.MAX_VALUE)
+                .addComponent(jButtonRegistrar)
+                .addContainerGap(146, Short.MAX_VALUE))
+        );
+        jPanelInferiorLayout.setVerticalGroup(
+            jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInferiorLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonRegistrar)
+                .addContainerGap())
+        );
+
+        getContentPane().add(jPanelInferior, java.awt.BorderLayout.PAGE_END);
 
         jPanelSuperior.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -51,10 +81,10 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
         jPanelSuperior.setLayout(jPanelSuperiorLayout);
         jPanelSuperiorLayout.setHorizontalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelSuperiorLayout.createSequentialGroup()
-                .addGap(179, 179, 179)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSuperiorLayout.createSequentialGroup()
+                .addContainerGap(139, Short.MAX_VALUE)
                 .addComponent(jLabelTitulo)
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
         jPanelSuperiorLayout.setVerticalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,38 +110,24 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
         jLabelCosto.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabelCosto.setText("Ubicacion:");
 
-        jButtonRegistrar.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jButtonRegistrar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/disquete (1).png"))); // NOI18N
-        jButtonRegistrar.setText("Registrar");
-        jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegistrarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanelCentralLayout = new javax.swing.GroupLayout(jPanelCentral);
         jPanelCentral.setLayout(jPanelCentralLayout);
         jPanelCentralLayout.setHorizontalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentralLayout.createSequentialGroup()
-                .addGap(94, 94, 94)
+                .addContainerGap(67, Short.MAX_VALUE)
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelCosto)
                     .addComponent(jLabelFechaFin)
                     .addComponent(jLabelFechaInicio)
                     .addComponent(jLabelNombre))
-                .addGap(70, 70, 70)
+                .addGap(45, 45, 45)
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextFieldNombre)
                     .addComponent(jDateFechaInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jDateFechaFin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(105, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonRegistrar)
-                .addGap(31, 31, 31))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         jPanelCentralLayout.setVerticalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,9 +149,7 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelCosto)
                     .addComponent(txtUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addComponent(jButtonRegistrar)
-                .addGap(25, 25, 25))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelCentral, java.awt.BorderLayout.CENTER);
@@ -182,6 +196,7 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanelCentral;
+    private javax.swing.JPanel jPanelInferior;
     private javax.swing.JPanel jPanelSuperior;
     private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField txtUbicacion;

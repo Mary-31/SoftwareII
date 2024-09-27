@@ -12,6 +12,7 @@ import co.edu.unicauca.mvc.vistas.evaluador.VtnListarEvaluador;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 public class VtnPrincipalAdmin extends javax.swing.JFrame {
 
@@ -103,10 +104,9 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelSuperior = new javax.swing.JPanel();
-        jPanelCentral = new javax.swing.JPanel();
-        jDesktopPanelPrincipal = new javax.swing.JDesktopPane();
-        jPanel1 = new javax.swing.JPanel();
+        jPanelCentrar = new javax.swing.JPanel();
+        jLabelImagenOrganizacion = new javax.swing.JLabel();
+        jPanelBar = new javax.swing.JPanel();
         jButtonGestionarConferencias = new javax.swing.JButton();
         jButtonVerArticulosEnviados = new javax.swing.JButton();
         jButtonGestionarE = new javax.swing.JButton();
@@ -114,7 +114,9 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
         jButtonRegistrarArticulo = new javax.swing.JButton();
         btnRegistrarAutor = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
-        jLabelImagenOrganizacion = new javax.swing.JLabel();
+        jPanelSuperior = new javax.swing.JPanel();
+        jPanelCentral = new javax.swing.JPanel();
+        jDesktopPanelPrincipal = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(500, 300));
@@ -122,18 +124,12 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1072, 400));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.PAGE_AXIS));
 
-        jPanelSuperior.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanelSuperior.setAlignmentX(0.0F);
-        jPanelSuperior.setAlignmentY(0.0F);
-        jPanelSuperior.setAutoscrolls(true);
-        jPanelSuperior.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanelSuperior.setLayout(new javax.swing.BoxLayout(jPanelSuperior, javax.swing.BoxLayout.LINE_AXIS));
-        getContentPane().add(jPanelSuperior);
+        jPanelCentrar.setBackground(new java.awt.Color(204, 204, 204));
 
-        jPanelCentral.setLayout(new java.awt.BorderLayout());
+        jLabelImagenOrganizacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/paper.png"))); // NOI18N
 
-        jDesktopPanelPrincipal.setBackground(new java.awt.Color(204, 204, 204));
-        jDesktopPanelPrincipal.setMaximumSize(new java.awt.Dimension(1072, 400));
+        jPanelBar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelBar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jButtonGestionarConferencias.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jButtonGestionarConferencias.setText("Gestionar conferencias");
@@ -191,11 +187,11 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelBarLayout = new javax.swing.GroupLayout(jPanelBar);
+        jPanelBar.setLayout(jPanelBarLayout);
+        jPanelBarLayout.setHorizontalGroup(
+            jPanelBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonGestionarConferencias)
                 .addGap(0, 0, 0)
@@ -212,11 +208,11 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
                 .addComponent(btnSalir)
                 .addGap(85, 85, 85))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanelBarLayout.setVerticalGroup(
+            jPanelBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonGestionarConferencias)
                     .addComponent(jButtonVerArticulosEnviados)
                     .addComponent(jButtonGestionarE)
@@ -227,30 +223,52 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabelImagenOrganizacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/paper.png"))); // NOI18N
+        javax.swing.GroupLayout jPanelCentrarLayout = new javax.swing.GroupLayout(jPanelCentrar);
+        jPanelCentrar.setLayout(jPanelCentrarLayout);
+        jPanelCentrarLayout.setHorizontalGroup(
+            jPanelCentrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCentrarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelImagenOrganizacion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jPanelBar, javax.swing.GroupLayout.PREFERRED_SIZE, 962, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 25, Short.MAX_VALUE))
+        );
+        jPanelCentrarLayout.setVerticalGroup(
+            jPanelCentrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCentrarLayout.createSequentialGroup()
+                .addGroup(jPanelCentrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabelImagenOrganizacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelCentrarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanelBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
-        jDesktopPanelPrincipal.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPanelPrincipal.setLayer(jLabelImagenOrganizacion, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        getContentPane().add(jPanelCentrar);
+
+        jPanelSuperior.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelSuperior.setAlignmentX(0.0F);
+        jPanelSuperior.setAlignmentY(0.0F);
+        jPanelSuperior.setAutoscrolls(true);
+        jPanelSuperior.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanelSuperior.setLayout(new javax.swing.BoxLayout(jPanelSuperior, javax.swing.BoxLayout.LINE_AXIS));
+        getContentPane().add(jPanelSuperior);
+
+        jPanelCentral.setLayout(new java.awt.BorderLayout());
+
+        jDesktopPanelPrincipal.setBackground(new java.awt.Color(204, 204, 204));
+        jDesktopPanelPrincipal.setMaximumSize(new java.awt.Dimension(1072, 400));
 
         javax.swing.GroupLayout jDesktopPanelPrincipalLayout = new javax.swing.GroupLayout(jDesktopPanelPrincipal);
         jDesktopPanelPrincipal.setLayout(jDesktopPanelPrincipalLayout);
         jDesktopPanelPrincipalLayout.setHorizontalGroup(
             jDesktopPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPanelPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelImagenOrganizacion)
-                .addGap(49, 49, 49)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 962, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+            .addGap(0, 1060, Short.MAX_VALUE)
         );
         jDesktopPanelPrincipalLayout.setVerticalGroup(
             jDesktopPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPanelPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jDesktopPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelImagenOrganizacion))
-                .addGap(0, 517, Short.MAX_VALUE))
+            .addGap(0, 482, Short.MAX_VALUE)
         );
 
         jPanelCentral.add(jDesktopPanelPrincipal, java.awt.BorderLayout.CENTER);
@@ -261,6 +279,7 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // Configurar la ventana para ocultarse al cerrarse
         this.objVtnListarConferencias.setVisible(false);
         this.objVtnListarArticulos.setVisible(false);
         this.objVtnRegistrarOrganizadores.setVisible(false);
@@ -271,6 +290,8 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void jButtonGestionarOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionarOActionPerformed
+        // Configurar la ventana para ocultarse al cerrarse
+        this.objVtnRegistrarOrganizadores.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
         this.objVtnListarConferencias.setVisible(false);
         this.objVtnRegistrarOrganizadores.setVisible(true);
         this.objVtnRegistrarArticulo.setVisible(false);
@@ -280,6 +301,8 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonGestionarOActionPerformed
 
     private void jButtonGestionarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionarEActionPerformed
+        // Configurar la ventana para ocultarse al cerrarse
+        this.objVtnListarEvaluador.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
         this.objVtnListarEvaluador.setVisible(true);
         this.objVtnListarConferencias.setVisible(false);
         this.objVtnRegistrarOrganizadores.setVisible(false);
@@ -289,6 +312,8 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonGestionarEActionPerformed
 
     private void jButtonVerArticulosEnviadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerArticulosEnviadosActionPerformed
+        // Configurar la ventana para ocultarse al cerrarse
+        this.objVtnListarArticulos.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
         objVtnListarArticulos.initialize();
         this.objVtnListarArticulos.setVisible(true);
         this.objVtnListarConferencias.setVisible(false);
@@ -299,6 +324,8 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVerArticulosEnviadosActionPerformed
 
     private void jButtonGestionarConferenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionarConferenciasActionPerformed
+        // Configurar la ventana para ocultarse al cerrarse
+        this.objVtnListarConferencias.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
         this.objVtnListarConferencias.gestionRol(rol);
         this.objVtnListarConferencias.setVisible(true);
         this.objVtnListarArticulos.setVisible(false);
@@ -309,6 +336,8 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonGestionarConferenciasActionPerformed
 
     private void jButtonRegistrarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarArticuloActionPerformed
+        // Configurar la ventana para ocultarse al cerrarse
+        this.objVtnRegistrarArticulo.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
         objVtnRegistrarArticulo.initialize();
         this.objVtnListarConferencias.setVisible(false);
         this.objVtnListarArticulos.setVisible(false);
@@ -319,6 +348,8 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonRegistrarArticuloActionPerformed
 
     private void btnRegistrarAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarAutorActionPerformed
+       // Configurar la ventana para ocultarse al cerrarse
+        this.objVtnRegistrarAutor.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE); 
         this.objVtnListarConferencias.setVisible(false);
         this.objVtnListarArticulos.setVisible(false);
         this.objVtnRegistrarOrganizadores.setVisible(false);
@@ -338,8 +369,9 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButtonVerArticulosEnviados;
     private javax.swing.JDesktopPane jDesktopPanelPrincipal;
     private javax.swing.JLabel jLabelImagenOrganizacion;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanelBar;
     private javax.swing.JPanel jPanelCentral;
+    private javax.swing.JPanel jPanelCentrar;
     private javax.swing.JPanel jPanelSuperior;
     // End of variables declaration//GEN-END:variables
 }
