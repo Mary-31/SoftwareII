@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package co.edu.unicauca.mvc.vistas.adminConferencia;
+package co.edu.unicauca.mvc.vistas.organizador;
 
 import co.edu.unicauca.mvc.controladores.OrganizadorServicio;
 import co.edu.unicauca.mvc.modelos.Organizador;
@@ -11,14 +11,28 @@ import co.edu.unicauca.mvc.utilidades.Utilidades;
 
 /**
  *
- * @author Usuario
+ * @author Mary
  */
+
+/**
+ * Clase VtnRegistrarOrganizadores.
+ * 
+ * Esta clase representa una ventana para registrar nuevos organizadores en la aplicación.
+ * Permite la entrada de datos necesarios y la validación para el registro de organizadores.
+ */
+
 public class VtnRegistrarOrganizadores extends javax.swing.JFrame {
 
     private OrganizadorServicio objServicioAlmacenamientoOrganizadores;
-    
+     /**
+     * Constructor de la clase VtnRegistrarOrganizadores.
+     * 
+     * Inicializa la ventana y asigna el servicio de organizadores.
+     * 
+     * @param objServicioAlmacenamientoOrganizadores Instancia del servicio para gestionar organizadores.
+     */
     public VtnRegistrarOrganizadores(OrganizadorServicio objServicioAlmacenamientoOrganizadores) {
-        initComponents();
+        initComponents(); // Inicializa los componentes de la ventana.
         this.objServicioAlmacenamientoOrganizadores=objServicioAlmacenamientoOrganizadores;
     }
 
@@ -143,26 +157,31 @@ public class VtnRegistrarOrganizadores extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+        /**
+     * Maneja el evento de acción para el botón de registrar organizador.
+     * 
+     * Recoge los datos de entrada del organizador, crea una instancia de Organizador 
+     * y llama al servicio para almacenar los datos. Informa al usuario si el registro fue exitoso o no.
+     * 
+     * @param evt Evento de acción que ocurre al presionar el botón.
+     */
+    
     private void jButtonRegistrarOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarOActionPerformed
 
         String nombreOrganizador=this.jTextFieldNombre.getText();
         String apellidoOrganizador=this.jTextFieldApellido.getText();
         String universidad= this.jTextFieldUniversidad.getText();
-        
+        // Crea un nuevo objeto Organizador con los datos recogidos.
         Organizador objOrganizador = new Organizador (nombreOrganizador,apellidoOrganizador, universidad);
-        
+        // Llama al servicio para almacenar el organizador y guarda el resultado en bandera.
         boolean bandera = objServicioAlmacenamientoOrganizadores.almacenarOrganizador(objOrganizador);
-        
+         // Muestra un mensaje de éxito o error según el resultado del almacenamiento.
         if(bandera){   
             Utilidades.mensajeExito("El registro del organizador ha sido exitoso", "Registro exitoso");
         }else {   
             Utilidades.mensajeError("El registro del organizador no ha sido posible", "Error en el registro");
         }
     }//GEN-LAST:event_jButtonRegistrarOActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

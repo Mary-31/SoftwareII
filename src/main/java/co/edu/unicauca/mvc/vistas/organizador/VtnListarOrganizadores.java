@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package co.edu.unicauca.mvc.vistas.adminConferencia;
+package co.edu.unicauca.mvc.vistas.organizador;
 
 import co.edu.unicauca.mvc.controladores.OrganizadorServicio;
 import co.edu.unicauca.mvc.modelos.Organizador;
@@ -12,16 +12,40 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Usuario
+ * @author Mary
  */
+
+/**
+ * Clase VtnListarOrganizadores.
+ * 
+ * Esta clase representa una ventana interna para listar organizadores en la aplicación.
+ * Permite visualizar, actualizar y registrar nuevos organizadores.
+ */
+
 public class VtnListarOrganizadores extends javax.swing.JInternalFrame {
  private OrganizadorServicio objServicioAlmacenamientoOrganizadores;
     
+     /**
+     * Constructor de la clase VtnListarOrganizadores.
+     * 
+     * Inicializa la ventana y asigna el servicio de organizadores.
+     * 
+     * @param objServicioAlmacenamientoOrganizadores Instancia del servicio de organizadores.
+     */
+ 
     public VtnListarOrganizadores(OrganizadorServicio objServicioAlmacenamientoOrganizadores) {
+        // Inicializa los componentes de la ventana.
         initComponents();
         this.objServicioAlmacenamientoOrganizadores =objServicioAlmacenamientoOrganizadores;
+        // Llama al método para inicializar la tabla de organizadores.
         iniciarlizarTabla();
     }
+    
+    /**
+     * Inicializa la tabla que mostrará la lista de organizadores.
+     * 
+     * Crea un modelo de tabla con columnas específicas para los datos de los organizadores.
+     */
     
     private void iniciarlizarTabla()
     {
@@ -32,6 +56,11 @@ public class VtnListarOrganizadores extends javax.swing.JInternalFrame {
        this.jTableListadoOrganizadores.setModel(model);
     }
     
+    /**
+     * Limpia los datos de la tabla de organizadores.
+     * 
+     * Elimina todas las filas de la tabla para poder volver a llenarla con nuevos datos.
+     */
     
     public void limpiarTabla() {
         DefaultTableModel modelo = (DefaultTableModel) this.jTableListadoOrganizadores.getModel();
@@ -41,11 +70,16 @@ public class VtnListarOrganizadores extends javax.swing.JInternalFrame {
         }        
     }
     
+    /**
+     * Llena la tabla con la lista de organizadores.
+     * 
+     * Limpia la tabla actual y la llena con datos de organizadores obtenidos del servicio.
+     */
     private void llenarTabla() {
         DefaultTableModel model = (DefaultTableModel) this.jTableListadoOrganizadores.getModel();
         limpiarTabla();
         LinkedList<Organizador> listaOrganizadores = (LinkedList<Organizador>) this.objServicioAlmacenamientoOrganizadores.listarOrganizador();
-        
+        // Agrega los datos de cada organizador a la tabla.
         for (int i = 0; i < listaOrganizadores.size(); i++) {
             String[] fila = { 
                 listaOrganizadores.get(i).getNombre(), 
@@ -180,14 +214,31 @@ public class VtnListarOrganizadores extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Maneja el evento de acción para el botón de actualizar.
+     * 
+     * Llama al método para llenar la tabla con los datos actualizados de organizadores.
+     * 
+     * @param evt Evento de acción que ocurre al presionar el botón.
+     */
+    
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
         llenarTabla();
     }//GEN-LAST:event_jButtonActualizarActionPerformed
 
+        /**
+     * Maneja el evento de acción para el botón de registrar organizador.
+     * 
+     * Abre la ventana para registrar un nuevo organizador.
+     * 
+     * @param evt Evento de acción que ocurre al presionar el botón.
+     */
+    
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
         VtnRegistrarOrganizadores objVtnRegistrarOrganizadores =  new VtnRegistrarOrganizadores(this.objServicioAlmacenamientoOrganizadores);
+        // Configura la operación de cierre.
         objVtnRegistrarOrganizadores.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        objVtnRegistrarOrganizadores.setVisible(true);
+        objVtnRegistrarOrganizadores.setVisible(true); // Muestra la ventana para registrar organizadores.
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
 

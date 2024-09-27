@@ -16,12 +16,18 @@ import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 public class VtnListarArticulos extends javax.swing.JInternalFrame {
-
+    // Variables de instancia para los servicios utilizados en la ventana
     public ArticuloServicio objServicio;
     public ConferenciaServicio objServicio2;
     public AutorServicio objSAutores;
     private EvaluadorServicio objSEvaluador;
-
+    /**
+     * Constructor de la clase VtnListarArticulos.
+     * 
+     * @param objServicio Servicio para gestionar los artículos.
+     * @param objServicio2 Servicio para gestionar las conferencias.
+     * @param objSEvaluador Servicio para gestionar los evaluadores.
+     */
     public VtnListarArticulos(
             ArticuloServicio objServicio,
             ConferenciaServicio objServicio2,
@@ -34,6 +40,9 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
     }
 
     // Método para llenar las tablas u otros elementos que necesiten actualizarse
+    /**
+     * Método para inicializar la ventana y actualizar los elementos.
+     */
     public void initialize() {
         btnAsignar.setVisible(false);
         llenarTabla();
@@ -54,6 +63,9 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         this.objServicioAlmacenamiento.almacenarConferencia(objConferencia4);
     }*/
 
+    /**
+     * Método para limpiar la tabla de artículos.
+     */
     public void limpiarTabla() {
 
         DefaultTableModel modelo = (DefaultTableModel) this.jTableListarArticulos.getModel();
@@ -62,7 +74,9 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
             modelo.removeRow(0);
         }
     }
-
+    /**
+     * Método para llenar la tabla con los artículos listados.
+     */
     public void llenarTabla() {
         DefaultTableModel model = (DefaultTableModel) this.jTableListarArticulos.getModel();
         limpiarTabla();
@@ -76,7 +90,7 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         JButton JButtonActualizarArticulo = new JButton();
         JButtonActualizarArticulo.setName("Actualizar");
         JButtonActualizarArticulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/aplicar.png")));
-
+        // Agregar filas a la tabla con los datos de cada artículo
         for (Articulo articulo : listaArticulos) {
             StringBuilder autoresConcatenados = new StringBuilder();
             for (Autor autor : articulo.getAutores()) {
@@ -254,13 +268,21 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Acción del botón registrar para abrir la ventana de registro de artículos.
+     * 
+     * @param evt Evento de acción.
+     */
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
         VtnRegistrarArticulo objVtnRegistrarArticulo = new VtnRegistrarArticulo(objServicio, objServicio2, objSAutores);
         objVtnRegistrarArticulo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         objVtnRegistrarArticulo.setVisible(true);
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
-
+    /**
+     * Manejo del evento de clic en la tabla de artículos.
+     * 
+     * @param evt Evento de clic del mouse.
+     */
     private void jTableListarArticulosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableListarArticulosMouseClicked
         btnAsignar.setVisible(true);
         int column = this.jTableListarArticulos.getColumnModel().getColumnIndexAtX(evt.getX());
@@ -305,7 +327,11 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
 
 
     }//GEN-LAST:event_jTableListarArticulosMouseClicked
-
+    /**
+     * Acción del botón asignar para abrir la ventana de asignación de evaluadores.
+     * 
+     * @param evt Evento de acción.
+     */
     private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
         int indice = jTableListarArticulos.getSelectedRow();
         int idArticulo = Integer.parseInt(jTableListarArticulos.getValueAt(indice, 0).toString());

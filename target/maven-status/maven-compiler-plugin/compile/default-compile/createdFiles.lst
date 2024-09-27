@@ -4,13 +4,13 @@ co\edu\unicauca\mvc\vistas\autor\VtnRegistrarAutor$2.class
 co\edu\unicauca\mvc\accesoADatos\IEvaluadorRepositorio.class
 co\edu\unicauca\mvc\Aplicacion_capas_mvc.class
 co\edu\unicauca\mvc\utilidades\Utilidades.class
-co\edu\unicauca\mvc\vistas\adminConferencia\VtnListarOrganizadores$2.class
 co\edu\unicauca\mvc\vistas\articulos\VtnListarArticulos$1.class
 co\edu\unicauca\mvc\vistas\articulos\VtnRegistrarArticulo$3.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnRegistrarConferencia.class
+co\edu\unicauca\mvc\vistas\organizador\VtnListarOrganizadores$1.class
 co\edu\unicauca\mvc\vistas\articulos\VtnAsignarEvaluador.class
+co\edu\unicauca\mvc\vistas\organizador\VtnRegistrarOrganizadores.class
 co\edu\unicauca\mvc\vistas\VtnLogin.class
-co\edu\unicauca\mvc\vistas\adminConferencia\VtnRegistrarOrganizadores.class
 co\edu\unicauca\mvc\vistas\autor\VtnRegistrarAutor.class
 co\edu\unicauca\mvc\vistas\articulos\VtnAsignarEvaluador$1.class
 co\edu\unicauca\mvc\accesoADatos\IAutorRepositorio.class
@@ -30,7 +30,6 @@ co\edu\unicauca\mvc\vistas\adminConferencia\VtnPrincipalAdmin$4.class
 co\edu\unicauca\mvc\vistas\VtnLogin$2.class
 co\edu\unicauca\mvc\accesoADatos\ArticuloRepositorio.class
 co\edu\unicauca\mvc\modelos\Conferencia.class
-co\edu\unicauca\mvc\vistas\adminConferencia\VtnRegistrarOrganizadores$1.class
 co\edu\unicauca\mvc\vistas\articulos\VtnListarArticulos$2.class
 co\edu\unicauca\mvc\vistas\articulos\VtnAsignarEvaluador$2.class
 co\edu\unicauca\mvc\vistas\evaluador\RenderE.class
@@ -44,6 +43,7 @@ utilidades\CargarImagenes.class
 co\edu\unicauca\mvc\accesoADatos\EvaluadorRepositorio.class
 co\edu\unicauca\mvc\vistas\articulos\VtnListarArticulos$3.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnListarConferencias$1.class
+co\edu\unicauca\mvc\vistas\organizador\VtnListarOrganizadores$2.class
 co\edu\unicauca\mvc\modelos\Organizador.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnPrincipalAdmin$3.class
 co\edu\unicauca\mvc\vistas\VtnLogin$1.class
@@ -51,12 +51,12 @@ co\edu\unicauca\mvc\vistas\articulos\VtnListarArticulos.class
 co\edu\unicauca\mvc\vistas\articulos\VtnRegistrarArticulo$2.class
 co\edu\unicauca\mvc\vistas\evaluador\VtnListarEvaluador.class
 co\edu\unicauca\mvc\controladores\AutorServicio.class
+co\edu\unicauca\mvc\vistas\organizador\VtnListarOrganizadores.class
 co\edu\unicauca\mvc\vistas\evaluador\VtnRegistrarEvaluador$1.class
 co\edu\unicauca\mvc\vistas\articulos\VtnActualizarArticulo$2.class
 co\edu\unicauca\mvc\vistas\evaluador\VtnListarEvaluador$1.class
 co\edu\unicauca\mvc\accesoADatos\AutorRepositorio.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnRegistrarConferencia$1.class
-co\edu\unicauca\mvc\vistas\adminConferencia\VtnListarOrganizadores$1.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnPrincipalAdmin$6.class
 co\edu\unicauca\mvc\accesoADatos\IArticuloRepositorio.class
 co\edu\unicauca\mvc\vistas\evaluador\VtnActualizarEvaluador.class
@@ -64,9 +64,9 @@ co\edu\unicauca\mvc\vistas\adminConferencia\VtnPrincipalAdmin$2.class
 co\edu\unicauca\mvc\vistas\articulos\VtnListarArticulos$4.class
 co\edu\unicauca\mvc\controladores\OrganizadorServicio.class
 co\edu\unicauca\mvc\modelos\Autor.class
-co\edu\unicauca\mvc\vistas\adminConferencia\VtnListarOrganizadores.class
 co\edu\unicauca\mvc\controladores\ConferenciaServicio.class
 co\edu\unicauca\mvc\vistas\autor\VtnRegistrarAutor$1.class
 co\edu\unicauca\mvc\accesoADatos\IConferenciaRepositorio.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnPrincipalAdmin.class
 co\edu\unicauca\mvc\vistas\articulos\Render.class
+co\edu\unicauca\mvc\vistas\organizador\VtnRegistrarOrganizadores$1.class

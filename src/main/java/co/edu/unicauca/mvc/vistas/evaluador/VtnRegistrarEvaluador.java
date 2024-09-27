@@ -9,11 +9,25 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 /**
  *
- * @author Usuario
+ * @author Mary
+ */
+
+/**
+ * Clase VtnRegistrarEvaluador.
+ * 
+ * Esta clase representa una ventana para registrar un nuevo evaluador en la aplicación.
  */
 public class VtnRegistrarEvaluador extends javax.swing.JFrame {
 
     private EvaluadorServicio objServicio4;
+    
+    /**
+     * Constructor de la clase VtnRegistrarEvaluador.
+     * 
+     * Inicializa la ventana y asigna el servicio de evaluadores.
+     * 
+     * @param objServicio4 Instancia del servicio de evaluadores.
+     */
     
     public VtnRegistrarEvaluador(EvaluadorServicio objServicio4) {
         initComponents();
@@ -175,6 +189,16 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Maneja el evento de acción para el botón de registrar evaluador.
+     * 
+     * Recoge los datos ingresados en los campos de texto, crea un nuevo objeto Evaluador,
+     * y llama al servicio para almacenar el evaluador en el sistema. Muestra mensajes 
+     * de éxito o error según el resultado de la operación.
+     * 
+     * @param evt Evento de acción que ocurre al presionar el botón.
+     */
+    
     private void jButtonRegistrarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarEActionPerformed
         String nombreEvaluador, apellidoEvaluador, temasExperto, correo;
     
@@ -203,10 +227,6 @@ public class VtnRegistrarEvaluador extends javax.swing.JFrame {
             Utilidades.mensajeError("Evaluador no almacenado","Error al almacenar el evaluador");
         }
     }//GEN-LAST:event_jButtonRegistrarEActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonRegistrarE;
