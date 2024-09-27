@@ -46,11 +46,11 @@ public class Organizador {
         this.apellidoOrganizador=apellidoOrganizador;
     }
     
-     public String getUniversidad() {
+     public String getCorreo() {
         return correo;
     }
 
-    public void setUniversidad(String correo) {
+    public void setCorreo(String correo) {
         this.correo=correo;
     }
 }

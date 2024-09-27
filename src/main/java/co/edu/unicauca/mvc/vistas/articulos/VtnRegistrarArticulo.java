@@ -23,12 +23,13 @@ import javax.swing.table.DefaultTableModel;
 /**
  * Ventana interna para registrar un nuevo artículo.
  */
-public final class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
+public final class VtnRegistrarArticulo extends javax.swing.JFrame {
     // Variables de instancia para los servicios utilizados en la ventana
     private ArticuloServicio objServicio1;
     private ConferenciaServicio objServicio2;
     private AutorServicio objSAutores;
     private ArrayList<Autor> listAutores;
+    private VtnListarArticulos objListarArticulo;
     /**
      * Constructor de la clase VtnRegistrarArticulo.
      *
@@ -38,11 +39,16 @@ public final class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
      */
     public VtnRegistrarArticulo(ArticuloServicio objServicio1,
             ConferenciaServicio objServicio2,
-            AutorServicio objSAutores) {
+            AutorServicio objSAutores,
+            VtnListarArticulos objListarArticulo) {
         initComponents();
         this.objServicio1 = objServicio1;
         this.objServicio2 = objServicio2;
         this.objSAutores = objSAutores;
+        this.objListarArticulo = objListarArticulo;
+        listAutores = (ArrayList<Autor>) this.objSAutores.listarAutores();
+        cargarConferencias();
+        llenarTabla();
     }
     
     // Método para llenar las tablas u otros elementos que necesiten actualizarse
@@ -50,7 +56,7 @@ public final class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
      * Método para inicializar la ventana y actualizar los elementos.
      */
     public void initialize() {
-        listAutores = (ArrayList<Autor>) objSAutores.listarAutores();
+        listAutores = (ArrayList<Autor>) this.objSAutores.listarAutores();
         cargarConferencias();
         llenarTabla();
     }
@@ -136,15 +142,10 @@ public final class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableAutores = new javax.swing.JTable();
-        jPanelInferior = new javax.swing.JPanel();
         jButtonRegistrar = new javax.swing.JButton();
+        jPanelInferior = new javax.swing.JPanel();
 
-        setBorder(null);
-        setClosable(true);
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setIconifiable(true);
-        setMaximizable(true);
-        setResizable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel3.setText("Registrar articulo");
@@ -154,9 +155,9 @@ public final class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
         jPanelSuperiorLayout.setHorizontalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSuperiorLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(224, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(225, Short.MAX_VALUE))
         );
         jPanelSuperiorLayout.setVerticalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,6 +166,8 @@ public final class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
                 .addComponent(jLabel3)
                 .addGap(19, 19, 19))
         );
+
+        getContentPane().add(jPanelSuperior, java.awt.BorderLayout.PAGE_START);
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel1.setText("Titulo:");
@@ -191,21 +194,13 @@ public final class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel6.setText("Autores:");
 
-        jTableAutores.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTableAutores.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jTableAutores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "Nombre", "Apellido", "Asignar"
+                "NOMBRE", "APELLIDO", "ASIGNAR"
             }
         ) {
             Class[] types = new Class [] {
@@ -224,33 +219,44 @@ public final class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
             }
         });
         jTableAutores.setToolTipText("");
+        jTableAutores.setShowGrid(true);
+        jTableAutores.setSurrendersFocusOnKeystroke(true);
         jScrollPane2.setViewportView(jTableAutores);
+
+        jButtonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/verificar.png"))); // NOI18N
+        jButtonRegistrar.setText("REGISTRAR");
+        jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegistrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelCentralLayout = new javax.swing.GroupLayout(jPanelCentral);
         jPanelCentral.setLayout(jPanelCentralLayout);
         jPanelCentralLayout.setHorizontalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentralLayout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
-                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel6)
-                    .addGroup(jPanelCentralLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4))
-                        .addGap(18, 18, Short.MAX_VALUE)
-                        .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
-                            .addComponent(txtTitulo)
-                            .addComponent(jComboBoxConferencia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanelCentralLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtPalabras, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonRegistrar)
+                    .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel6)
+                        .addGroup(jPanelCentralLayout.createSequentialGroup()
+                            .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel4))
+                            .addGap(18, 18, Short.MAX_VALUE)
+                            .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
+                                .addComponent(txtTitulo)
+                                .addComponent(jComboBoxConferencia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanelCentralLayout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtPalabras, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane2)))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanelCentralLayout.setVerticalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,53 +280,26 @@ public final class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonRegistrar)
+                .addContainerGap())
         );
 
-        jButtonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/verificar.png"))); // NOI18N
-        jButtonRegistrar.setText("REGISTRAR");
-        jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegistrarActionPerformed(evt);
-            }
-        });
+        getContentPane().add(jPanelCentral, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout jPanelInferiorLayout = new javax.swing.GroupLayout(jPanelInferior);
         jPanelInferior.setLayout(jPanelInferiorLayout);
         jPanelInferiorLayout.setHorizontalGroup(
             jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInferiorLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonRegistrar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 559, Short.MAX_VALUE)
         );
         jPanelInferiorLayout.setVerticalGroup(
             jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelInferiorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonRegistrar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelSuperior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelInferior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanelSuperior, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelCentral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelInferior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanelInferior, java.awt.BorderLayout.SOUTH);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -351,6 +330,8 @@ public final class VtnRegistrarArticulo extends javax.swing.JInternalFrame {
         // Mostrar mensaje de éxito o error
         if (bandera == true) {
             Utilidades.mensajeExito("Registro exitoso", "Registro exitoso");
+            objListarArticulo.llenarTabla();
+            dispose();
         } else {
             Utilidades.mensajeError("Articulo no almacenado", "Error al almacenar el articulo");
         }

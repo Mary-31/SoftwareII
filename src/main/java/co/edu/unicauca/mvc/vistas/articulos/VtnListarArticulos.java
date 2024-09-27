@@ -31,11 +31,13 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
     public VtnListarArticulos(
             ArticuloServicio objServicio,
             ConferenciaServicio objServicio2,
-            EvaluadorServicio objSEvaluador) {
+            EvaluadorServicio objSEvaluador,
+            AutorServicio objSAutores) {
         initComponents();
         this.objServicio = objServicio;
         this.objServicio2 = objServicio2;
         this.objSEvaluador = objSEvaluador;
+        this.objSAutores = objSAutores;
         this.jTableListarArticulos.setDefaultRenderer(Object.class, new Render());
     }
 
@@ -47,22 +49,26 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         btnAsignar.setVisible(false);
         llenarTabla();
     }
-    /*public void agregaDatos() {
-        
-        Articulo objA1 = new Articulo("Articulo1", "Resumen1", "Palabras1", null, 1, )
-        Conferencia objConferencia1 = new Conferencia(1, "Conferencia1", fechaInicio, fechaFin, "Ubicacion1");
-        this.objServicioAlmacenamiento.almacenarConferencia(objConferencia1);
+    
+    /**
+     * Gestiona la visibilidad de los elementos de la ventana según el rol del usuario.
+     *
+     * @param rol El rol del usuario (Autor, Evaluador, Organizador).
+     */
 
-        Conferencia objConferencia2 = new Conferencia(2, "Conferencia2", fechaInicio, fechaFin, "Ubicacion2");
-        this.objServicioAlmacenamiento.almacenarConferencia(objConferencia2);
-
-        Conferencia objConferencia3 = new Conferencia(3, "Conferencia3", fechaInicio, fechaFin, "Ubicacion3");
-        this.objServicioAlmacenamiento.almacenarConferencia(objConferencia3);
-
-        Conferencia objConferencia4 = new Conferencia(4, "Conferencia4", fechaInicio, fechaFin, "Ubicacion4");
-        this.objServicioAlmacenamiento.almacenarConferencia(objConferencia4);
-    }*/
-
+    public void gestionRol(String rol) {
+        switch (rol) {
+            case "Autor":
+                btnAsignar.setEnabled(false);
+                break;
+            case "Organizador":
+                btnAsignar.setEnabled(true);
+                break;
+            default:
+                break;
+        }
+    }
+    
     /**
      * Método para limpiar la tabla de artículos.
      */
@@ -123,17 +129,18 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         jPanelCentral = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableListarArticulos = new javax.swing.JTable();
-        jPanelInferior = new javax.swing.JPanel();
-        jButtonRegistrar = new javax.swing.JButton();
         btnAsignar = new javax.swing.JButton();
+        jButtonRegistrar = new javax.swing.JButton();
+        jPanelInferior = new javax.swing.JPanel();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setPreferredSize(new java.awt.Dimension(789, 416));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setText("Gestionar articulos");
+        jLabel1.setText("Listado de articulos");
 
         javax.swing.GroupLayout jPanelSuperiorLayout = new javax.swing.GroupLayout(jPanelSuperior);
         jPanelSuperior.setLayout(jPanelSuperiorLayout);
@@ -149,25 +156,23 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         jPanelSuperiorLayout.setVerticalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSuperiorLayout.createSequentialGroup()
-                .addContainerGap(8, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(lblIndice))
                 .addContainerGap())
         );
 
+        getContentPane().add(jPanelSuperior, java.awt.BorderLayout.PAGE_START);
+
         jPanelCentral.setForeground(new java.awt.Color(0, 0, 153));
 
-        jTableListarArticulos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTableListarArticulos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Id", "Titulo", "Resumen", "Palabras clave", "Autores", "Conferencia", "Actualizar", "Eliminar"
+                "ID", "TITULO", "RESUMEN", "PALABRAS CLAVE", "AUTORES", "CONFERENCIA", "ACTUALIZAR", "ELIMINAR"
             }
         ) {
             Class[] types = new Class [] {
@@ -186,6 +191,10 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
             }
         });
         jTableListarArticulos.setColumnSelectionAllowed(true);
+        jTableListarArticulos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTableListarArticulos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTableListarArticulos.setShowGrid(true);
+        jTableListarArticulos.setSurrendersFocusOnKeystroke(true);
         jTableListarArticulos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableListarArticulosMouseClicked(evt);
@@ -193,31 +202,6 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jTableListarArticulos);
         jTableListarArticulos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-
-        javax.swing.GroupLayout jPanelCentralLayout = new javax.swing.GroupLayout(jPanelCentral);
-        jPanelCentral.setLayout(jPanelCentralLayout);
-        jPanelCentralLayout.setHorizontalGroup(
-            jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelCentralLayout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
-        jPanelCentralLayout.setVerticalGroup(
-            jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
-                .addContainerGap(10, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        jButtonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/verificar.png"))); // NOI18N
-        jButtonRegistrar.setText("Registrar");
-        jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegistrarActionPerformed(evt);
-            }
-        });
 
         btnAsignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/asignar.png"))); // NOI18N
         btnAsignar.setText("Asignar Evaluador");
@@ -227,44 +211,57 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanelInferiorLayout = new javax.swing.GroupLayout(jPanelInferior);
-        jPanelInferior.setLayout(jPanelInferiorLayout);
-        jPanelInferiorLayout.setHorizontalGroup(
-            jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInferiorLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAsignar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonRegistrar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        jButtonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/verificar.png"))); // NOI18N
+        jButtonRegistrar.setText("Registrar");
+        jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegistrarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelCentralLayout = new javax.swing.GroupLayout(jPanelCentral);
+        jPanelCentral.setLayout(jPanelCentralLayout);
+        jPanelCentralLayout.setHorizontalGroup(
+            jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCentralLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnAsignar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonRegistrar)))
+                .addContainerGap())
         );
-        jPanelInferiorLayout.setVerticalGroup(
-            jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInferiorLayout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
-                .addGroup(jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jPanelCentralLayout.setVerticalGroup(
+            jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCentralLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonRegistrar)
                     .addComponent(btnAsignar))
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelSuperior, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelInferior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        getContentPane().add(jPanelCentral, java.awt.BorderLayout.CENTER);
+
+        jPanelInferior.setPreferredSize(new java.awt.Dimension(777, 30));
+
+        javax.swing.GroupLayout jPanelInferiorLayout = new javax.swing.GroupLayout(jPanelInferior);
+        jPanelInferior.setLayout(jPanelInferiorLayout);
+        jPanelInferiorLayout.setHorizontalGroup(
+            jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 777, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelSuperior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelCentral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addComponent(jPanelInferior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        jPanelInferiorLayout.setVerticalGroup(
+            jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
+
+        getContentPane().add(jPanelInferior, java.awt.BorderLayout.SOUTH);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -274,7 +271,7 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
      * @param evt Evento de acción.
      */
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        VtnRegistrarArticulo objVtnRegistrarArticulo = new VtnRegistrarArticulo(objServicio, objServicio2, objSAutores);
+        VtnRegistrarArticulo objVtnRegistrarArticulo = new VtnRegistrarArticulo(objServicio, objServicio2, objSAutores, this);
         objVtnRegistrarArticulo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         objVtnRegistrarArticulo.setVisible(true);
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
@@ -344,7 +341,7 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAsignar;
+    public javax.swing.JButton btnAsignar;
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelCentral;

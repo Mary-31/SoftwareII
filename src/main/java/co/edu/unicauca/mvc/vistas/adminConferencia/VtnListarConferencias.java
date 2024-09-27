@@ -70,8 +70,6 @@ public class VtnListarConferencias extends javax.swing.JInternalFrame {
             case "Autor":
                 jButtonRegistrar.setVisible(false);
                 break;
-            case "Evaluador":
-                break;
             case "Organizador":
                 jButtonRegistrar.setVisible(true);
                 break;
@@ -121,75 +119,38 @@ public class VtnListarConferencias extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelCentral = new javax.swing.JPanel();
         jPanelInferior = new javax.swing.JPanel();
-        jButtonRegistrar = new javax.swing.JButton();
-        JpanelTitulo = new javax.swing.JPanel();
-        jLabelTitulo = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jPanelCentral = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableListadoConferencias = new javax.swing.JTable();
+        jButtonRegistrar = new javax.swing.JButton();
+        jPanelSuperior = new javax.swing.JPanel();
+        jLabelTitulo = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
 
-        jButtonRegistrar.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jButtonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/agregar.png"))); // NOI18N
-        jButtonRegistrar.setText("Registrar conferencia");
-        jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegistrarActionPerformed(evt);
-            }
-        });
+        jPanelInferior.setPreferredSize(new java.awt.Dimension(198, 30));
 
         javax.swing.GroupLayout jPanelInferiorLayout = new javax.swing.GroupLayout(jPanelInferior);
         jPanelInferior.setLayout(jPanelInferiorLayout);
         jPanelInferiorLayout.setHorizontalGroup(
             jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInferiorLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonRegistrar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 777, Short.MAX_VALUE)
         );
         jPanelInferiorLayout.setVerticalGroup(
             jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelInferiorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(11, Short.MAX_VALUE))
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        jLabelTitulo.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTitulo.setText("Listado de conferencias");
+        getContentPane().add(jPanelInferior, java.awt.BorderLayout.SOUTH);
 
-        javax.swing.GroupLayout JpanelTituloLayout = new javax.swing.GroupLayout(JpanelTitulo);
-        JpanelTitulo.setLayout(JpanelTituloLayout);
-        JpanelTituloLayout.setHorizontalGroup(
-            JpanelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JpanelTituloLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelTitulo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        JpanelTituloLayout.setVerticalGroup(
-            JpanelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpanelTituloLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jLabelTitulo)
-                .addContainerGap())
-        );
-
-        jTableListadoConferencias.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTableListadoConferencias.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jTableListadoConferencias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "NOMBRE", "FECHA INICIO", "FECHA FIN", "UBICACION"
@@ -203,44 +164,70 @@ public class VtnListarConferencias extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTableListadoConferencias.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTableListadoConferencias.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTableListadoConferencias.setShowGrid(true);
+        jTableListadoConferencias.setSurrendersFocusOnKeystroke(true);
         jScrollPane1.setViewportView(jTableListadoConferencias);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
-        );
+        jButtonRegistrar.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButtonRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/agregar.png"))); // NOI18N
+        jButtonRegistrar.setText("Registrar");
+        jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegistrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelCentralLayout = new javax.swing.GroupLayout(jPanelCentral);
         jPanelCentral.setLayout(jPanelCentralLayout);
         jPanelCentralLayout.setHorizontalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelInferior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(JpanelTitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 765, Short.MAX_VALUE)
+                    .addGroup(jPanelCentralLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButtonRegistrar)))
+                .addContainerGap())
         );
         jPanelCentralLayout.setVerticalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentralLayout.createSequentialGroup()
-                .addComponent(JpanelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jPanelInferior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         getContentPane().add(jPanelCentral, java.awt.BorderLayout.CENTER);
+
+        jPanelSuperior.setPreferredSize(new java.awt.Dimension(777, 30));
+
+        jLabelTitulo.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTitulo.setText("Listado de conferencias");
+
+        javax.swing.GroupLayout jPanelSuperiorLayout = new javax.swing.GroupLayout(jPanelSuperior);
+        jPanelSuperior.setLayout(jPanelSuperiorLayout);
+        jPanelSuperiorLayout.setHorizontalGroup(
+            jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelSuperiorLayout.createSequentialGroup()
+                .addContainerGap(309, Short.MAX_VALUE)
+                .addComponent(jLabelTitulo)
+                .addContainerGap(310, Short.MAX_VALUE))
+        );
+        jPanelSuperiorLayout.setVerticalGroup(
+            jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSuperiorLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelTitulo)
+                .addContainerGap())
+        );
+
+        getContentPane().add(jPanelSuperior, java.awt.BorderLayout.PAGE_START);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -254,12 +241,11 @@ public class VtnListarConferencias extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel JpanelTitulo;
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JLabel jLabelTitulo;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelCentral;
     private javax.swing.JPanel jPanelInferior;
+    private javax.swing.JPanel jPanelSuperior;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableListadoConferencias;
     // End of variables declaration//GEN-END:variables

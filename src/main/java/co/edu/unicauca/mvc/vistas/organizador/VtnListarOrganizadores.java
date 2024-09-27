@@ -50,9 +50,9 @@ public class VtnListarOrganizadores extends javax.swing.JInternalFrame {
     private void iniciarlizarTabla()
     {
        DefaultTableModel model= new DefaultTableModel();       
-       model.addColumn("Nombre Organizador");       
-       model.addColumn("Apellido Organizador");
-       model.addColumn("Universidad");
+       model.addColumn("NOMBRE");       
+       model.addColumn("APELLIDO");
+       model.addColumn("CORREO");
        this.jTableListadoOrganizadores.setModel(model);
     }
     
@@ -84,7 +84,7 @@ public class VtnListarOrganizadores extends javax.swing.JInternalFrame {
             String[] fila = { 
                 listaOrganizadores.get(i).getNombre(), 
                 listaOrganizadores.get(i).getApellido(), 
-                listaOrganizadores.get(i).getUniversidad()
+                listaOrganizadores.get(i).getCorreo()
             };
             model.addRow(fila);
         }
@@ -112,6 +112,9 @@ public class VtnListarOrganizadores extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        setPreferredSize(new java.awt.Dimension(789, 416));
+
+        jPanelSuperior.setPreferredSize(new java.awt.Dimension(887, 30));
 
         jLabelTitulo.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabelTitulo.setText("Listar Organizadores");
@@ -121,28 +124,30 @@ public class VtnListarOrganizadores extends javax.swing.JInternalFrame {
         jPanelSuperiorLayout.setHorizontalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSuperiorLayout.createSequentialGroup()
-                .addContainerGap(205, Short.MAX_VALUE)
+                .addContainerGap(379, Short.MAX_VALUE)
                 .addComponent(jLabelTitulo)
-                .addContainerGap(205, Short.MAX_VALUE))
+                .addContainerGap(380, Short.MAX_VALUE))
         );
         jPanelSuperiorLayout.setVerticalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSuperiorLayout.createSequentialGroup()
-                .addGap(0, 12, Short.MAX_VALUE)
+                .addGap(0, 5, Short.MAX_VALUE)
                 .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         getContentPane().add(jPanelSuperior, java.awt.BorderLayout.PAGE_START);
 
+        jPanelInferior.setPreferredSize(new java.awt.Dimension(889, 30));
+
         javax.swing.GroupLayout jPanelInferiorLayout = new javax.swing.GroupLayout(jPanelInferior);
         jPanelInferior.setLayout(jPanelInferiorLayout);
         jPanelInferiorLayout.setHorizontalGroup(
             jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 538, Short.MAX_VALUE)
+            .addGap(0, 889, Short.MAX_VALUE)
         );
         jPanelInferiorLayout.setVerticalGroup(
             jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanelInferior, java.awt.BorderLayout.PAGE_END);
@@ -165,19 +170,21 @@ public class VtnListarOrganizadores extends javax.swing.JInternalFrame {
             }
         });
 
-        jTableListadoOrganizadores.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTableListadoOrganizadores.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jTableListadoOrganizadores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableListadoOrganizadores.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTableListadoOrganizadores.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTableListadoOrganizadores.setShowGrid(true);
+        jTableListadoOrganizadores.setShowHorizontalLines(true);
+        jTableListadoOrganizadores.setShowVerticalLines(true);
+        jTableListadoOrganizadores.setSurrendersFocusOnKeystroke(true);
         jScrollPane1.setViewportView(jTableListadoOrganizadores);
 
         javax.swing.GroupLayout jPanelCentralLayout = new javax.swing.GroupLayout(jPanelCentral);
@@ -185,28 +192,26 @@ public class VtnListarOrganizadores extends javax.swing.JInternalFrame {
         jPanelCentralLayout.setHorizontalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentralLayout.createSequentialGroup()
-                .addContainerGap(73, Short.MAX_VALUE)
-                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanelCentralLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButtonActualizar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonRegistrar))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(74, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 877, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanelCentralLayout.setVerticalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentralLayout.createSequentialGroup()
-                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelCentralLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonActualizar))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButtonRegistrar)))
-                .addGap(24, 24, 24)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonRegistrar)
+                    .addComponent(jButtonActualizar))
+                .addGap(15, 15, 15))
         );
 
         getContentPane().add(jPanelCentral, java.awt.BorderLayout.CENTER);

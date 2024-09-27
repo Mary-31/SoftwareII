@@ -61,11 +61,11 @@ public class VtnListarEvaluador extends javax.swing.JInternalFrame {
      private void inicializarTabla()
     {
        DefaultTableModel model= new DefaultTableModel();       
-       model.addColumn("Id");       
-       model.addColumn("Nombre");
-       model.addColumn("Apellido");
-       model.addColumn("Eliminar");
-       model.addColumn("Actualizar");       
+       model.addColumn("ID");       
+       model.addColumn("NOMBRE");
+       model.addColumn("APELLIDO");
+       model.addColumn("ELIMINAR");
+       model.addColumn("ACTUALIZAR");       
        this.jTableListarEvaluadores.setModel(model);
     }
      /**
@@ -138,8 +138,10 @@ public class VtnListarEvaluador extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setMinimumSize(new java.awt.Dimension(789, 416));
+        setPreferredSize(new java.awt.Dimension(789, 416));
 
-        jPanelSuperior.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelSuperior.setPreferredSize(new java.awt.Dimension(544, 30));
 
         jLabelGestionarE.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabelGestionarE.setText("Gestionar Evaluadores");
@@ -149,36 +151,34 @@ public class VtnListarEvaluador extends javax.swing.JInternalFrame {
         jPanelSuperiorLayout.setHorizontalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSuperiorLayout.createSequentialGroup()
-                .addContainerGap(200, Short.MAX_VALUE)
+                .addContainerGap(404, Short.MAX_VALUE)
                 .addComponent(jLabelGestionarE)
-                .addContainerGap(202, Short.MAX_VALUE))
+                .addContainerGap(405, Short.MAX_VALUE))
         );
         jPanelSuperiorLayout.setVerticalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSuperiorLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelGestionarE)
                 .addGap(15, 15, 15))
         );
 
         getContentPane().add(jPanelSuperior, java.awt.BorderLayout.PAGE_START);
 
-        jPanelInferior.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelInferior.setPreferredSize(new java.awt.Dimension(544, 30));
 
         javax.swing.GroupLayout jPanelInferiorLayout = new javax.swing.GroupLayout(jPanelInferior);
         jPanelInferior.setLayout(jPanelInferiorLayout);
         jPanelInferiorLayout.setHorizontalGroup(
             jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 542, Short.MAX_VALUE)
+            .addGap(0, 951, Short.MAX_VALUE)
         );
         jPanelInferiorLayout.setVerticalGroup(
             jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 26, Short.MAX_VALUE)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanelInferior, java.awt.BorderLayout.PAGE_END);
-
-        jPanelCentral.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jButtonActualizar.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jButtonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/comunicacion.png"))); // NOI18N
@@ -198,19 +198,19 @@ public class VtnListarEvaluador extends javax.swing.JInternalFrame {
             }
         });
 
-        jTableListarEvaluadores.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTableListarEvaluadores.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jTableListarEvaluadores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableListarEvaluadores.setShowGrid(true);
+        jTableListarEvaluadores.setShowHorizontalLines(true);
+        jTableListarEvaluadores.setShowVerticalLines(true);
+        jTableListarEvaluadores.setSurrendersFocusOnKeystroke(true);
         jTableListarEvaluadores.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableListarEvaluadoresMouseClicked(evt);
@@ -222,26 +222,27 @@ public class VtnListarEvaluador extends javax.swing.JInternalFrame {
         jPanelCentral.setLayout(jPanelCentralLayout);
         jPanelCentralLayout.setHorizontalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
-                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanelCentralLayout.createSequentialGroup()
+            .addGroup(jPanelCentralLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 939, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButtonActualizar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonRegistrar))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(49, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonRegistrar)))
+                .addContainerGap())
         );
         jPanelCentralLayout.setVerticalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentralLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonActualizar)
-                    .addComponent(jButtonRegistrar))
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                    .addComponent(jButtonRegistrar)
+                    .addComponent(jButtonActualizar))
+                .addContainerGap())
         );
 
         getContentPane().add(jPanelCentral, java.awt.BorderLayout.CENTER);

@@ -24,7 +24,6 @@ co\edu\unicauca\mvc\vistas\adminConferencia\VtnPrincipalAdmin$1.class
 co\edu\unicauca\mvc\modelos\Articulo.class
 co\edu\unicauca\mvc\vistas\articulos\VtnRegistrarArticulo$1.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnListarConferencias$2.class
-co\edu\unicauca\mvc\vistas\adminConferencia\VtnPrincipalAdmin$7.class
 co\edu\unicauca\mvc\accesoADatos\OrganizadorRepositorio.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnPrincipalAdmin$4.class
 co\edu\unicauca\mvc\vistas\VtnLogin$2.class
