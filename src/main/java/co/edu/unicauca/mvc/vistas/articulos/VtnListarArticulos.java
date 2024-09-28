@@ -54,6 +54,7 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
      */
     public void initialize() {
         btnAsignar.setVisible(false);
+        btnActualizar.setVisible(false);
         llenarTabla();
     }
     
@@ -95,14 +96,6 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         limpiarTabla();
         ArrayList<Articulo> listaArticulos
                 = (ArrayList<Articulo>) this.objServicio.listarArticulos();
-
-        JButton JButtonEliminarArticulo = new JButton();
-        JButtonEliminarArticulo.setName("Eliminar");
-        JButtonEliminarArticulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/remove.png")));
-
-        JButton JButtonActualizarArticulo = new JButton();
-        JButtonActualizarArticulo.setName("Actualizar");
-        JButtonActualizarArticulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/aplicar.png")));
         // Agregar filas a la tabla con los datos de cada artículo
         for (Articulo articulo : listaArticulos) {
             StringBuilder autoresConcatenados = new StringBuilder();
@@ -119,8 +112,7 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
                 articulo.getPalabrasClave(),
                 autoresConcatenados.toString(),
                 articulo.getObjConferencia().getNombre(),
-                JButtonActualizarArticulo,
-                JButtonEliminarArticulo
+                articulo.getEstado()
             });
         }
 
@@ -138,6 +130,7 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         jTableListarArticulos = new javax.swing.JTable();
         btnAsignar = new javax.swing.JButton();
         jButtonRegistrar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
         jPanelInferior = new javax.swing.JPanel();
 
         setClosable(true);
@@ -180,14 +173,14 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID", "TITULO", "RESUMEN", "PALABRAS CLAVE", "AUTORES", "CONFERENCIA", "ACTUALIZAR", "ELIMINAR"
+                "ID", "TITULO", "RESUMEN", "PALABRAS CLAVE", "AUTORES", "CONFERENCIA", "ESTADO"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, false, false, true, true
+                true, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -227,6 +220,13 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
             }
         });
 
+        btnActualizar.setText("Actualizar");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelCentralLayout = new javax.swing.GroupLayout(jPanelCentral);
         jPanelCentral.setLayout(jPanelCentralLayout);
         jPanelCentralLayout.setHorizontalGroup(
@@ -234,9 +234,11 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
             .addGroup(jPanelCentralLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 765, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnAsignar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonRegistrar)))
@@ -246,12 +248,14 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentralLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonRegistrar)
-                    .addComponent(btnAsignar))
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonRegistrar)
+                        .addComponent(btnAsignar))
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelCentral, java.awt.BorderLayout.CENTER);
@@ -290,47 +294,7 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
      */
     private void jTableListarArticulosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableListarArticulosMouseClicked
         btnAsignar.setVisible(true);
-        int column = this.jTableListarArticulos.getColumnModel().getColumnIndexAtX(evt.getX());
-        int row = evt.getY() / jTableListarArticulos.getRowHeight();
-
-        if (row < jTableListarArticulos.getRowCount() && row >= 0 && column < jTableListarArticulos.getColumnCount() && column >= 0) {
-            Object value = jTableListarArticulos.getValueAt(row, column);
-
-            if (value instanceof JButton) {
-
-                ((JButton) value).doClick();
-                JButton boton = (JButton) value;
-
-                String idArticulo = jTableListarArticulos.getValueAt(row, 0).toString();
-                int idArticuloConvertido = Integer.parseInt(idArticulo);
-                if (boton.getName().equals("Eliminar")) {
-                    try {
-                        if (Utilidades.mensajeConfirmacion("¿ Estás seguro de que quieres eliminar el artículo con identificador " + idArticulo + " "
-                                + " ?", "Confirmación") == 0) {
-                            boolean bandera = this.objServicio.eliminarArticulo(idArticuloConvertido);
-                            if (bandera == true) {
-                                Utilidades.mensajeExito("El articulo con identificador " + idArticuloConvertido + " fue eliminado exitosamente", "Articulo eliminado");
-                                llenarTabla();
-                            } else {
-                                Utilidades.mensajeAdvertencia("El artículo con identificador " + idArticuloConvertido + " no fue eliminado", "Error al eliminar");
-
-                            }
-                        }
-                    } catch (Exception ex) {
-                        Utilidades.mensajeError("Error al eliminar usuario. Intentelo de nuevo más tarde", "Error");
-                    }
-                } else if (boton.getName().equals("Actualizar")) {
-                    VtnActualizarArticulo objVtnActualizarArticulo
-                            = new VtnActualizarArticulo(objServicio, objServicio2);
-                    objVtnActualizarArticulo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    objVtnActualizarArticulo.cargarDatos(idArticuloConvertido);
-                    objVtnActualizarArticulo.setVisible(true);
-
-                }
-            }
-        }
-
-
+        btnActualizar.setVisible(true);
     }//GEN-LAST:event_jTableListarArticulosMouseClicked
     /**
      * Acción del botón asignar para abrir la ventana de asignación de evaluadores.
@@ -347,7 +311,18 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         objVtnAsignarEvaluador.setVisible(true);
     }//GEN-LAST:event_btnAsignarActionPerformed
 
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        int indice = jTableListarArticulos.getSelectedRow();
+        int idArticulo = Integer.parseInt(jTableListarArticulos.getValueAt(indice, 0).toString());
+        VtnActualizarArticulo objVtnActualizarArticulo
+                            = new VtnActualizarArticulo(objServicio, objServicio2, objSAutores, this);
+        objVtnActualizarArticulo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        objVtnActualizarArticulo.cargarDatos(idArticulo);
+        objVtnActualizarArticulo.setVisible(true);
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
     public javax.swing.JButton btnAsignar;
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JLabel jLabel1;

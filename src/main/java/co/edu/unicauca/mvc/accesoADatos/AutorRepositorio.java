@@ -58,7 +58,7 @@ public class AutorRepositorio implements IAutorRepositorio {
      */
 
     @Override
-    public List<Autor> listarAutores() {
+    public ArrayList<Autor> listarAutores() {
         return this.listaAutores;
     }
 }

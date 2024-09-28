@@ -309,7 +309,7 @@ public final class VtnRegistrarArticulo extends javax.swing.JFrame {
      * @param evt Evento de acción.
      */
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        String titulo, resumen, palabras;
+        String titulo, resumen, palabras, estado;
         ArrayList<Autor> listAutores = obtenerAutoresSeleccionados(jTableAutores);
         Conferencia objConferencia;
         boolean bandera;
@@ -318,13 +318,15 @@ public final class VtnRegistrarArticulo extends javax.swing.JFrame {
         resumen = this.txtResumen.getText();
         palabras = this.txtPalabras.getText();
         objConferencia = (Conferencia) this.jComboBoxConferencia.getSelectedItem();
-
+        estado = "Pendiente";
+        
         Articulo objArticulo = new Articulo();
         objArticulo.setTitulo(titulo);
         objArticulo.setResumen(resumen);
         objArticulo.setPalabrasClave(palabras);
         objArticulo.setAutores(listAutores);
         objArticulo.setObjConferencia(objConferencia);
+        objArticulo.setEstado(estado);
         // Almacenar el artículo utilizando el servicio
         bandera = this.objServicio1.almacenarArticulo(objArticulo);
         // Mostrar mensaje de éxito o error

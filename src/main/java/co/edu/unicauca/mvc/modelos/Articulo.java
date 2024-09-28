@@ -14,6 +14,7 @@ public class Articulo {
     private String titulo;
     private String resumen;
     private String palabrasClave;
+    private String estado;
     private ArrayList<Autor> listAutores;
     private Conferencia objConferencia;
     private ArrayList<Evaluador> listEvaluadores;
@@ -32,7 +33,7 @@ public class Articulo {
     
     public Articulo(int idArticulo, String titulo, String resumen, 
         String palabrasClave, ArrayList<Autor> listAutores, 
-        Conferencia objConferencia, ArrayList<Evaluador> listEvaluadores) {
+        Conferencia objConferencia, ArrayList<Evaluador> listEvaluadores, String estado) {
         this.idArticulo = idArticulo;
         this.titulo = titulo;
         this.resumen = resumen;
@@ -40,6 +41,7 @@ public class Articulo {
         this.listAutores = listAutores;
         this.objConferencia = objConferencia;
         this.listEvaluadores = new ArrayList<>();
+        this.estado = estado;
     }
     /**
      * Constructor vacío para la clase Articulo.
@@ -145,23 +147,6 @@ public class Articulo {
     public void setObjConferencia(Conferencia objConferencia) {
         this.objConferencia = objConferencia;
     }
-    /**
-    * Obtiene la lista de autores asociados al artículo.
-    * Este método es redundante ya que es idéntico a getAutores().
-    *
-    * @return Una lista de objetos Autor que representan los autores del artículo.
-    */
-    public ArrayList<Autor> getListAutores() {
-        return listAutores;
-    }
-   /**
-    * Establece la lista de autores asociados al artículo.
-    * Este método es redundante ya que es idéntico a setAutores.
-    * @param listAutores Una lista de objetos Autor que representan los nuevos autores del artículo.
-    */
-    public void setListAutores(ArrayList<Autor> listAutores) {
-        this.listAutores = listAutores;
-    }
     
     /**
     * Obtiene la lista de evaluadores asociados al artículo.
@@ -179,4 +164,13 @@ public class Articulo {
     public void setListEvaluadores(ArrayList<Evaluador> listEvaluadores) {
         this.listEvaluadores = listEvaluadores;
     }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
 }

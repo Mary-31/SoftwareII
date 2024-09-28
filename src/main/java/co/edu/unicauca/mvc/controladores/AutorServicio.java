@@ -7,6 +7,7 @@ package co.edu.unicauca.mvc.controladores;
 import co.edu.unicauca.mvc.modelos.Autor;
 import java.util.List;
 import co.edu.unicauca.mvc.accesoADatos.IAutorRepositorio;
+import java.util.ArrayList;
 
 /**
  *
@@ -47,7 +48,7 @@ public class AutorServicio {
      *
      * @return Una lista de todos los autores.
      */
-    public List<Autor> listarAutores(){
+    public ArrayList<Autor> listarAutores(){
         return this.objIAutor.listarAutores();
     }
 }

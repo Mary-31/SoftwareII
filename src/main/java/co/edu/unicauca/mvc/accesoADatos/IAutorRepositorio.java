@@ -5,6 +5,7 @@
 package co.edu.unicauca.mvc.accesoADatos;
 
 import co.edu.unicauca.mvc.modelos.Autor;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,5 +31,5 @@ public interface IAutorRepositorio {
      *
      * @return Una lista de todos los autores.
      */
-    public List<Autor> listarAutores();
+    public ArrayList<Autor> listarAutores();
 }

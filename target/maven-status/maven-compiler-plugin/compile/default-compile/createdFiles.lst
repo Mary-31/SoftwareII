@@ -1,5 +1,6 @@
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnPrincipalAdmin$5.class
 co\edu\unicauca\mvc\accesoADatos\ConferenciaRepositorio.class
+co\edu\unicauca\mvc\vistas\articulos\VtnActualizarArticulo$3.class
 co\edu\unicauca\mvc\accesoADatos\IEvaluadorRepositorio.class
 co\edu\unicauca\mvc\Aplicacion_capas_mvc.class
 co\edu\unicauca\mvc\utilidades\Utilidades.class
@@ -20,6 +21,7 @@ co\edu\unicauca\mvc\vistas\evaluador\VtnListarEvaluador$3.class
 co\edu\unicauca\mvc\vistas\articulos\VtnRegistrarArticulo.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnPrincipalAdmin$1.class
 co\edu\unicauca\mvc\modelos\Articulo.class
+co\edu\unicauca\mvc\vistas\articulos\VtnListarArticulos$5.class
 co\edu\unicauca\mvc\vistas\articulos\VtnRegistrarArticulo$1.class
 co\edu\unicauca\mvc\vistas\adminConferencia\VtnListarConferencias$2.class
 co\edu\unicauca\mvc\accesoADatos\OrganizadorRepositorio.class

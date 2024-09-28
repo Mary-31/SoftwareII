@@ -5,13 +5,17 @@
 package co.edu.unicauca.mvc.vistas.articulos;
 
 import co.edu.unicauca.mvc.controladores.ArticuloServicio;
+import co.edu.unicauca.mvc.controladores.AutorServicio;
 import co.edu.unicauca.mvc.controladores.ConferenciaServicio;
 import co.edu.unicauca.mvc.modelos.Articulo;
 import co.edu.unicauca.mvc.modelos.Autor;
 import co.edu.unicauca.mvc.modelos.Conferencia;
+import co.edu.unicauca.mvc.modelos.Evaluador;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -34,6 +38,8 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
     private ConferenciaServicio objServicio2;
     // Lista de autores asociados al artículo
     private ArrayList<Autor> listAutores;
+    private AutorServicio objSAutores; 
+    private VtnListarArticulos objListarArticulo;
     
     /**
      * Constructor de la clase VtnActualizarArticulo.
@@ -44,12 +50,31 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
     
     public VtnActualizarArticulo(
             ArticuloServicio objServicio1,
-            ConferenciaServicio objServicio2) {
+            ConferenciaServicio objServicio2,
+            AutorServicio objSAutores,
+            VtnListarArticulos objListarArticulo) {
         initComponents();
         this.objServicio1=objServicio1;
         this.objServicio2=objServicio2;
+        this.objSAutores = objSAutores;
+        this.objListarArticulo = objListarArticulo;
         cargarConferencias();
     }
+    
+    private void cargarTablaEvaluadores(ArrayList<Autor> listAutor, ArrayList<Autor> listAutorArticulo) {
+        DefaultTableModel model = (DefaultTableModel) jTableAutores.getModel();
+        model.setRowCount(0); // Limpiar la tabla antes de llenarla
+
+        for (Autor autor : listAutor) {
+            // Verifica si el evaluador está en la lista de seleccionados
+            boolean isSelected = listAutorArticulo.contains(autor);
+
+            // Agrega una nueva fila con el evaluador y su estado de selección
+            model.addRow(new Object[]{autor.getId(),autor.getNombre(), 
+                autor.getApellido(), autor.getCorreo(), isSelected});
+        }
+    }
+
     /**
      * Carga los datos del artículo especificado en la ventana de actualización.
      * 
@@ -58,9 +83,11 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
     public void cargarDatos(int idArticulo)
     {
         Articulo objArticulo=this.objServicio1.consultarArticulo(idArticulo);
+        ArrayList<Autor> listAutor = this.objSAutores.listarAutores();
+        listAutores = objArticulo.getAutores();
+        cargarTablaEvaluadores(listAutor, listAutores);
         this.jTextFieldId.setText(objArticulo.getIdArticulo()+"");
-        this.jTextFieldTitulo.setText(objArticulo.getTitulo());
-        this.jTextAreaAutores.setText("");
+        this.jTextFieldTitulo.setText(objArticulo.getTitulo());   
         this.jComboBoxConferencia.setSelectedItem(objArticulo.getObjConferencia());
     }
     /**
@@ -74,6 +101,28 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
             this.jComboBoxConferencia.addItem(conferencias.get(i));
         }
     }
+    
+    /**
+     * Método para obtener la lista de autores seleccionados en la tabla.
+     *
+     * @param tabla Tabla de autores.
+     * @return Lista de autores seleccionados.
+     */
+    public ArrayList<Autor> obtenerAutoresSeleccionados(JTable tabla) {
+        ArrayList<Autor> autoresSeleccionados = new ArrayList<>();
+        DefaultTableModel model = (DefaultTableModel) tabla.getModel();
+
+        // Recorrer las filas para verificar cuáles están seleccionadas
+        for (int i = 0; i < model.getRowCount(); i++) {
+            Object isSelected = (Boolean) model.getValueAt(i, 4);
+
+            if (isSelected != null && (Boolean) isSelected) {
+                Autor autor = listAutores.get(i);
+                autoresSeleccionados.add(autor);
+            }
+        }
+        return autoresSeleccionados;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -84,59 +133,65 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanelSuperior = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jPanelInferior = new javax.swing.JPanel();
-        jButtonActualizar = new javax.swing.JButton();
         jPanelCentral = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextFieldTitulo = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaAutores = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         jComboBoxConferencia = new javax.swing.JComboBox<>();
         jTextFieldId = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jPanelSuperior = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        jButtonActualizar = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTableAutores = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButtonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/documento.png"))); // NOI18N
-        jButtonActualizar.setText("Actualizar");
-        jButtonActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonActualizarActionPerformed(evt);
-            }
-        });
+        jPanelSuperior.setPreferredSize(new java.awt.Dimension(139, 30));
+
+        jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jLabel3.setText("Actualizar articulo");
+
+        javax.swing.GroupLayout jPanelSuperiorLayout = new javax.swing.GroupLayout(jPanelSuperior);
+        jPanelSuperior.setLayout(jPanelSuperiorLayout);
+        jPanelSuperiorLayout.setHorizontalGroup(
+            jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelSuperiorLayout.createSequentialGroup()
+                .addContainerGap(191, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addContainerGap(191, Short.MAX_VALUE))
+        );
+        jPanelSuperiorLayout.setVerticalGroup(
+            jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelSuperiorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanelSuperior, java.awt.BorderLayout.PAGE_START);
+
+        jPanelInferior.setPreferredSize(new java.awt.Dimension(728, 30));
 
         javax.swing.GroupLayout jPanelInferiorLayout = new javax.swing.GroupLayout(jPanelInferior);
         jPanelInferior.setLayout(jPanelInferiorLayout);
         jPanelInferiorLayout.setHorizontalGroup(
             jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInferiorLayout.createSequentialGroup()
-                .addContainerGap(167, Short.MAX_VALUE)
-                .addComponent(jButtonActualizar)
-                .addContainerGap(166, Short.MAX_VALUE))
+            .addGap(0, 507, Short.MAX_VALUE)
         );
         jPanelInferiorLayout.setVerticalGroup(
             jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelInferiorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonActualizar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanelInferior, java.awt.BorderLayout.PAGE_END);
 
-        jPanelCentral.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         jLabel1.setText("Titulo:");
 
         jLabel2.setText("Autores:");
-
-        jTextAreaAutores.setColumns(20);
-        jTextAreaAutores.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaAutores);
 
         jLabel4.setText("Conferencia:");
 
@@ -150,71 +205,96 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
 
         jLabel5.setText("Id:");
 
-        jPanelSuperior.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButtonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/documento.png"))); // NOI18N
+        jButtonActualizar.setText("Actualizar");
+        jButtonActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonActualizarActionPerformed(evt);
+            }
+        });
 
-        jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jLabel3.setText("Actualizar articulo");
+        jTableAutores.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTableAutores.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jTableAutores.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        javax.swing.GroupLayout jPanelSuperiorLayout = new javax.swing.GroupLayout(jPanelSuperior);
-        jPanelSuperior.setLayout(jPanelSuperiorLayout);
-        jPanelSuperiorLayout.setHorizontalGroup(
-            jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelSuperiorLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanelSuperiorLayout.setVerticalGroup(
-            jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelSuperiorLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18))
-        );
+            },
+            new String [] {
+                "ID", "NOMBRE", "APELLIDO", "CORREO", "SELECCIONAR"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                true, false, false, true, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTableAutores.setToolTipText("");
+        jTableAutores.setShowGrid(true);
+        jTableAutores.setSurrendersFocusOnKeystroke(true);
+        jScrollPane4.setViewportView(jTableAutores);
 
         javax.swing.GroupLayout jPanelCentralLayout = new javax.swing.GroupLayout(jPanelCentral);
         jPanelCentral.setLayout(jPanelCentralLayout);
         jPanelCentralLayout.setHorizontalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
-                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel5)
-                        .addComponent(jLabel1))
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+            .addGroup(jPanelCentralLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextFieldTitulo)
-                        .addComponent(jScrollPane1)
-                        .addComponent(jTextFieldId))
-                    .addComponent(jComboBoxConferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(56, Short.MAX_VALUE))
-            .addComponent(jPanelSuperior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanelCentralLayout.createSequentialGroup()
+                        .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(jPanelCentralLayout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBoxConferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanelCentralLayout.createSequentialGroup()
+                        .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonActualizar)
+                            .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanelCentralLayout.createSequentialGroup()
+                                    .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel1)
+                                        .addComponent(jLabel5))
+                                    .addGap(51, 51, 51)
+                                    .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jTextFieldTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 6, Short.MAX_VALUE))))
         );
         jPanelCentralLayout.setVerticalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentralLayout.createSequentialGroup()
-                .addComponent(jPanelSuperior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jTextFieldTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jComboBoxConferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(50, Short.MAX_VALUE))
+                    .addComponent(jComboBoxConferencia))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonActualizar)
+                .addGap(11, 11, 11))
         );
 
         getContentPane().add(jPanelCentral, java.awt.BorderLayout.CENTER);
@@ -231,13 +311,13 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
         String titulo, autores, id;
         Conferencia objConferencia;
+        ArrayList<Autor> listAutores = obtenerAutoresSeleccionados(jTableAutores);
         boolean bandera;
         int idArticulo;
         id=this.jTextFieldId.getText();  
         
         idArticulo=Integer.parseInt(id);
         titulo=this.jTextFieldTitulo.getText();
-        autores=this.jTextAreaAutores.getText();
         objConferencia=(Conferencia) this.jComboBoxConferencia.getSelectedItem();
         
         
@@ -251,6 +331,8 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
        if(bandera==true)
        {
            Utilidades.mensajeExito("Artículo actualizado exitosamente", "Artículo actualizado");
+           objListarArticulo.llenarTabla();
+           dispose();
        }
        else
        {
@@ -276,7 +358,11 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelInferior;
     private javax.swing.JPanel jPanelSuperior;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextAreaAutores;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTable jTableAutores;
+    private javax.swing.JTable jTableListarArticulos;
+    private javax.swing.JTable jTableListarArticulos1;
     private javax.swing.JTextField jTextFieldId;
     private javax.swing.JTextField jTextFieldTitulo;
     // End of variables declaration//GEN-END:variables
