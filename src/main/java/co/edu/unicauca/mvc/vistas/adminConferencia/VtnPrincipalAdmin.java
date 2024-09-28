@@ -287,6 +287,7 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
         // Configurar la ventana para ocultarse al cerrarse
         this.objVtnListarArticulos.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
         objVtnListarArticulos.initialize();
+        objVtnListarArticulos.gestionRol(rol);
         this.objVtnListarArticulos.setVisible(true);
         this.objVtnListarConferencias.setVisible(false);
         this.objVtnRegistrarOrganizadores.setVisible(false);
