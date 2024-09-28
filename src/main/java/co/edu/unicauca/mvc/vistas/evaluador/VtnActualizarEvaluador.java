@@ -63,6 +63,7 @@ public class VtnActualizarEvaluador extends javax.swing.JFrame {
         jPanelSuperior = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanelInferior = new javax.swing.JPanel();
+        jButtonActualizar = new javax.swing.JButton();
         jPanelCentral = new javax.swing.JPanel();
         jLabelId = new javax.swing.JLabel();
         jLabelNombre = new javax.swing.JLabel();
@@ -102,15 +103,30 @@ public class VtnActualizarEvaluador extends javax.swing.JFrame {
 
         jPanelInferior.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jButtonActualizar.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jButtonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/comunicacion.png"))); // NOI18N
+        jButtonActualizar.setText("Actualizar");
+        jButtonActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonActualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelInferiorLayout = new javax.swing.GroupLayout(jPanelInferior);
         jPanelInferior.setLayout(jPanelInferiorLayout);
         jPanelInferiorLayout.setHorizontalGroup(
             jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 464, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInferiorLayout.createSequentialGroup()
+                .addContainerGap(300, Short.MAX_VALUE)
+                .addComponent(jButtonActualizar)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanelInferiorLayout.setVerticalGroup(
             jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 29, Short.MAX_VALUE)
+            .addGroup(jPanelInferiorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButtonActualizar)
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelInferior, java.awt.BorderLayout.PAGE_END);
@@ -173,7 +189,7 @@ public class VtnActualizarEvaluador extends javax.swing.JFrame {
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelTemas)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelCentral, java.awt.BorderLayout.CENTER);
@@ -181,11 +197,13 @@ public class VtnActualizarEvaluador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
+        //llenarTabla();
+    }//GEN-LAST:event_jButtonActualizarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonActualizar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelApellido;
     private javax.swing.JLabel jLabelId;

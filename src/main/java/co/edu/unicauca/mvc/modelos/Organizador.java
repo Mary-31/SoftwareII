@@ -29,27 +29,51 @@ public class Organizador {
     }
     
     // Métodos getters y setters
-    
+     /**
+     * Obtiene el nombre del organizador.
+     * 
+     * @return el nombre del organizador.
+     */
     public String getNombre() {
         return nombreOrganizador;
     }
-
+    /**
+     * Establece el nombre del organizador.
+     * 
+     * @param nombreOrganizador el nombre a establecer.
+     */
     public void setNombre(String nombreOrganizador) {
         this.nombreOrganizador = nombreOrganizador;
     }
-
+    /**
+     * Obtiene el apellido del organizador.
+     * 
+     * @return el apellido del organizador.
+     */
     public String getApellido() {
         return apellidoOrganizador;
     }
-
+    /**
+     * Establece el apellido del organizador.
+     * 
+     * @param apellidoOrganizador el apellido a establecer.
+     */
     public void setApellido(String apellidoOrganizador) {
         this.apellidoOrganizador=apellidoOrganizador;
     }
-    
-     public String getCorreo() {
+    /**
+     * Obtiene el correo electrónico del organizador.
+     * 
+     * @return el correo electrónico del organizador.
+     */
+    public String getCorreo() {
         return correo;
     }
-
+    /**
+     * Establece el correo electrónico del organizador.
+     * 
+     * @param correo el correo a establecer.
+     */
     public void setCorreo(String correo) {
         this.correo=correo;
     }

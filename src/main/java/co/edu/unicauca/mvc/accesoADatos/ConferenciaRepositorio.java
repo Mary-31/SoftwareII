@@ -26,11 +26,9 @@ public class ConferenciaRepositorio implements IConferenciaRepositorio{
     }
     
     /**
-     * Almacena una conferencia en la lista.
-     *
-     * @param objConferencia La conferencia a almacenar.
-     * @return true si la conferencia se almacena correctamente, false en caso contrario.
-     */
+    * Almacena una conferencia en la lista.
+    * @return true si la conferencia se almacena correctamente, false en caso contrario.
+    */
     
     @Override
     public boolean almacenarConferencia(Conferencia objConfererencia) {

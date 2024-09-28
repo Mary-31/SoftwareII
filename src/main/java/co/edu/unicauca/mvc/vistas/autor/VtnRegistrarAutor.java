@@ -5,25 +5,20 @@ import co.edu.unicauca.mvc.modelos.Autor;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
 
 /**
- *
- * @author SANTIAGO DORADO
- */
-
-/**
  * Clase VtnRegistrarAutor.
  * Esta clase representa una ventana interna que permite registrar nuevos autores en el sistema.
  * Extiende javax.swing.JInternalFrame.
+ * 
+ * @author SANTIAGO DORADO
  */
 
 public class VtnRegistrarAutor extends javax.swing.JInternalFrame {
 // Servicio utilizado para manejar las operaciones relacionadas con los autores.
     private AutorServicio objSAutor;
-
     /**
-     * Crea una nueva instancia de la ventana VtnRegistrarAutor.
-     * 
-     * @param objSAutor Servicio de autores utilizado para registrar y gestionar autores.
-     */
+    * Crea una nueva instancia de la ventana VtnRegistrarAutor.
+    * 
+    */
     
     public VtnRegistrarAutor(AutorServicio objSAutor) {
         initComponents();
@@ -61,6 +56,7 @@ public class VtnRegistrarAutor extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconG.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel1.setText("Registrar Autor");
@@ -87,20 +83,8 @@ public class VtnRegistrarAutor extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel2.setText("Nombre:");
 
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
-            }
-        });
-
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel3.setText("Apellido:");
-
-        txtApellido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApellidoActionPerformed(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel4.setText("Correo:");
@@ -119,10 +103,10 @@ public class VtnRegistrarAutor extends javax.swing.JInternalFrame {
         pnlCentralLayout.setHorizontalGroup(
             pnlCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCentralLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addContainerGap(49, Short.MAX_VALUE)
                 .addGroup(pnlCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlCentralLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
                         .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlCentralLayout.createSequentialGroup()
                         .addGroup(pnlCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,12 +119,12 @@ public class VtnRegistrarAutor extends javax.swing.JInternalFrame {
                             .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(45, 45, 45))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         pnlCentralLayout.setVerticalGroup(
             pnlCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCentralLayout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addGap(23, 23, 23)
                 .addGroup(pnlCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -174,20 +158,11 @@ public class VtnRegistrarAutor extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
-
-    private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellidoActionPerformed
     /**
      * Acción realizada al hacer clic en el botón Registrar.
      * Este método recoge los datos introducidos por el usuario, crea una nueva instancia
      * de Autor y utiliza el servicio de autores para registrar el nuevo autor.
      * 
-     * @param evt Evento de acción.
      */
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         String nombre, apellido, correo;
@@ -211,9 +186,6 @@ public class VtnRegistrarAutor extends javax.swing.JInternalFrame {
             Utilidades.mensajeError("El registro del autor no se realizo", "Error en el registro");
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;

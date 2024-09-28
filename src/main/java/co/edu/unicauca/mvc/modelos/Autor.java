@@ -1,17 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package co.edu.unicauca.mvc.modelos;
-
-/**
- *
- * @author SANTIAGO DORADO
- */
 
 /**
  * Representa un autor de un artículo dentro del sistema de conferencias.
  * Contiene información personal del autor como nombre, apellido y correo electrónico.
+ * 
+ * @author SANTIAGO DORADO
  */
 
     public class Autor {
@@ -43,38 +36,68 @@ package co.edu.unicauca.mvc.modelos;
     }
     
     // Métodos getters y setters
-
+    /**
+     * Obtiene el identificador único del autor.
+     * 
+     * @return el identificador del autor.
+     */
     public int getId() {
         return id;
     }
-
+    /**
+     * Establece el identificador único del autor.
+     * 
+     * @param id el identificador a establecer.
+     */
     public void setId(int id) {
         this.id = id;
     }   
-    
+    /**
+     * Obtiene el nombre del autor.
+     * 
+     * @return el nombre del autor.
+     */
     public String getNombre() {
         return nombre;
     }
-
+    /**
+     * Establece el nombre del autor.
+     * 
+     * @param nombre el nombre a establecer.
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
+    /**
+     * Obtiene el apellido del autor.
+     * 
+     * @return el apellido del autor.
+     */
     public String getApellido() {
         return apellido;
     }
-
+    /**
+     * Establece el apellido del autor.
+     * 
+     * @param apellido el apellido a establecer.
+     */
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }  
-
+    /**
+     * Obtiene el correo electrónico del autor.
+     * 
+     * @return el correo electrónico del autor.
+     */
     public String getCorreo() {
         return correo;
     }
-
+     /**
+     * Establece el correo electrónico del autor.
+     * 
+     * @param correo el correo electrónico a establecer.
+     */
     public void setCorreo(String correo) {
         this.correo = correo;
-    }
-    
-    
+    }      
 }

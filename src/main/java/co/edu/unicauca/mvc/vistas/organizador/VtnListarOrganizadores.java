@@ -112,6 +112,7 @@ public class VtnListarOrganizadores extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconG.png"))); // NOI18N
         setPreferredSize(new java.awt.Dimension(789, 416));
 
         jPanelSuperior.setPreferredSize(new java.awt.Dimension(887, 30));
@@ -182,8 +183,6 @@ public class VtnListarOrganizadores extends javax.swing.JInternalFrame {
         jTableListadoOrganizadores.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jTableListadoOrganizadores.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jTableListadoOrganizadores.setShowGrid(true);
-        jTableListadoOrganizadores.setShowHorizontalLines(true);
-        jTableListadoOrganizadores.setShowVerticalLines(true);
         jTableListadoOrganizadores.setSurrendersFocusOnKeystroke(true);
         jScrollPane1.setViewportView(jTableListadoOrganizadores);
 
@@ -206,7 +205,7 @@ public class VtnListarOrganizadores extends javax.swing.JInternalFrame {
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentralLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonRegistrar)
