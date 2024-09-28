@@ -128,17 +128,10 @@ public class VtnAsignarEvaluador extends javax.swing.JFrame {
         jTableEvaluadores.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jTableEvaluadores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Id", "Nombre", "Apellido", "Correo", "Seleccionar"
+                "ID", "NOMBRE", "APELLIDO", "CORREO", "SELECCIONAR"
             }
         ) {
             Class[] types = new Class [] {
@@ -157,6 +150,8 @@ public class VtnAsignarEvaluador extends javax.swing.JFrame {
             }
         });
         jTableEvaluadores.setToolTipText("");
+        jTableEvaluadores.setShowGrid(true);
+        jTableEvaluadores.setSurrendersFocusOnKeystroke(true);
         jScrollPane2.setViewportView(jTableEvaluadores);
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
@@ -191,17 +186,19 @@ public class VtnAsignarEvaluador extends javax.swing.JFrame {
                         .addContainerGap(8, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblArticulo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblId)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAsignar)
-                            .addComponent(jLabel1))
+                        .addComponent(jLabel1)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAsignar)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,9 +214,9 @@ public class VtnAsignarEvaluador extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAsignar)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
