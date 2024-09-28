@@ -8,11 +8,17 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
 /**
- *
- * @author Usuario
+ * Clase Render.
+ * 
+ * Esta clase extiende DefaultTableCellRenderer y se utiliza para personalizar la renderización de celdas en una JTable.
+ * En particular, esta clase permite que los botones sean renderizados correctamente en las celdas de la tabla.
+ * 
+ * @author Mary
  */
 public class RenderE extends DefaultTableCellRenderer {
-
+    /**
+     * Constructor de la clase Render.
+     */
     public RenderE() {
     }
 

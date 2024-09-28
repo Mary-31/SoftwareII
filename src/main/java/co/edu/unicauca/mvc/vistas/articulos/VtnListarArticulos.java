@@ -15,11 +15,18 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ * Ventana para listar artículos en el sistema de conferencias.
+ */
 public class VtnListarArticulos extends javax.swing.JInternalFrame {
     // Variables de instancia para los servicios utilizados en la ventana
+    /** Servicio para gestionar los artículos. */
     public ArticuloServicio objServicio;
+    /** Servicio para gestionar las conferencias. */
     public ConferenciaServicio objServicio2;
+    /** Servicio para gestionar los autores. */
     public AutorServicio objSAutores;
+    /** Servicio para gestionar los evaluadores. */
     private EvaluadorServicio objSEvaluador;
     /**
      * Constructor de la clase VtnListarArticulos.
@@ -338,7 +345,6 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         objVtnAsignarEvaluador.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         objVtnAsignarEvaluador.setVisible(true);
     }//GEN-LAST:event_btnAsignarActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAsignar;

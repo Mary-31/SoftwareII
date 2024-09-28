@@ -1,15 +1,23 @@
 package co.edu.unicauca.mvc.utilidades;
-
-
 import javax.swing.JOptionPane;
 import utilidades.CargarImagenes;
-
 /**
+ * Clase Utilidades.
  *
- * @author libardo
+ * Esta clase proporciona métodos estáticos para mostrar diferentes tipos de mensajes emergentes (JOptionPane).
+ * Incluye métodos para mostrar mensajes de advertencia, error, éxito y confirmación.
+ * 
+ * Los métodos de esta clase utilizan la clase CargarImagenes para personalizar los iconos de los mensajes.
  */
 public class Utilidades {
 
+    /**
+     * Constructor por defecto de la clase Utilidades.
+     * Este constructor no realiza ninguna acción.
+     */
+    public Utilidades() {
+        // Constructor vacío
+    }
     /**
      * Genera un emergente de aventencia
      *

@@ -46,11 +46,11 @@ public class VtnAsignarEvaluador extends javax.swing.JFrame {
         llenarTabla();
     }
     /**
-     * Obtiene la lista de evaluadores seleccionados en la tabla.
-     * 
-     * @param tabla JTable que contiene los evaluadores.
-     * @return ArrayList<Evaluador> Lista de evaluadores seleccionados.
-     */
+    * Obtiene la lista de evaluadores seleccionados en la tabla.
+    * 
+    * @param tabla JTable que contiene los evaluadores.
+    * @return Lista de evaluadores seleccionados.
+    */
     public ArrayList<Evaluador> obtenerSeleccionados(JTable tabla) {
         ArrayList<Evaluador> evaluadoresSeleccionados = new ArrayList<>();
         DefaultTableModel model = (DefaultTableModel) tabla.getModel();
