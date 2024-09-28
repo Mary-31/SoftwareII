@@ -207,7 +207,7 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
         });
         jPanelBar.add(btnSalir);
 
-        jPanelSuperior.add(jPanelBar, java.awt.BorderLayout.EAST);
+        jPanelSuperior.add(jPanelBar, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(jPanelSuperior, java.awt.BorderLayout.PAGE_START);
 
