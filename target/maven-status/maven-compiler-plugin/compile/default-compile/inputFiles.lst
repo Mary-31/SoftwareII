@@ -15,6 +15,7 @@ C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proye
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\vistas\evaluador\RenderE.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\vistas\organizador\VtnRegistrarOrganizadores.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\vistas\organizador\VtnListarOrganizadores.java
+C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\vistas\evaluador\VtnEvaluarPaper.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\modelos\Evaluador.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\accesoADatos\ArticuloRepositorio.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\controladores\ConferenciaServicio.java
@@ -24,6 +25,7 @@ C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proye
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\controladores\AutorServicio.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\vistas\articulos\VtnListarArticulos.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\accesoADatos\IArticuloRepositorio.java
+C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\vistas\articulos\VtnComentarios.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\controladores\ArticuloServicio.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\vistas\autor\VtnRegistrarAutor.java
 C:\Users\SANTIAGO DORADO\OneDrive\Documentos\UNICAUCA\ingSoftwarell\teoria\proyecto\SoftwareII\src\main\java\co\edu\unicauca\mvc\accesoADatos\IOrganizadorRepositorio.java

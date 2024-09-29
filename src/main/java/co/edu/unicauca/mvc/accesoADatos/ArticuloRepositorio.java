@@ -132,4 +132,25 @@ public class ArticuloRepositorio implements IArticuloRepositorio {
         }
         return false;
     }
+    
+    @Override
+    public boolean cambiarEstado(int id, int estado){
+        Articulo articulo = consultarArticulo(id);
+        if (articulo != null) {
+            switch (estado) {
+                case 0:
+                    articulo.setEstado("Pendiente");
+                    break;
+                case 1:
+                    articulo.setEstado("En Revision");
+                    break;
+                case 2:
+                    articulo.setEstado("Revisado");
+                    break;
+            }
+            return true;
+        }
+        return false;
+    }
+    
 }

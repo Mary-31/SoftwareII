@@ -18,6 +18,7 @@ public class Articulo {
     private ArrayList<Autor> listAutores;
     private Conferencia objConferencia;
     private ArrayList<Evaluador> listEvaluadores;
+    private ArrayList<String> listComentarios;
    
      /**
      * Constructor con parámetros para inicializar un artículo.
@@ -33,7 +34,8 @@ public class Articulo {
     
     public Articulo(int idArticulo, String titulo, String resumen, 
         String palabrasClave, ArrayList<Autor> listAutores, 
-        Conferencia objConferencia, ArrayList<Evaluador> listEvaluadores, String estado) {
+        Conferencia objConferencia, ArrayList<Evaluador> listEvaluadores, 
+        String estado, ArrayList<String> listComentarios) {
         this.idArticulo = idArticulo;
         this.titulo = titulo;
         this.resumen = resumen;
@@ -42,6 +44,7 @@ public class Articulo {
         this.objConferencia = objConferencia;
         this.listEvaluadores = new ArrayList<>();
         this.estado = estado;
+        this.listComentarios = new ArrayList<>();
     }
     /**
      * Constructor vacío para la clase Articulo.
@@ -172,5 +175,19 @@ public class Articulo {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    public ArrayList<String> getListComentarios() {
+        return listComentarios;
+    }
+
+    public void setListComentarios(ArrayList<String> listComentarios) {
+        this.listComentarios = listComentarios;
+    }
     
+    public boolean addComentario(String comentario){
+        if (listComentarios == null) {
+            listComentarios = new ArrayList<>(); // Iniciar la lista si aún es null
+        }
+        return this.listComentarios.add(comentario);
+    }
 }

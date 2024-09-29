@@ -8,6 +8,7 @@ import co.edu.unicauca.mvc.modelos.Articulo;
 import co.edu.unicauca.mvc.modelos.Autor;
 import co.edu.unicauca.mvc.modelos.Conferencia;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
+import co.edu.unicauca.mvc.vistas.evaluador.VtnEvaluarPaper;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -55,6 +56,8 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
     public void initialize() {
         btnAsignar.setVisible(false);
         btnActualizar.setVisible(false);
+        btnComentarios.setVisible(false);
+        btnEvaluar.setVisible(false);
         llenarTabla();
     }
     
@@ -131,6 +134,8 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         btnAsignar = new javax.swing.JButton();
         jButtonRegistrar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
+        btnComentarios = new javax.swing.JButton();
+        btnEvaluar = new javax.swing.JButton();
         jPanelInferior = new javax.swing.JPanel();
 
         setClosable(true);
@@ -148,9 +153,9 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         jPanelSuperiorLayout.setHorizontalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSuperiorLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(372, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(265, 265, 265)
                 .addComponent(lblIndice)
                 .addGap(31, 31, 31))
         );
@@ -227,6 +232,20 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
             }
         });
 
+        btnComentarios.setText("Comentarios");
+        btnComentarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComentariosActionPerformed(evt);
+            }
+        });
+
+        btnEvaluar.setText("Evaluar");
+        btnEvaluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEvaluarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelCentralLayout = new javax.swing.GroupLayout(jPanelCentral);
         jPanelCentral.setLayout(jPanelCentralLayout);
         jPanelCentralLayout.setHorizontalGroup(
@@ -237,6 +256,10 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 765, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnEvaluar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnComentarios, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnAsignar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -254,7 +277,9 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
                     .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButtonRegistrar)
                         .addComponent(btnAsignar))
-                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEvaluar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnComentarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
@@ -293,8 +318,25 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
      * @param evt Evento de clic del mouse.
      */
     private void jTableListarArticulosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableListarArticulosMouseClicked
-        btnAsignar.setVisible(true);
-        btnActualizar.setVisible(true);
+        int indice = jTableListarArticulos.getSelectedRow();
+        int idArticulo = Integer.parseInt(jTableListarArticulos.getValueAt(indice, 0).toString());
+        Articulo articulo = objServicio.consultarArticulo(idArticulo);
+        btnAsignar.setVisible(false);
+        btnActualizar.setVisible(false);
+        btnComentarios.setVisible(false);
+        btnEvaluar.setVisible(false);
+        if (articulo.getEstado() == "Revisado"){
+            btnComentarios.setVisible(true);
+            btnEvaluar.setVisible(true);
+            btnActualizar.setVisible(true);
+        } else if (articulo.getEstado() == "En Revision"){
+            btnEvaluar.setVisible(true);
+            btnAsignar.setVisible(true);
+            btnActualizar.setVisible(true);
+        } else{
+            btnAsignar.setVisible(true);
+            btnActualizar.setVisible(true); 
+        }
     }//GEN-LAST:event_jTableListarArticulosMouseClicked
     /**
      * Acción del botón asignar para abrir la ventana de asignación de evaluadores.
@@ -304,7 +346,7 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
     private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
         int indice = jTableListarArticulos.getSelectedRow();
         int idArticulo = Integer.parseInt(jTableListarArticulos.getValueAt(indice, 0).toString());
-        VtnAsignarEvaluador objVtnAsignarEvaluador = new VtnAsignarEvaluador(objServicio, objSEvaluador, idArticulo);
+        VtnAsignarEvaluador objVtnAsignarEvaluador = new VtnAsignarEvaluador(objServicio, objSEvaluador, idArticulo, this);
         String titulo = jTableListarArticulos.getValueAt(indice, 0).toString(); 
         objVtnAsignarEvaluador.lblArticulo.setText(titulo);
         objVtnAsignarEvaluador.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -321,9 +363,29 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         objVtnActualizarArticulo.setVisible(true);
     }//GEN-LAST:event_btnActualizarActionPerformed
 
+    private void btnComentariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComentariosActionPerformed
+        int indice = jTableListarArticulos.getSelectedRow();
+        int idArticulo = Integer.parseInt(jTableListarArticulos.getValueAt(indice, 0).toString());
+        VtnComentarios objVtnComentarios
+                            = new VtnComentarios(objServicio, idArticulo);
+        objVtnComentarios.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        objVtnComentarios.setVisible(true);
+    }//GEN-LAST:event_btnComentariosActionPerformed
+
+    private void btnEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaluarActionPerformed
+        int indice = jTableListarArticulos.getSelectedRow();
+        int idArticulo = Integer.parseInt(jTableListarArticulos.getValueAt(indice, 0).toString());
+        VtnEvaluarPaper objVtnEvaluarPaper
+                            = new VtnEvaluarPaper(objServicio, idArticulo);
+        objVtnEvaluarPaper.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        objVtnEvaluarPaper.setVisible(true);
+    }//GEN-LAST:event_btnEvaluarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
     public javax.swing.JButton btnAsignar;
+    private javax.swing.JButton btnComentarios;
+    private javax.swing.JButton btnEvaluar;
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelCentral;

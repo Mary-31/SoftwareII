@@ -91,4 +91,8 @@ public class ArticuloServicio {
     public boolean asignarEvaluador(int id, ArrayList<Evaluador> listEvaluadores) {
         return this.objIArticulo.asignarEvaluadores(id, listEvaluadores);
     }
+    
+    public boolean cambiarEstado(int id, int estado){
+        return this.objIArticulo.cambiarEstado(id, estado);
+    }
 }

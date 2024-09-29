@@ -59,4 +59,7 @@ public interface IArticuloRepositorio {
      * @return true si los evaluadores se asignan correctamente, false en caso contrario.
      */
     public boolean asignarEvaluadores(int id, ArrayList<Evaluador> listEvaluadores);
+    
+    public boolean cambiarEstado(int id, int estado);
+    
 }
