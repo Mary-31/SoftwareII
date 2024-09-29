@@ -376,7 +376,7 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         int indice = jTableListarArticulos.getSelectedRow();
         int idArticulo = Integer.parseInt(jTableListarArticulos.getValueAt(indice, 0).toString());
         VtnEvaluarPaper objVtnEvaluarPaper
-                            = new VtnEvaluarPaper(objServicio, idArticulo);
+                            = new VtnEvaluarPaper(objServicio, idArticulo, this);
         objVtnEvaluarPaper.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         objVtnEvaluarPaper.setVisible(true);
     }//GEN-LAST:event_btnEvaluarActionPerformed
