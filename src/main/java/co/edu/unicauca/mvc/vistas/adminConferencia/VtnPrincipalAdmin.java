@@ -65,16 +65,19 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
                 jButtonGestionarE.setVisible(false);
                 jButtonGestionarO.setVisible(false);
                 btnRegistrarAutor.setVisible(false);
+                jButtonGestionarConferencias.setVisible(true);
                 break;
             case "Organizador":
                 jButtonGestionarE.setVisible(true);
                 jButtonGestionarO.setVisible(true);
                 btnRegistrarAutor.setVisible(true);
+                jButtonGestionarConferencias.setVisible(true);
                 break;
             case "Evaluador":
                 jButtonGestionarO.setVisible(false);
                 btnRegistrarAutor.setVisible(false);
-                jButtonGestionarE.setVisible(true);
+                jButtonGestionarE.setVisible(false);
+                jButtonGestionarConferencias.setVisible(false);
             default:
                 break;
         }
@@ -132,8 +135,8 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
         jLabelImagenOrganizacion = new javax.swing.JLabel();
         jPanelBar = new javax.swing.JPanel();
         jButtonGestionarConferencias = new javax.swing.JButton();
-        jButtonVerArticulosEnviados = new javax.swing.JButton();
         jButtonGestionarE = new javax.swing.JButton();
+        jButtonVerArticulosEnviados = new javax.swing.JButton();
         jButtonGestionarO = new javax.swing.JButton();
         btnRegistrarAutor = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
@@ -166,15 +169,6 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
         });
         jPanelBar.add(jButtonGestionarConferencias);
 
-        jButtonVerArticulosEnviados.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jButtonVerArticulosEnviados.setText("Gestionar articulos");
-        jButtonVerArticulosEnviados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVerArticulosEnviadosActionPerformed(evt);
-            }
-        });
-        jPanelBar.add(jButtonVerArticulosEnviados);
-
         jButtonGestionarE.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jButtonGestionarE.setText("Gestionar Evaluadores");
         jButtonGestionarE.addActionListener(new java.awt.event.ActionListener() {
@@ -183,6 +177,15 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
             }
         });
         jPanelBar.add(jButtonGestionarE);
+
+        jButtonVerArticulosEnviados.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jButtonVerArticulosEnviados.setText("Gestionar articulos");
+        jButtonVerArticulosEnviados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVerArticulosEnviadosActionPerformed(evt);
+            }
+        });
+        jPanelBar.add(jButtonVerArticulosEnviados);
 
         jButtonGestionarO.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jButtonGestionarO.setText("Gestionar Organizadores");
