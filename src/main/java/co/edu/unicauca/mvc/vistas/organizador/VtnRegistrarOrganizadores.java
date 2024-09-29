@@ -115,14 +115,14 @@ public class VtnRegistrarOrganizadores extends javax.swing.JFrame {
         jLabel3.setText("Apellido:");
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel1.setText("Universidad:");
+        jLabel1.setText("Correo:");
 
         javax.swing.GroupLayout jPanelCentralLayout = new javax.swing.GroupLayout(jPanelCentral);
         jPanelCentral.setLayout(jPanelCentralLayout);
         jPanelCentralLayout.setHorizontalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCentralLayout.createSequentialGroup()
-                .addContainerGap(72, Short.MAX_VALUE)
+                .addContainerGap(79, Short.MAX_VALUE)
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -132,7 +132,7 @@ public class VtnRegistrarOrganizadores extends javax.swing.JFrame {
                     .addComponent(jTextFieldNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
                     .addComponent(jTextFieldApellido)
                     .addComponent(jTextFieldUniversidad))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         jPanelCentralLayout.setVerticalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,6 +178,7 @@ public class VtnRegistrarOrganizadores extends javax.swing.JFrame {
          // Muestra un mensaje de éxito o error según el resultado del almacenamiento.
         if(bandera){   
             Utilidades.mensajeExito("El registro del organizador ha sido exitoso", "Registro exitoso");
+            dispose();
         }else {   
             Utilidades.mensajeError("El registro del organizador no ha sido posible", "Error en el registro");
         }

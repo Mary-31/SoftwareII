@@ -8,6 +8,7 @@ import co.edu.unicauca.mvc.controladores.ArticuloServicio;
 import co.edu.unicauca.mvc.modelos.Articulo;
 import co.edu.unicauca.mvc.modelos.Autor;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
+import co.edu.unicauca.mvc.vistas.articulos.VtnListarArticulos;
 import java.util.ArrayList;
 
 /**
@@ -17,14 +18,17 @@ import java.util.ArrayList;
 public class VtnEvaluarPaper extends javax.swing.JFrame {
     private ArticuloServicio objSArticulo;
     private int id;
+    private VtnListarArticulos objListarArticulo;
     
     /**
      * Creates new form evaluarPaper
      */
-    public VtnEvaluarPaper(ArticuloServicio objSArticulo, int id) {
+    public VtnEvaluarPaper(ArticuloServicio objSArticulo, int id,
+            VtnListarArticulos objListarArticulo) {
         initComponents();
         this.objSArticulo = objSArticulo;
         this.id = id;
+        this.objListarArticulo = objListarArticulo;
         llenarDatos();
     }
     
@@ -271,6 +275,7 @@ public class VtnEvaluarPaper extends javax.swing.JFrame {
         if (bandera == true) {
             Utilidades.mensajeExito("Registro exitoso", "Registro exitoso");
             objSArticulo.cambiarEstado(id, 2);
+            objListarArticulo.llenarTabla();
             dispose();
         } else {
             Utilidades.mensajeError("Comentario no almacenado", "Error al almacenar el comentario");
