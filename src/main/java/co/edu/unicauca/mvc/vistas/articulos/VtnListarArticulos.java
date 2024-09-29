@@ -75,6 +75,9 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
             case "Organizador":
                 btnAsignar.setEnabled(true);
                 break;
+            case "Evaluador":
+                btnAsignar.setEnabled(false);
+                break;
             default:
                 break;
         }
