@@ -71,6 +71,10 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
                 jButtonGestionarO.setVisible(true);
                 btnRegistrarAutor.setVisible(true);
                 break;
+            case "Evaluador":
+                jButtonGestionarO.setVisible(false);
+                btnRegistrarAutor.setVisible(false);
+                jButtonGestionarE.setVisible(true);
             default:
                 break;
         }
