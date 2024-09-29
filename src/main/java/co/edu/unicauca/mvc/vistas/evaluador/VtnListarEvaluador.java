@@ -64,6 +64,8 @@ public class VtnListarEvaluador extends javax.swing.JInternalFrame {
        model.addColumn("ID");       
        model.addColumn("NOMBRE");
        model.addColumn("APELLIDO");
+       model.addColumn("CORREO");
+       model.addColumn("TEMAS EXPERTO");
        model.addColumn("ELIMINAR");
        model.addColumn("ACTUALIZAR");       
        this.jTableListarEvaluadores.setModel(model);
@@ -108,6 +110,7 @@ public class VtnListarEvaluador extends javax.swing.JInternalFrame {
                 listarEvaluadores.get(i).getId(),
                 listarEvaluadores.get(i).getNombre(),
                 listarEvaluadores.get(i).getApellido(),
+                listarEvaluadores.get(i).getCorreo(),
                 listarEvaluadores.get(i).getTemas(),
                 JButtonEliminarEvaluador,
                 JButtonActualizarEvaluador};
