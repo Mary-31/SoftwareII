@@ -1,4 +1,4 @@
-Este proyecto es una aplicación de escritorio para gestionar organizadores de conferencias, desarrollada en Java utilizando Swing para la interfaz gráfica. 
+Este proyecto es una aplicación de escritorio para gestionar conferencias, desarrollada en Java utilizando Swing para la interfaz gráfica. 
 Permite registrar, listar y gestionar organizadores, autores y evaluadores, así como cargar la información de un articulo para posteriormente asignarle un evaluador
 
 Caracteristicas
