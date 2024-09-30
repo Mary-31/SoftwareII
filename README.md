@@ -11,4 +11,4 @@ registra un artículo en determinada conferencia y el organizador quien le asign
 
 Enlace del documento: https://docs.google.com/document/d/1aM-rrGBqPDLGOWoKXMc3AvfR6t8wecDT0H6niog8JYk/edit?usp=sharing
 
-Enlace del video: https://drive.google.com/file/d/12B6xI4exAcxSaOVtNSrt5ArSQvYXYYuc/view?usp=sharing
+Enlace del video: https://youtu.be/-vVfimHCz9I?si=ngygR40DOQtdc4do
