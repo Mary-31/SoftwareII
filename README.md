@@ -7,3 +7,8 @@ Listar Organizadores : Muestra una lista de los organizadores registrados con la
 Actualizar Organizadores : Permite modificar la información de los organizadores.
 Eliminar Organizadores : Elimina organizadores de la lista. Estas mismas funcionalidades aplican para los roles de autor y evaluador, siendo así también el autor quien 
 registra un artículo en determinada conferencia y el organizador quien le asigna el evaluador.
+
+
+Enlace del documento: https://docs.google.com/document/d/1aM-rrGBqPDLGOWoKXMc3AvfR6t8wecDT0H6niog8JYk/edit?usp=sharing
+
+Enlace del video: https://drive.google.com/file/d/12B6xI4exAcxSaOVtNSrt5ArSQvYXYYuc/view?usp=sharing
