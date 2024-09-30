@@ -71,12 +71,15 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         switch (rol) {
             case "Autor":
                 btnAsignar.setEnabled(false);
+                jButtonRegistrar.setVisible(true);
                 break;
             case "Organizador":
                 btnAsignar.setEnabled(true);
+                jButtonRegistrar.setVisible(false);
                 break;
             case "Evaluador":
                 btnAsignar.setEnabled(false);
+                jButtonRegistrar.setVisible(false);
                 break;
             default:
                 break;

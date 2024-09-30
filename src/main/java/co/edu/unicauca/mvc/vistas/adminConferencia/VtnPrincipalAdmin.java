@@ -64,7 +64,7 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
             case "Autor":
                 jButtonGestionarE.setVisible(false);
                 jButtonGestionarO.setVisible(false);
-                btnRegistrarAutor.setVisible(false);
+                btnRegistrarAutor.setVisible(true);
                 jButtonGestionarConferencias.setVisible(true);
                 break;
             case "Organizador":
@@ -76,7 +76,7 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
             case "Evaluador":
                 jButtonGestionarO.setVisible(false);
                 btnRegistrarAutor.setVisible(false);
-                jButtonGestionarE.setVisible(false);
+                jButtonGestionarE.setVisible(true);
                 jButtonGestionarConferencias.setVisible(false);
             default:
                 break;
